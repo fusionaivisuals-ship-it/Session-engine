@@ -1,0 +1,982 @@
+{
+  "scenarioId": "museum-quiet-evening",
+  "title": "A quieter museum evening",
+  "tier": "fun",
+  "methodId": "brainstorming-prioritization",
+  "methodName": "Brainstorming with prioritization",
+  "walkthroughIntro": {
+    "inOneLine": "Generate independently, combine overlapping ideas without erasing differences, then rank candidates against explicit priorities.",
+    "bestFor": "A team that needs several options before selecting a practical priority.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "ideas",
+      "name": "Generate independent ideas",
+      "instruction": "Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "refine",
+      "name": "Combine and make candidates testable",
+      "instruction": "Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "priorities",
+      "name": "Rank against explicit priorities",
+      "instruction": "Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blockSequence": [
+    {
+      "id": "frame",
+      "title": "Agree the question",
+      "type": "frame"
+    },
+    {
+      "id": "ideas-input",
+      "title": "Generate independent ideas",
+      "type": "private_input"
+    },
+    {
+      "id": "ideas-reveal",
+      "title": "Share: generate independent ideas",
+      "type": "reveal"
+    },
+    {
+      "id": "refine-input",
+      "title": "Combine and make candidates testable",
+      "type": "private_input"
+    },
+    {
+      "id": "refine-reveal",
+      "title": "Share: combine and make candidates testable",
+      "type": "reveal"
+    },
+    {
+      "id": "priorities-input",
+      "title": "Rank against explicit priorities",
+      "type": "private_input"
+    },
+    {
+      "id": "priorities-reveal",
+      "title": "Share: rank against explicit priorities",
+      "type": "reveal"
+    },
+    {
+      "id": "decide",
+      "title": "Choose the next step",
+      "type": "converge"
+    },
+    {
+      "id": "commit",
+      "title": "Assign the follow-through",
+      "type": "commit"
+    },
+    {
+      "id": "artifact",
+      "title": "Keep the session record",
+      "type": "artifact"
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "blockId": "frame",
+      "blockTitle": "Agree the question",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "frame",
+        "blockType": "frame",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Agree the question",
+        "Prompt: \"Name the opportunity and the constraints an idea must respect. Delay evaluation until everyone has had a chance to contribute.\""
+      ]
+    },
+    {
+      "n": 2,
+      "blockId": "ideas-input",
+      "blockTitle": "Generate independent ideas",
+      "lensOrRoleName": "Generate independent ideas",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea.",
+        "whyItMatters": "Independent generation reduces the pull of the first idea spoken aloud."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "ideas-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Generate independent ideas",
+        "Prompt: \"Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea.\""
+      ]
+    },
+    {
+      "n": 3,
+      "blockId": "ideas-input",
+      "blockTitle": "Generate independent ideas",
+      "lensOrRoleName": "Generate independent ideas",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea.",
+        "whyItMatters": "Independent generation reduces the pull of the first idea spoken aloud."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "ideas-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits.",
+            "wordCount": 25
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Try a no-announcements hour with written notices. Or label a seating corner as a pause space where visitors can rest between rooms.",
+            "wordCount": 22
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (25 words)",
+        "Seat 2 submitted (22 words)"
+      ]
+    },
+    {
+      "n": 4,
+      "blockId": "ideas-reveal",
+      "blockTitle": "Share: generate independent ideas",
+      "lensOrRoleName": "Generate independent ideas",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Independent generation reduces the pull of the first idea spoken aloud."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "ideas-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: generate independent ideas"
+      ]
+    },
+    {
+      "n": 5,
+      "blockId": "ideas-reveal",
+      "blockTitle": "Share: generate independent ideas",
+      "lensOrRoleName": "Generate independent ideas",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Independent generation reduces the pull of the first idea spoken aloud."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "ideas-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits.",
+            "wordCount": 25
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Try a no-announcements hour with written notices. Or label a seating corner as a pause space where visitors can rest between rooms.",
+            "wordCount": 22
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Try a no-announcements hour with written notices. Or label a seating corner as a pause space where visitors can rest between rooms."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 6,
+      "blockId": "refine-input",
+      "blockTitle": "Combine and make candidates testable",
+      "lensOrRoleName": "Combine and make candidates testable",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate.",
+        "whyItMatters": "Specific candidates are easier to compare than broad slogans."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "refine-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Combine and make candidates testable",
+        "Prompt: \"Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate.\""
+      ]
+    },
+    {
+      "n": 7,
+      "blockId": "refine-input",
+      "blockTitle": "Combine and make candidates testable",
+      "lensOrRoleName": "Combine and make candidates testable",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate.",
+        "whyItMatters": "Specific candidates are easier to compare than broad slogans."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "refine-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing.",
+            "wordCount": 27
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Calm arrival trial: reserve three entry windows using the existing booking form. Record queue length; keep walk-in access so the trial does not exclude spontaneous visitors.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (27 words)",
+        "Seat 2 submitted (26 words)"
+      ]
+    },
+    {
+      "n": 8,
+      "blockId": "refine-reveal",
+      "blockTitle": "Share: combine and make candidates testable",
+      "lensOrRoleName": "Combine and make candidates testable",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Specific candidates are easier to compare than broad slogans."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "refine-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: combine and make candidates testable"
+      ]
+    },
+    {
+      "n": 9,
+      "blockId": "refine-reveal",
+      "blockTitle": "Share: combine and make candidates testable",
+      "lensOrRoleName": "Combine and make candidates testable",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Specific candidates are easier to compare than broad slogans."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "refine-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing.",
+            "wordCount": 27
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Calm arrival trial: reserve three entry windows using the existing booking form. Record queue length; keep walk-in access so the trial does not exclude spontaneous visitors.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Calm arrival trial: reserve three entry windows using the existing booking form. Record queue length; keep walk-in access so the trial does not exclude spontaneous visitors."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 10,
+      "blockId": "priorities-input",
+      "blockTitle": "Rank against explicit priorities",
+      "lensOrRoleName": "Rank against explicit priorities",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking.",
+        "whyItMatters": "Reasons for a ranking expose tradeoffs that a raw vote count hides."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "priorities-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Rank against explicit priorities",
+        "Prompt: \"Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking.\""
+      ]
+    },
+    {
+      "n": 11,
+      "blockId": "priorities-input",
+      "blockTitle": "Rank against explicit priorities",
+      "lensOrRoleName": "Rank against explicit priorities",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking.",
+        "whyItMatters": "Reasons for a ranking expose tradeoffs that a raw vote count hides."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "priorities-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects.",
+            "wordCount": 32
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "I also rank Quiet route first on low effort, but its main uncertainty is whether noisy rooms are actually the obstacle. If feedback mainly mentions entrance queues, move Calm arrival to first.",
+            "wordCount": 32
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (32 words)",
+        "Seat 2 submitted (32 words)"
+      ]
+    },
+    {
+      "n": 12,
+      "blockId": "priorities-reveal",
+      "blockTitle": "Share: rank against explicit priorities",
+      "lensOrRoleName": "Rank against explicit priorities",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Reasons for a ranking expose tradeoffs that a raw vote count hides."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "priorities-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: rank against explicit priorities"
+      ]
+    },
+    {
+      "n": 13,
+      "blockId": "priorities-reveal",
+      "blockTitle": "Share: rank against explicit priorities",
+      "lensOrRoleName": "Rank against explicit priorities",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Reasons for a ranking expose tradeoffs that a raw vote count hides."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "priorities-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects.",
+            "wordCount": 32
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "I also rank Quiet route first on low effort, but its main uncertainty is whether noisy rooms are actually the obstacle. If feedback mainly mentions entrance queues, move Calm arrival to first.",
+            "wordCount": 32
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "I also rank Quiet route first on low effort, but its main uncertainty is whether noisy rooms are actually the obstacle. If feedback mainly mentions entrance queues, move Calm arrival to first."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 14,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Entered: Choose the next step",
+        "Prompt: \"Choose one candidate through the vote. Explain why it outranks the alternative on benefit and effort, describe the trial, and name the uncertainty to check.\""
+      ]
+    },
+    {
+      "n": 15,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": {
+          "pass": true,
+          "feedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "attempt": 1
+        },
+        "decision": "Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.",
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Review 1: Ready to act",
+        "The conclusion addresses the required comparisons, evidence and next check."
+      ]
+    },
+    {
+      "n": 16,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": "Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.",
+        "commitment": null,
+        "timerSec": 300,
+        "acceptanceReason": "Scripted demonstration: participants choose to proceed after considering the review."
+      },
+      "newSinceLastStep": [
+        "Decision deliberately accepted",
+        "Scripted demonstration: participants choose to proceed after considering the review."
+      ]
+    },
+    {
+      "n": 17,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Assign the follow-through",
+        "Prompt: \"Choose an owner, first action, due date and observable success signal.\""
+      ]
+    },
+    {
+      "n": 18,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "{\"owner\":\"seat-1\",\"firstAction\":\"Draft and walk-test the route card before the trial evening\",\"dueDate\":\"2026-10-01\",\"successSignal\":\"A checked route card is available and visitor feedback distinguishes room noise from queues\"}",
+            "wordCount": 10
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": {
+          "owner": "seat-1",
+          "firstAction": "Draft and walk-test the route card before the trial evening",
+          "dueDate": "2026-10-01",
+          "successSignal": "A checked route card is available and visitor feedback distinguishes room noise from queues"
+        },
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (10 words)",
+        "Owner: seat-1",
+        "Action: Draft and walk-test the route card before the trial evening",
+        "Due: 2026-10-01"
+      ]
+    },
+    {
+      "n": 19,
+      "blockId": "artifact",
+      "blockTitle": "Keep the session record",
+      "lensOrRoleName": "",
+      "phase": "complete",
+      "narration": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      },
+      "state": {
+        "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+        "currentBlockId": "artifact",
+        "blockType": "artifact",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 0
+      },
+      "newSinceLastStep": [
+        "Session complete — report generated"
+      ]
+    }
+  ],
+  "report": "# Session Report: Brainstorming with prioritization\n\n- **Room:** 89D171\n- **Date:** 2026-09-20\n- **Participants:** 2 participants (anonymous)\n- **Time:** 0 min (budget: 26 min)\n\n## Decision\nChoose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.\n\n## Commitment\n- **Owner:** Seat 1\n- **First action:** Draft and walk-test the route card before the trial evening\n- **Due:** 2026-10-01\n- **Success signal:** A checked route card is available and visitor feedback distinguishes room noise from queues\n\n## Outputs by lens\n\n### Generate independent ideas\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits. |\n| Contribution 2 | Seat 2 | Try a no-announcements hour with written notices. Or label a seating corner as a pause space where visitors can rest between rooms. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits.\n\n**Seat 2:** Try a no-announcements hour with written notices. Or label a seating corner as a pause space where visitors can rest between rooms.\n\n### Combine and make candidates testable\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing. |\n| Contribution 2 | Seat 2 | Calm arrival trial: reserve three entry windows using the existing booking form. Record queue length; keep walk-in access so the trial does not exclude spontaneous visitors. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing.\n\n**Seat 2:** Calm arrival trial: reserve three entry windows using the existing booking form. Record queue length; keep walk-in access so the trial does not exclude spontaneous visitors.\n\n### Rank against explicit priorities\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects. |\n| Contribution 2 | Seat 2 | I also rank Quiet route first on low effort, but its main uncertainty is whether noisy rooms are actually the obstacle. If feedback mainly mentions entrance queues, move Calm arrival to first. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects.\n\n**Seat 2:** I also rank Quiet route first on low effort, but its main uncertainty is whether noisy rooms are actually the obstacle. If feedback mainly mentions entrance queues, move Calm arrival to first.\n\n## Decision acceptance\nDecision: Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.\nAccepted by: Seat 1\nReason: Scripted demonstration: participants choose to proceed after considering the review.\nRecorded: 2026-09-20T13:25:01.272Z\n\n## Advisory decision reviews\nThese assessments are advice, not guarantees. Verified quotations do not establish sound interpretation.\n\n| Block | Attempts | Final | Exit |\n|-------|----------|-------|------|\n| Choose the next step | 1 | Ready to act | gate |\n\n### Choose the next step — Attempt 1 (Ready to act)\nProposal reviewed: Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.\nConfidence: 90% | The conclusion addresses the required comparisons, evidence and next check.\n\n| Criterion | Score | Concern | Reason | Quotation |\n|-----------|-------|---------|--------|-----------|\n| candidate | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next. |\n| comparison | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next. |\n| uncertainty | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next. |\n\n## How the group worked\n\n**Time to decision:** 0 min\n\n**Participation balance:**\n\n2 seats participated.\n2 seat(s) above 40% share.\n\n**Lens coverage:**\n\n| Lens/Role | Coverage |\n|-----------|----------|\n| Generate independent ideas | substantive |\n| Combine and make candidates testable | substantive |\n| Rank against explicit priorities | substantive |\n\n**Model usage:** 4 calls, 0 input tokens, 0 output tokens\n\n---\n\n**30-day follow-up:** Check on 2026-10-01 whether the first action happened.\n"
+}

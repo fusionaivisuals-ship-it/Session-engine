@@ -1,0 +1,335 @@
+{
+  "id": "five-whys",
+  "name": "Five Whys",
+  "version": "2.0.0",
+  "description": "Follow a chain of contributing conditions, checking each link and stopping claims where the evidence stops.",
+  "roleMode": "rotating",
+  "groupSize": {
+    "min": 2,
+    "max": 6
+  },
+  "timing": {
+    "totalBudgetSec": 2160,
+    "extensionSec": 60,
+    "idleSec": 90,
+    "presenceTimeoutSec": 120
+  },
+  "walkthroughIntro": {
+    "inOneLine": "Follow a chain of contributing conditions, checking each link and stopping claims where the evidence stops.",
+    "bestFor": "A recurring, observable failure whose contributing causes need checking.",
+    "howLong": "36 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "why-1",
+      "name": "Why did this outcome occur?",
+      "instruction": "Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-2",
+      "name": "What produced that condition?",
+      "instruction": "Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-3",
+      "name": "What sustained the pattern?",
+      "instruction": "Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-4",
+      "name": "Check another link or branch",
+      "instruction": "Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-5",
+      "name": "Choose a cause to investigate or change",
+      "instruction": "Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "frame",
+      "type": "frame",
+      "title": "Agree the question",
+      "timeboxSec": 180,
+      "completion": "all_agreed",
+      "prompt": "Describe one observed outcome, when it occurred and how often. Avoid naming a person as the cause. Agree which records the group can inspect.",
+      "walkthrough": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      }
+    },
+    {
+      "id": "why-1-input",
+      "type": "private_input",
+      "title": "Why did this outcome occur?",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "why-1",
+      "prompt": "Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Feedback waits in the queue: Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it.",
+        "whyItMatters": "Start with a testable link rather than a broad accusation."
+      }
+    },
+    {
+      "id": "why-1-reveal",
+      "type": "reveal",
+      "title": "Share: why did this outcome occur?",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "why-1",
+      "sourceBlockId": "why-1-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Start with a testable link rather than a broad accusation."
+      }
+    },
+    {
+      "id": "why-2-input",
+      "type": "private_input",
+      "title": "What produced that condition?",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "why-2",
+      "prompt": "Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Feedback waits in the queue: For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link.",
+        "whyItMatters": "Explicit links keep the investigation from turning into unrelated complaints."
+      }
+    },
+    {
+      "id": "why-2-reveal",
+      "type": "reveal",
+      "title": "Share: what produced that condition?",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "why-2",
+      "sourceBlockId": "why-2-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Explicit links keep the investigation from turning into unrelated complaints."
+      }
+    },
+    {
+      "id": "why-3-input",
+      "type": "private_input",
+      "title": "What sustained the pattern?",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "why-3",
+      "prompt": "Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Feedback waits in the queue: The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause.",
+        "whyItMatters": "Unknown is a useful result when the next evidence check is clear."
+      }
+    },
+    {
+      "id": "why-3-reveal",
+      "type": "reveal",
+      "title": "Share: what sustained the pattern?",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "why-3",
+      "sourceBlockId": "why-3-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Unknown is a useful result when the next evidence check is clear."
+      }
+    },
+    {
+      "id": "why-4-input",
+      "type": "private_input",
+      "title": "Check another link or branch",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "why-4",
+      "prompt": "Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Feedback waits in the queue: Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain.",
+        "whyItMatters": "An alternative prevents the first plausible story becoming an unquestioned answer."
+      }
+    },
+    {
+      "id": "why-4-reveal",
+      "type": "reveal",
+      "title": "Share: check another link or branch",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "why-4",
+      "sourceBlockId": "why-4-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "An alternative prevents the first plausible story becoming an unquestioned answer."
+      }
+    },
+    {
+      "id": "why-5-input",
+      "type": "private_input",
+      "title": "Choose a cause to investigate or change",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "why-5",
+      "prompt": "Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Feedback waits in the queue: Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause.",
+        "whyItMatters": "End with a bounded investigation or intervention rather than certainty the records do not support."
+      }
+    },
+    {
+      "id": "why-5-reveal",
+      "type": "reveal",
+      "title": "Share: choose a cause to investigate or change",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "why-5",
+      "sourceBlockId": "why-5-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "End with a bounded investigation or intervention rather than certainty the records do not support."
+      }
+    },
+    {
+      "id": "decide",
+      "type": "converge",
+      "title": "Choose the next step",
+      "timeboxSec": 300,
+      "completion": "reviewer_pass",
+      "prompt": "State the supported causal chain, the unresolved alternative, and the next check or small intervention. Do not call an untested explanation the root cause.",
+      "sourceBlockId": "why-1-reveal,why-2-reveal,why-3-reveal,why-4-reveal,why-5-reveal",
+      "rubric": {
+        "passThreshold": 0.8,
+        "criteria": [
+          {
+            "id": "chain",
+            "text": "The conclusion links at least two contributing conditions to the observed outcome.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No explanatory chain connects conditions to the outcome.",
+              "one": "One contributing condition is linked, or multiple conditions are listed without connecting them.",
+              "two": "At least two contributing conditions are connected to the outcome, e.g. an unassigned queue delayed routing, which delayed replies."
+            }
+          },
+          {
+            "id": "evidence",
+            "text": "Observed evidence is distinguished from an unverified explanation.",
+            "weight": 1,
+            "scoring": {
+              "zero": "A guessed explanation is stated as fact without supporting observations.",
+              "one": "Evidence is mentioned but which part of the explanation remains unverified is unclear.",
+              "two": "Observed evidence and an unverified link are separated, e.g. timestamps show a delay; lack of ownership is still a hypothesis."
+            }
+          },
+          {
+            "id": "check",
+            "text": "An alternative explanation and a concrete verification step are included.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No alternative or verification step is provided.",
+              "one": "An alternative or a check is named, but not both or not connected.",
+              "two": "An alternative explanation is named and a concrete check can distinguish it from the proposed chain."
+            }
+          }
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      }
+    },
+    {
+      "id": "commit",
+      "type": "commit",
+      "title": "Assign the follow-through",
+      "timeboxSec": 180,
+      "completion": "valid_form",
+      "prompt": "Choose an owner, first action, due date and observable success signal.",
+      "walkthrough": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      }
+    },
+    {
+      "id": "artifact",
+      "type": "artifact",
+      "title": "Keep the session record",
+      "timeboxSec": 0,
+      "completion": "auto",
+      "walkthrough": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      }
+    }
+  ],
+  "fallbacks": [
+    {
+      "trigger": "facilitator",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    },
+    {
+      "trigger": "converge_failed_twice",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    }
+  ]
+}

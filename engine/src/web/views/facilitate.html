@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facilitator</title>
+  <link rel="stylesheet" href="../assets/editorial.css" data-inline="editorial.css">
+</head>
+<body class="workspace-page facilitator-page">
+  <a class="skip-link" href="#task">Skip to task</a>
+  <header class="site-nav workspace-header"><a class="nav-brand" href="/"> <span class="brand-mark" aria-hidden="true"></span>Session Engine</a><div class="header-context"><span>Facilitator workspace</span>  <div class="conn-indicator" id="connIndicator" style="display:none">
+    <span class="conn-dot" id="connDot"></span>
+    <span id="connLabel"></span>
+  </div></div></header>
+  <div id="joinForm">
+    <h1>Facilitator</h1>
+    <div class="form-group">
+      <label for="facName">Your name</label>
+      <input id="facName" type="text" placeholder="Display name" autofocus>
+    </div>
+    <button onclick="doJoin()">Join as Facilitator</button>
+    <div id="joinError" style="color:red;margin-top:8px"></div>
+  </div>
+  <div id="app" class="hidden"></div>
+
+  <script src="../assets/workspace.js" data-inline="workspace.js"></script>
+  <script>
+    const roomCode = location.pathname.split('/').pop();
+    let mySeat = new URLSearchParams(location.search).get('seat');
+    let ws = null;
+    let currentState = null;
+    let rewriteSuggestion = null;
+    let detourProposal = null;
+
+    async function doJoin() {
+      const name = document.getElementById('facName').value.trim();
+      if (!name) return;
+      try {
+        const res = await fetch(`/api/sessions/${roomCode}/join`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ displayName: name })
+        });
+        const data = await res.json();
+        if (data.error) { document.getElementById('joinError').textContent = data.error; return; }
+        mySeat = data.seat;
+        document.getElementById('joinForm').classList.add('hidden');
+        document.getElementById('app').classList.remove('hidden');
+        connectWS();
+      } catch (e) {
+        document.getElementById('joinError').textContent = e.message;
+      }
+    }
+
+    let reconnectDelay = 1000;
+    let heartbeatTimer = null;
+    let rttMs = 0;
+
+    function updateConnQuality() {
+      const label = document.getElementById('connLabel');
+      if (!label || reconnectDelay > 1000) return;
+      if (rttMs < 200) label.textContent = 'Connected';
+      else if (rttMs < 600) label.textContent = 'Fair (' + rttMs + 'ms)';
+      else label.textContent = 'Poor (' + rttMs + 'ms)';
+    }
+
+    function setConnStatus(state) {
+      const ind = document.getElementById('connIndicator');
+      const dot = document.getElementById('connDot');
+      const label = document.getElementById('connLabel');
+      ind.style.display = 'flex';
+      dot.className = 'conn-dot ' + state;
+      label.textContent = state === 'connected' ? 'Connected' : state === 'reconnecting' ? 'Reconnecting...' : 'Disconnected';
+    }
+
+    function connectWS() {
+      const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+      ws = new WebSocket(`${proto}//${location.host}?room=${roomCode}&seat=${mySeat}`);
+      setConnStatus('reconnecting');
+
+      ws.onopen = () => {
+        reconnectDelay = 1000;
+        setConnStatus('connected');
+      };
+      ws.onmessage = (e) => {
+        const msg = JSON.parse(e.data);
+        if (msg.type === 'clock') { renderClock(msg); return; }
+        if (msg.type === 'time') {
+          const now = Date.now();
+          ws.send(JSON.stringify({ type: 'ping', clientMs: now }));
+        } else if (msg.type === 'pong') {
+          rttMs = Date.now() - msg.clientMs;
+          updateConnQuality();
+        } else if (msg.type === 'state') { currentState = msg.data; detourProposal = currentState.session.pendingDetour || null; render(); }
+      };
+      ws.onclose = () => {
+        setConnStatus(reconnectDelay >= 30000 ? 'disconnected' : 'reconnecting');
+        setTimeout(connectWS, reconnectDelay);
+        reconnectDelay = Math.min(reconnectDelay * 2, 30000);
+      };
+      ws.onerror = () => {};
+
+      if (!heartbeatTimer) {
+        heartbeatTimer = setInterval(() => {
+          if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ type: 'heartbeat' }));
+        }, 10000);
+      }
+    }
+
+
+    function renderClock(message) { WorkspaceUI.updateClock(message); }
+
+    function fmt(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.round(sec % 60);
+      return `${m}:${String(s).padStart(2, '0')}`;
+    }
+    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+
+    function render() {
+      if (!currentState) return;
+      const { session, method, block, lens, clockStatus } = currentState;
+      const app = document.getElementById('app');
+      const restore = WorkspaceUI.preserveForm(app, block?.id || session.status);
+
+      if (session.status === 'lobby') {
+        app.innerHTML = `<main class="completion-card" id="task"><h1>Room ${roomCode}</h1>
+          <p class="info">${session.participants.length} participant(s)</p>
+          <div class="seat-list">${session.participants.map(p => `
+            <div class="seat-row">
+              <span class="dot present"></span>
+              <span>${esc(p.displayName)} (${p.seat})</span>
+            </div>`).join('')}</div>
+          ${session.participants.length >= (method?.groupSize?.min || 2) ?
+            `<button class="success" onclick="doStart()">Start Session</button>` :
+            `<p class="info">Need at least ${method?.groupSize?.min || 2} participants to start</p>`}</main>`;
+        return;
+      }
+
+      if (session.status === 'complete') {
+        const hasReport = session.artifacts?.reportPath;
+        app.innerHTML = `<main class="completion-card" id="task"><h1>Session Complete</h1>
+          <button onclick="doArtifact()">Generate Report</button>
+          ${hasReport ? `<a href="/api/sessions/${roomCode}/report" style="display:inline-block;margin-left:8px;padding:10px 20px;background:var(--accent);color:white;text-decoration:none;border-radius:4px">Download Report</a>` : ''}
+          <div id="artifactResult"></div>
+          <div id="groupMetrics"></div></main>`;
+        if (session.metrics) renderGroupMetrics(session);
+        return;
+      }
+
+      if (!block) return;
+
+      const record = session.blocks[block.id] || {};
+      const timerClass = clockStatus?.expired ? 'expired' : clockStatus?.amber ? 'amber' : '';
+      const subs = (record.submissions || []).length;
+      const confs = (record.confirmations || []).length;
+      const active = session.participants.filter(p => p.presence !== 'absent').length;
+      const stuckSeats = (record.stuckEvents || []).map(e => e.seat);
+
+      let counterText = '';
+      if (block.completion === 'all_submitted') counterText = `Submitted: ${subs}/${active}`;
+      else if (block.completion === 'all_confirmed') counterText = `Confirmed: ${confs}/${active}`;
+      else if (block.completion === 'all_agreed') counterText = `Agreed: ${confs}/${active}`;
+      else if (block.completion === 'reviewer_pass') {
+        const latest = WorkspaceUI.currentReview(record);
+        counterText = latest ? (WorkspaceUI.ready(latest) ? 'Ready to act; awaiting your choice' : 'Needs attention; review the reasons') : 'Awaiting decision and optional advice';
+      }
+      else if (block.completion === 'all_assigned') {
+        const assignedCount = session.participants.filter(p => p.roleId && p.presence !== 'absent').length;
+        counterText = `Assigned: ${assignedCount}/${active}`;
+      }
+      else if (block.completion === 'valid_form') counterText = session.facts.commitment ? 'Commitment received' : 'Waiting for commitment';
+
+      let html = WorkspaceUI.heading(currentState, mySeat);
+      html += `<p class="task-intro">Facilitator controls · ${esc(counterText)}</p><p><a href="/join/${roomCode}?seat=${encodeURIComponent(mySeat)}" target="_blank" rel="noopener">Open your participant seat ↗</a></p>`;
+
+      // Controls
+      html += `<div class="controls">`;
+      if (session.status === 'running') {
+        html += `<button class="secondary" onclick="doPause()">Pause</button>`;
+        html += `<button class="secondary" onclick="doExtend()">Extend (+${method.timing.extensionSec}s)</button>`;
+      } else if (session.status === 'paused') {
+        html += `<button class="success" onclick="doResume()">Resume</button>`;
+      }
+      html += `</div>`;
+
+      html += renderSeats(session, method, block, record);
+
+      html += renderFrameControls(session, method, block, record);
+
+      html += renderRoleControls(session, method, block, record);
+
+      html += renderVerdict(session, method, block, record);
+      if (block.type === 'reveal') html += WorkspaceUI.themes(session, block, record);
+
+      if (block.type === 'converge') html += renderVoteControls(record, session);
+
+      html += renderDetourControls(session, method, block, record);
+
+      if (block.type === 'converge') html += WorkspaceUI.acceptance(record);
+      else html += `<div class="override-section"><h3>Facilitator Override</h3><p class="info">Advance to the next step with a recorded reason.</p><label for="overrideReason">Override reason</label><input type="text" id="overrideReason"><button class="warn" onclick="doOverride()">Override & Advance</button></div>`;
+
+      // Show elapsed vs budget
+      if (session.clock) {
+        const elapsed = Math.round(session.clock.totalElapsedSec / 60);
+        const budget = method?.timing?.totalBudgetSec ? Math.round(method.timing.totalBudgetSec / 60) : '?';
+        html += `<div style="margin-top:12px;color:var(--muted);font-size:0.9em">Elapsed: ${elapsed} min / ${budget} min budget</div>`;
+      }
+
+      app.innerHTML = WorkspaceUI.shell(currentState, html, mySeat);
+      restore();
+    }
+
+
+    function renderVoteControls(record, session) {
+      const votes = record.votes || {};
+      const choices = [...new Set(Object.values(votes))];
+      return `<p>Votes: ${Object.keys(votes).length}/${session.participants.filter(p => p.presence !== 'absent').length}</p>
+        <label for="tieChoice">Tied decision</label><select id="tieChoice">${choices.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+        <button onclick="doResolveTie()">Resolve tied vote</button>
+        <button onclick="doResetVotes()">Start a new vote</button>
+        <p><a href="/join/${roomCode}?seat=${encodeURIComponent(mySeat)}" target="_blank">Open your participant seat</a></p>`;
+    }
+    async function voteAction(action, extra = {}) {
+      const response = await fetch(`/api/sessions/${roomCode}/${action}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ seat: mySeat, ...extra }) });
+      const result = await response.json();
+      if (!response.ok) alert(result.error);
+    }
+    async function doResolveTie() { await voteAction('resolve-tie', { decision: document.getElementById('tieChoice').value }); }
+    async function doResetVotes() { await voteAction('reset-votes'); }
+
+    function renderSeats(session, method, block, record) {
+      let html = '';
+      // Seat list with presence, stuck ladder step, and "needs you" flag
+      const stuckEvents = record.stuckEvents || [];
+      html += `<div class="seat-list">`;
+      for (const p of session.participants) {
+        const seatEvents = stuckEvents.filter(e => e.seat === p.seat);
+        const lastStep = seatEvents.length > 0 ? seatEvents[seatEvents.length - 1].step : null;
+        const needsYou = lastStep === 'facilitator';
+        const submitted = (record.submissions || []).some(s => s.seat === p.seat);
+        const confirmed = (record.confirmations || []).includes(p.seat);
+        let status = '';
+        if (submitted) status = ' [submitted]';
+        else if (confirmed) status = ' [confirmed]';
+        let badges = '';
+        if (p.presence === 'absent') badges += '<span class="info">absent</span>';
+        if (lastStep && !needsYou) badges += `<span class="stuck-step">ladder: ${esc(lastStep)}</span>`;
+        if (needsYou) badges += '<span class="needs-you">NEEDS YOU</span>';
+        html += `<div class="seat-row">
+          <span class="dot ${p.presence}"></span>
+          <span>${esc(p.displayName)} (${p.seat})${status}</span>
+          ${badges}
+        </div>`;
+      }
+      html += `</div>`;
+
+      return html;
+    }
+
+    function renderFrameControls(session, method, block, record) {
+      let html = '';
+      // Frame: problem statement editor + suggest rewrite
+      if (block.type === 'frame') {
+        html += `<div class="form-group"><label for="problemText">Problem Statement</label>
+          <textarea id="problemText" placeholder="Write the problem as one sentence...">${esc(session.facts.problemStatement || '')}</textarea>
+          <button onclick="doProblem()">Update Statement</button>
+          <button class="secondary" onclick="doSuggestRewrite()" id="rewriteBtn">Suggest Rewrite</button>
+          <div id="rewriteResult"></div></div>`;
+      }
+
+      return html;
+    }
+
+    function renderRoleControls(session, method, block, record) {
+      let html = '';
+      // Assign block: facilitator controls
+      if (block.type === 'assign') {
+        const roles = method?.roles || [];
+        if (block.assignStrategy === 'random') {
+          html += `<button class="success" onclick="doAssignRandom()">Assign Randomly</button>`;
+        } else if (block.assignStrategy === 'facilitator') {
+          html += `<div id="facAssign">`;
+          for (const p of session.participants.filter(pp => pp.presence !== 'absent')) {
+            const currentRole = roles.find(r => r.id === p.roleId);
+            html += `<div class="form-group" style="display:flex;gap:8px;align-items:center">
+              <label for="role-${p.seat}">${esc(p.displayName)}:</label>
+              <select id="role-${p.seat}">
+                <option value="">-- pick --</option>
+                ${roles.map(r => `<option value="${r.id}" ${p.roleId === r.id ? 'selected' : ''}>${esc(r.name)}</option>`).join('')}
+              </select>
+            </div>`;
+          }
+          html += `<button class="success" onclick="doAssignFacilitator()">Assign Roles</button></div>`;
+        }
+        // Show current assignments
+        html += `<div style="margin-top:12px">`;
+        for (const p of session.participants) {
+          const role = roles.find(r => r.id === p.roleId);
+          html += `<div class="seat-row"><span>${esc(p.displayName)}</span>: ${role ? esc(role.name) : '<em>unassigned</em>'}</div>`;
+        }
+        html += `</div>`;
+      }
+
+      return html;
+    }
+
+    function renderVerdict(session, method, block, record) {
+      return block.type === 'converge' ? WorkspaceUI.review(record, block) : '';
+    }
+    async function doAcceptDecision() { await voteAction('accept-decision', { reason: document.getElementById('proceedReason')?.value || '' }); }
+
+    function renderDetourControls(session, method, block, record) {
+      let html = '';
+      // Detour proposal
+      if (detourProposal) {
+        html += `<div style="background:#e8f4ff;border:1px solid #90cdf4;border-radius:8px;padding:16px;margin-top:16px">
+          <h3>Detour Available</h3>
+          <p><strong>Trigger:</strong> ${esc(detourProposal.trigger)}</p>
+          <p><strong>Reason:</strong> ${esc(detourProposal.reason)}</p>
+          <p><strong>Adds:</strong> ${detourProposal.blocks.length} block(s), ~${detourProposal.addedMinutes} min</p>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="success" onclick="doAcceptDetour()">Accept Detour</button>
+            <button class="secondary" onclick="doDeclineDetour()">Decline</button>
+          </div>
+        </div>`;
+      }
+
+      // Detour request button (facilitator-triggered)
+      if (!detourProposal && !session.detours?.some(d => d.accepted)) {
+        html += `<button class="secondary" style="margin-top:8px" onclick="doRequestDetour()">Request Detour</button>`;
+      }
+
+      return html;
+    }
+
+    function isLight(hex) {
+      if (!hex) return true;
+      hex = hex.replace('#', '');
+      const r = parseInt(hex.substr(0, 2), 16);
+      const g = parseInt(hex.substr(2, 2), 16);
+      const b = parseInt(hex.substr(4, 2), 16);
+      return (r * 299 + g * 587 + b * 114) / 1000 > 128;
+    }
+
+    async function doStart() {
+      await fetch(`/api/sessions/${roomCode}/start`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ facilitatorSeat: mySeat })
+      });
+    }
+
+    async function doPause() {
+      await fetch(`/api/sessions/${roomCode}/pause`, { method: 'POST' });
+    }
+
+    async function doResume() {
+      await fetch(`/api/sessions/${roomCode}/resume`, { method: 'POST' });
+    }
+
+    async function doExtend() {
+      await fetch(`/api/sessions/${roomCode}/extend`, { method: 'POST' });
+    }
+
+    async function doOverride() {
+      const reason = document.getElementById('overrideReason')?.value || '';
+      if (!reason.trim()) { alert('Please provide a reason for the override'); return; }
+      await fetch(`/api/sessions/${roomCode}/override`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reason })
+      });
+    }
+
+    async function doAssignRandom() {
+      await fetch(`/api/sessions/${roomCode}/assign-random`, { method: 'POST' });
+    }
+
+    async function doAssignFacilitator() {
+      const participants = currentState.session.participants.filter(p => p.presence !== 'absent');
+      const assignments = participants.map(p => ({
+        seat: p.seat,
+        roleId: document.getElementById(`role-${p.seat}`)?.value || ''
+      })).filter(a => a.roleId);
+      await fetch(`/api/sessions/${roomCode}/assign-facilitator`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ assignments })
+      });
+    }
+
+    async function doProblem() {
+      const text = document.getElementById('problemText')?.value || '';
+      await fetch(`/api/sessions/${roomCode}/problem`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+    }
+
+    async function doSuggestRewrite() {
+      const btn = document.getElementById('rewriteBtn');
+      if (btn) btn.disabled = true;
+      try {
+        const res = await fetch(`/api/sessions/${roomCode}/suggest-rewrite`, { method: 'POST' });
+        const data = await res.json();
+        const el = document.getElementById('rewriteResult');
+        if (el && data.ok) {
+          rewriteSuggestion = data;
+          el.innerHTML = `<section class="rewrite-result"><h3>Compare before changing the question</h3><div class="rewrite-comparison"><div><h4>Original</h4><p>${esc(data.original)}</p></div><div><h4>Suggested wording</h4><p>${esc(data.rewrite)}</p></div></div><p>What changed: ${esc(data.changeNote)}</p><p>Check that people, constraints, uncertainty and possible solutions are preserved. Nothing has been changed.</p><button class="secondary" onclick="useRewrite()">Use suggestion in editor</button><button class="secondary" onclick="keepOriginal()">Keep current wording</button><p class="info">Review your edit, then choose Update Statement to publish it.</p></section>`;
+        } else if (el) {
+          el.innerHTML = `<p style="color:red">${esc(data.error || 'Failed')}</p>`;
+        }
+      } catch (e) {
+        const el = document.getElementById('rewriteResult');
+        if (el) el.innerHTML = `<p style="color:red">${esc(e.message)}</p>`;
+      }
+      if (btn) btn.disabled = false;
+    }
+
+    function keepOriginal() { rewriteSuggestion = null; document.getElementById('rewriteResult').innerHTML = ''; }
+    function useRewrite() {
+      if (!rewriteSuggestion) return;
+      const editor = document.getElementById('problemText');
+      if (!editor || editor.value !== rewriteSuggestion.original || currentState.session.facts.problemStatement !== rewriteSuggestion.original) { alert('The wording has changed. Compare your current edit before requesting a new suggestion.'); return; }
+      editor.value = rewriteSuggestion.rewrite;
+      editor.focus();
+    }
+    async function doRequestDetour() {
+      try {
+        const res = await fetch(`/api/sessions/${roomCode}/detour-check`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ trigger: 'facilitator' })
+        });
+        const data = await res.json();
+        if (data.proposal) { detourProposal = data.proposal; render(); }
+        else alert('No detour available for this method.');
+      } catch (e) { alert(e.message); }
+    }
+
+    async function doAcceptDetour() {
+      if (!detourProposal) return;
+      await fetch(`/api/sessions/${roomCode}/detour-accept`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ proposal: detourProposal })
+      });
+      detourProposal = null;
+    }
+
+    async function doDeclineDetour() {
+      if (!detourProposal) return;
+      await fetch(`/api/sessions/${roomCode}/detour-decline`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ proposal: detourProposal })
+      });
+      detourProposal = null;
+      render();
+    }
+
+    function renderGroupMetrics(session) {
+      const el = document.getElementById('groupMetrics');
+      if (!el || !session.metrics) return;
+      const words = session.metrics.wordsBySeat || {};
+      const total = Object.values(words).reduce((a, b) => a + b, 0);
+      let html = '<h2 style="margin-top:24px">How the group worked</h2>';
+      if (session.metrics.frameToCommitSec != null) {
+        html += `<p><strong>Time to decision:</strong> ${Math.round(session.metrics.frameToCommitSec / 60)} min</p>`;
+      }
+      html += '<table style="width:100%;border-collapse:collapse;margin:12px 0"><tr><th style="text-align:left;padding:4px 8px">Participant</th><th style="padding:4px 8px">Words</th><th style="padding:4px 8px">Share</th></tr>';
+      for (const p of session.participants) {
+        const w = words[p.seat] || 0;
+        const pct = total > 0 ? Math.round((w / total) * 100) : 0;
+        let flag = '';
+        if (pct > 40) flag = ' <span style="color:#d64545;font-weight:700">dominated</span>';
+        else if (pct < 10 && p.presence !== 'absent') flag = ' <span style="color:#e8b400;font-weight:700">quiet</span>';
+        html += `<tr><td style="padding:4px 8px">${esc(p.displayName)}</td><td style="text-align:center;padding:4px 8px">${w}</td><td style="text-align:center;padding:4px 8px">${pct}%${flag}</td></tr>`;
+      }
+      html += '</table>';
+      if (session.metrics.lensCoverage) {
+        html += '<p><strong>Lens coverage:</strong> ';
+        html += Object.entries(session.metrics.lensCoverage).map(([k, v]) => `${esc(k)}: ${esc(v)}`).join(', ');
+        html += '</p>';
+      }
+      el.innerHTML = html;
+    }
+
+    async function doArtifact() {
+      const res = await fetch(`/api/sessions/${roomCode}/artifact`, { method: 'POST' });
+      const data = await res.json();
+      const el = document.getElementById('artifactResult');
+      if (data.ok) {
+        el.innerHTML = `<p class="info" style="margin-top:8px">Report generated. <a href="/api/sessions/${roomCode}/report">Download report</a></p>`;
+        // Re-fetch state to get updated metrics
+        const stateRes = await fetch(`/api/sessions/${roomCode}`);
+        const stateData = await stateRes.json();
+        if (stateData.session) {
+          currentState = stateData;
+          renderGroupMetrics(stateData.session);
+        }
+      } else {
+        el.innerHTML = `<p style="color:red">${esc(data.error)}</p>`;
+      }
+    }
+    if (mySeat) {
+      document.getElementById('joinForm').classList.add('hidden');
+      document.getElementById('app').classList.remove('hidden');
+      connectWS();
+    }
+  </script>
+</body>
+</html>

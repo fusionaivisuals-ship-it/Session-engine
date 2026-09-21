@@ -1,0 +1,253 @@
+{
+  "id": "pros-cons",
+  "name": "Pros-and-cons analysis",
+  "version": "2.0.0",
+  "description": "Compare the strongest reasons to adopt a proposal with the strongest reasons to hold back, then state what would change the choice.",
+  "roleMode": "rotating",
+  "groupSize": {
+    "min": 2,
+    "max": 6
+  },
+  "timing": {
+    "totalBudgetSec": 1560,
+    "extensionSec": 60,
+    "idleSec": 90,
+    "presenceTimeoutSec": 120
+  },
+  "walkthroughIntro": {
+    "inOneLine": "Compare the strongest reasons to adopt a proposal with the strongest reasons to hold back, then state what would change the choice.",
+    "bestFor": "A concrete proposal with benefits, costs and a reversible next step.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "arguments",
+      "name": "Arguments on both sides",
+      "instruction": "Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "weight",
+      "name": "Weight the consequences",
+      "instruction": "Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "conditions",
+      "name": "Conditions for a sensible choice",
+      "instruction": "Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "frame",
+      "type": "frame",
+      "title": "Agree the question",
+      "timeboxSec": 180,
+      "completion": "all_agreed",
+      "prompt": "Name one proposal, the alternative of not doing it, and whose outcomes matter. Agree what is outside this decision.",
+      "walkthrough": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      }
+    },
+    {
+      "id": "arguments-input",
+      "type": "private_input",
+      "title": "Arguments on both sides",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "arguments",
+      "prompt": "Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — An extra evening at the garden: Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses.",
+        "whyItMatters": "Separate the claim from the evidence behind it."
+      }
+    },
+    {
+      "id": "arguments-reveal",
+      "type": "reveal",
+      "title": "Share: arguments on both sides",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "arguments",
+      "sourceBlockId": "arguments-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Separate the claim from the evidence behind it."
+      }
+    },
+    {
+      "id": "weight-input",
+      "type": "private_input",
+      "title": "Weight the consequences",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "weight",
+      "prompt": "Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — An extra evening at the garden: Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice.",
+        "whyItMatters": "A single serious consequence can matter more than several minor ones."
+      }
+    },
+    {
+      "id": "weight-reveal",
+      "type": "reveal",
+      "title": "Share: weight the consequences",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "weight",
+      "sourceBlockId": "weight-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A single serious consequence can matter more than several minor ones."
+      }
+    },
+    {
+      "id": "conditions-input",
+      "type": "private_input",
+      "title": "Conditions for a sensible choice",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "conditions",
+      "prompt": "Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — An extra evening at the garden: Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider.",
+        "whyItMatters": "A conditional choice can be tested instead of treated as permanent."
+      }
+    },
+    {
+      "id": "conditions-reveal",
+      "type": "reveal",
+      "title": "Share: conditions for a sensible choice",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "conditions",
+      "sourceBlockId": "conditions-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A conditional choice can be tested instead of treated as permanent."
+      }
+    },
+    {
+      "id": "decide",
+      "type": "converge",
+      "title": "Choose the next step",
+      "timeboxSec": 300,
+      "completion": "reviewer_pass",
+      "prompt": "Choose the proposal, the alternative, or a limited trial. Explain the strongest benefit and drawback, their importance, the safeguard, and when the choice should be revisited.",
+      "sourceBlockId": "arguments-reveal,weight-reveal,conditions-reveal",
+      "rubric": {
+        "passThreshold": 0.8,
+        "criteria": [
+          {
+            "id": "balanced",
+            "text": "The choice names a concrete benefit and drawback from the shared arguments.",
+            "weight": 1,
+            "scoring": {
+              "zero": "Only a preference is stated, with no concrete benefit or drawback.",
+              "one": "A concrete benefit or drawback is identified but the other side is absent or generic.",
+              "two": "A concrete benefit and drawback from the shared arguments are named, e.g. later access versus volunteer fatigue."
+            }
+          },
+          {
+            "id": "weighted",
+            "text": "The explanation weighs impact and uncertainty rather than counting arguments.",
+            "weight": 1,
+            "scoring": {
+              "zero": "The choice is justified only by counting arguments or by preference.",
+              "one": "Impact or uncertainty is discussed, but their effect on the choice is unclear.",
+              "two": "The choice explains why the size and certainty of particular impacts outweigh others rather than counting items."
+            }
+          },
+          {
+            "id": "conditional",
+            "text": "A safeguard and a condition for reconsidering the choice are stated.",
+            "weight": 1,
+            "scoring": {
+              "zero": "Neither a safeguard nor a reconsideration condition is stated.",
+              "one": "A safeguard or reconsideration condition is stated, but not both.",
+              "two": "A safeguard and observable reconsideration condition are explicit, e.g. require two volunteers and stop if either shift is uncovered."
+            }
+          }
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      }
+    },
+    {
+      "id": "commit",
+      "type": "commit",
+      "title": "Assign the follow-through",
+      "timeboxSec": 180,
+      "completion": "valid_form",
+      "prompt": "Choose an owner, first action, due date and observable success signal.",
+      "walkthrough": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      }
+    },
+    {
+      "id": "artifact",
+      "type": "artifact",
+      "title": "Keep the session record",
+      "timeboxSec": 0,
+      "completion": "auto",
+      "walkthrough": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      }
+    }
+  ],
+  "fallbacks": [
+    {
+      "trigger": "facilitator",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    },
+    {
+      "trigger": "converge_failed_twice",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    }
+  ]
+}

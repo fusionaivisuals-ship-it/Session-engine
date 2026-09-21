@@ -1,0 +1,982 @@
+{
+  "scenarioId": "incomplete-tool-kits",
+  "title": "Tool kits return incomplete",
+  "tier": "team",
+  "methodId": "fishbone-analysis",
+  "methodName": "Cause-and-effect / fishbone analysis",
+  "walkthroughIntro": {
+    "inOneLine": "Map possible causes under categories, connect each branch to the outcome, and choose which links deserve evidence.",
+    "bestFor": "A shared outcome with several plausible families of causes.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "categories",
+      "name": "Choose the branches",
+      "instruction": "Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "causes",
+      "name": "Attach causes and subcauses",
+      "instruction": "Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "checks",
+      "name": "Test the strongest branches",
+      "instruction": "Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blockSequence": [
+    {
+      "id": "frame",
+      "title": "Agree the question",
+      "type": "frame"
+    },
+    {
+      "id": "categories-input",
+      "title": "Choose the branches",
+      "type": "private_input"
+    },
+    {
+      "id": "categories-reveal",
+      "title": "Share: choose the branches",
+      "type": "reveal"
+    },
+    {
+      "id": "causes-input",
+      "title": "Attach causes and subcauses",
+      "type": "private_input"
+    },
+    {
+      "id": "causes-reveal",
+      "title": "Share: attach causes and subcauses",
+      "type": "reveal"
+    },
+    {
+      "id": "checks-input",
+      "title": "Test the strongest branches",
+      "type": "private_input"
+    },
+    {
+      "id": "checks-reveal",
+      "title": "Share: test the strongest branches",
+      "type": "reveal"
+    },
+    {
+      "id": "decide",
+      "title": "Choose the next step",
+      "type": "converge"
+    },
+    {
+      "id": "commit",
+      "title": "Assign the follow-through",
+      "type": "commit"
+    },
+    {
+      "id": "artifact",
+      "title": "Keep the session record",
+      "type": "artifact"
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "blockId": "frame",
+      "blockTitle": "Agree the question",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "frame",
+        "blockType": "frame",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Agree the question",
+        "Prompt: \"Define the effect in observable terms. Choose categories that fit this situation; they are organizing labels, not proof of a cause.\""
+      ]
+    },
+    {
+      "n": 2,
+      "blockId": "categories-input",
+      "blockTitle": "Choose the branches",
+      "lensOrRoleName": "Choose the branches",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary.",
+        "whyItMatters": "Situation-specific categories help the group search broadly without forcing a stock diagram."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "categories-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Choose the branches",
+        "Prompt: \"Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary.\""
+      ]
+    },
+    {
+      "n": 3,
+      "blockId": "categories-input",
+      "blockTitle": "Choose the branches",
+      "lensOrRoleName": "Choose the branches",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary.",
+        "whyItMatters": "Situation-specific categories help the group search broadly without forcing a stock diagram."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "categories-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both.",
+            "wordCount": 29
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Return handoff covers the exchange at the desk. Borrower instructions covers what people are told to count or report before returning a kit.",
+            "wordCount": 23
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (29 words)",
+        "Seat 2 submitted (23 words)"
+      ]
+    },
+    {
+      "n": 4,
+      "blockId": "categories-reveal",
+      "blockTitle": "Share: choose the branches",
+      "lensOrRoleName": "Choose the branches",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Situation-specific categories help the group search broadly without forcing a stock diagram."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "categories-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: choose the branches"
+      ]
+    },
+    {
+      "n": 5,
+      "blockId": "categories-reveal",
+      "blockTitle": "Share: choose the branches",
+      "lensOrRoleName": "Choose the branches",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Situation-specific categories help the group search broadly without forcing a stock diagram."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "categories-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both.",
+            "wordCount": 29
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Return handoff covers the exchange at the desk. Borrower instructions covers what people are told to count or report before returning a kit.",
+            "wordCount": 23
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Return handoff covers the exchange at the desk. Borrower instructions covers what people are told to count or report before returning a kit."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 6,
+      "blockId": "causes-input",
+      "blockTitle": "Attach causes and subcauses",
+      "lensOrRoleName": "Attach causes and subcauses",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes.",
+        "whyItMatters": "A branch is a hypothesis about a mechanism, not a verdict."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "causes-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Attach causes and subcauses",
+        "Prompt: \"Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes.\""
+      ]
+    },
+    {
+      "n": 7,
+      "blockId": "causes-input",
+      "blockTitle": "Attach causes and subcauses",
+      "lensOrRoleName": "Attach causes and subcauses",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes.",
+        "whyItMatters": "A branch is a hypothesis about a mechanism, not a verdict."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "causes-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference.",
+            "wordCount": 26
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Kit design > small bit slips behind foam > loose foam in two affected cases. Return handoff > rushed check > no return checklist. The physical gaps are observed; parts escaping is untested.",
+            "wordCount": 33
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (26 words)",
+        "Seat 2 submitted (33 words)"
+      ]
+    },
+    {
+      "n": 8,
+      "blockId": "causes-reveal",
+      "blockTitle": "Share: attach causes and subcauses",
+      "lensOrRoleName": "Attach causes and subcauses",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A branch is a hypothesis about a mechanism, not a verdict."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "causes-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: attach causes and subcauses"
+      ]
+    },
+    {
+      "n": 9,
+      "blockId": "causes-reveal",
+      "blockTitle": "Share: attach causes and subcauses",
+      "lensOrRoleName": "Attach causes and subcauses",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A branch is a hypothesis about a mechanism, not a verdict."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "causes-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference.",
+            "wordCount": 26
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Kit design > small bit slips behind foam > loose foam in two affected cases. Return handoff > rushed check > no return checklist. The physical gaps are observed; parts escaping is untested.",
+            "wordCount": 33
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Kit design > small bit slips behind foam > loose foam in two affected cases. Return handoff > rushed check > no return checklist. The physical gaps are observed; parts escaping is untested."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 10,
+      "blockId": "checks-input",
+      "blockTitle": "Test the strongest branches",
+      "lensOrRoleName": "Test the strongest branches",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them.",
+        "whyItMatters": "Prioritizing checks keeps an attractive diagram from replacing investigation."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "checks-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Test the strongest branches",
+        "Prompt: \"Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them.\""
+      ]
+    },
+    {
+      "n": 11,
+      "blockId": "checks-input",
+      "blockTitle": "Test the strongest branches",
+      "lensOrRoleName": "Test the strongest branches",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them.",
+        "whyItMatters": "Prioritizing checks keeps an attractive diagram from replacing investigation."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "checks-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage.",
+            "wordCount": 32
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Before those loans, inspect behind the foam without changing it and record the result. Finding the supposedly missing bits in a case would favor the kit-design branch over borrower loss.",
+            "wordCount": 30
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (32 words)",
+        "Seat 2 submitted (30 words)"
+      ]
+    },
+    {
+      "n": 12,
+      "blockId": "checks-reveal",
+      "blockTitle": "Share: test the strongest branches",
+      "lensOrRoleName": "Test the strongest branches",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Prioritizing checks keeps an attractive diagram from replacing investigation."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "checks-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: test the strongest branches"
+      ]
+    },
+    {
+      "n": 13,
+      "blockId": "checks-reveal",
+      "blockTitle": "Share: test the strongest branches",
+      "lensOrRoleName": "Test the strongest branches",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Prioritizing checks keeps an attractive diagram from replacing investigation."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "checks-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage.",
+            "wordCount": 32
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Before those loans, inspect behind the foam without changing it and record the result. Finding the supposedly missing bits in a case would favor the kit-design branch over borrower loss.",
+            "wordCount": 30
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Before those loans, inspect behind the foam without changing it and record the result. Finding the supposedly missing bits in a case would favor the kit-design branch over borrower loss."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 14,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Entered: Choose the next step",
+        "Prompt: \"Select the first branch to investigate. Include a competing branch from another category, explain the causal links, distinguish evidence from assumptions, and state the observation that will discriminate between them.\""
+      ]
+    },
+    {
+      "n": 15,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": {
+          "pass": true,
+          "feedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "attempt": 1
+        },
+        "decision": "Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.",
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Review 1: Ready to act",
+        "The conclusion addresses the required comparisons, evidence and next check."
+      ]
+    },
+    {
+      "n": 16,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": "Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.",
+        "commitment": null,
+        "timerSec": 300,
+        "acceptanceReason": "Scripted demonstration: participants choose to proceed after considering the review."
+      },
+      "newSinceLastStep": [
+        "Decision deliberately accepted",
+        "Scripted demonstration: participants choose to proceed after considering the review."
+      ]
+    },
+    {
+      "n": 17,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Assign the follow-through",
+        "Prompt: \"Choose an owner, first action, due date and observable success signal.\""
+      ]
+    },
+    {
+      "n": 18,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "{\"owner\":\"seat-1\",\"firstAction\":\"Create a before-and-after count sheet for ten loans and inspect the foam\",\"dueDate\":\"2026-10-01\",\"successSignal\":\"Ten loans have counts and tray photos, with concealed parts recorded separately\"}",
+            "wordCount": 12
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": {
+          "owner": "seat-1",
+          "firstAction": "Create a before-and-after count sheet for ten loans and inspect the foam",
+          "dueDate": "2026-10-01",
+          "successSignal": "Ten loans have counts and tray photos, with concealed parts recorded separately"
+        },
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (12 words)",
+        "Owner: seat-1",
+        "Action: Create a before-and-after count sheet for ten loans and inspect the foam",
+        "Due: 2026-10-01"
+      ]
+    },
+    {
+      "n": 19,
+      "blockId": "artifact",
+      "blockTitle": "Keep the session record",
+      "lensOrRoleName": "",
+      "phase": "complete",
+      "narration": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      },
+      "state": {
+        "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+        "currentBlockId": "artifact",
+        "blockType": "artifact",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 0
+      },
+      "newSinceLastStep": [
+        "Session complete — report generated"
+      ]
+    }
+  ],
+  "report": "# Session Report: Cause-and-effect / fishbone analysis\n\n- **Room:** 96A124\n- **Date:** 2026-09-20\n- **Participants:** 2 participants (anonymous)\n- **Time:** 0 min (budget: 26 min)\n\n## Decision\nInvestigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.\n\n## Commitment\n- **Owner:** Seat 1\n- **First action:** Create a before-and-after count sheet for ten loans and inspect the foam\n- **Due:** 2026-10-01\n- **Success signal:** Ten loans have counts and tray photos, with concealed parts recorded separately\n\n## Outputs by lens\n\n### Choose the branches\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both. |\n| Contribution 2 | Seat 2 | Return handoff covers the exchange at the desk. Borrower instructions covers what people are told to count or report before returning a kit. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both.\n\n**Seat 2:** Return handoff covers the exchange at the desk. Borrower instructions covers what people are told to count or report before returning a kit.\n\n### Attach causes and subcauses\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference. |\n| Contribution 2 | Seat 2 | Kit design > small bit slips behind foam > loose foam in two affected cases. Return handoff > rushed check > no return checklist. The physical gaps are observed; parts escaping is untested. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference.\n\n**Seat 2:** Kit design > small bit slips behind foam > loose foam in two affected cases. Return handoff > rushed check > no return checklist. The physical gaps are observed; parts escaping is untested.\n\n### Test the strongest branches\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage. |\n| Contribution 2 | Seat 2 | Before those loans, inspect behind the foam without changing it and record the result. Finding the supposedly missing bits in a case would favor the kit-design branch over borrower loss. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage.\n\n**Seat 2:** Before those loans, inspect behind the foam without changing it and record the result. Finding the supposedly missing bits in a case would favor the kit-design branch over borrower loss.\n\n## Decision acceptance\nDecision: Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.\nAccepted by: Seat 1\nReason: Scripted demonstration: participants choose to proceed after considering the review.\nRecorded: 2026-09-20T13:24:57.299Z\n\n## Advisory decision reviews\nThese assessments are advice, not guarantees. Verified quotations do not establish sound interpretation.\n\n| Block | Attempts | Final | Exit |\n|-------|----------|-------|------|\n| Choose the next step | 1 | Ready to act | gate |\n\n### Choose the next step — Attempt 1 (Ready to act)\nProposal reviewed: Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.\nConfidence: 90% | The conclusion addresses the required comparisons, evidence and next check.\n\n| Criterion | Score | Concern | Reason | Quotation |\n|-----------|-------|---------|--------|-----------|\n| branches | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design. |\n| uncertainty | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design. |\n| verification | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design. |\n\n## How the group worked\n\n**Time to decision:** 0 min\n\n**Participation balance:**\n\n2 seats participated.\n2 seat(s) above 40% share.\n\n**Lens coverage:**\n\n| Lens/Role | Coverage |\n|-----------|----------|\n| Choose the branches | substantive |\n| Attach causes and subcauses | substantive |\n| Test the strongest branches | substantive |\n\n**Model usage:** 4 calls, 0 input tokens, 0 output tokens\n\n---\n\n**30-day follow-up:** Check on 2026-10-01 whether the first action happened.\n"
+}

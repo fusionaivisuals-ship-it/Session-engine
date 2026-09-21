@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Screen</title>
+  <link rel="stylesheet" href="../assets/editorial.css" data-inline="editorial.css">
+</head>
+<body class="workspace-page room-page">
+  <a class="skip-link" href="#task">Skip to task</a>
+  <header class="site-nav workspace-header"><a class="nav-brand" href="/"> <span class="brand-mark" aria-hidden="true"></span>Session Engine</a><div class="header-context"><span>Shared room</span>  <div class="conn-indicator" id="connIndicator">
+    <span class="conn-dot reconnecting" id="connDot"></span>
+    <span id="connLabel">Connecting...</span>
+  </div></div></header>
+  <div id="app">
+    <div class="info" id="lobbyMsg">Connecting...</div>
+  </div>
+  <script src="../assets/workspace.js" data-inline="workspace.js"></script>
+  <script>
+    const roomCode = location.pathname.split('/').pop();
+    let ws;
+    let reconnectDelay = 1000;
+    let rttMs = 0;
+
+    function updateConnQuality() {
+      const label = document.getElementById('connLabel');
+      if (!label || reconnectDelay > 1000) return;
+      if (rttMs < 200) label.textContent = 'Connected';
+      else if (rttMs < 600) label.textContent = 'Fair (' + rttMs + 'ms)';
+      else label.textContent = 'Poor (' + rttMs + 'ms)';
+    }
+
+    function setConnStatus(state) {
+      const dot = document.getElementById('connDot');
+      const label = document.getElementById('connLabel');
+      dot.className = 'conn-dot ' + state;
+      label.textContent = state === 'connected' ? 'Connected' : state === 'reconnecting' ? 'Reconnecting...' : 'Disconnected';
+    }
+
+    function connect() {
+      const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+      ws = new WebSocket(`${proto}//${location.host}?room=${roomCode}`);
+      setConnStatus('reconnecting');
+
+      ws.onopen = () => {
+        reconnectDelay = 1000;
+        setConnStatus('connected');
+      };
+      ws.onmessage = (e) => {
+        const msg = JSON.parse(e.data);
+        if (msg.type === 'clock') { renderClock(msg); return; }
+        if (msg.type === 'time') {
+          const now = Date.now();
+          ws.send(JSON.stringify({ type: 'ping', clientMs: now }));
+        } else if (msg.type === 'pong') {
+          rttMs = Date.now() - msg.clientMs;
+          updateConnQuality();
+        } else if (msg.type === 'state') render(msg.data);
+      };
+      ws.onclose = () => {
+        setConnStatus(reconnectDelay >= 30000 ? 'disconnected' : 'reconnecting');
+        setTimeout(connect, reconnectDelay);
+        reconnectDelay = Math.min(reconnectDelay * 2, 30000);
+      };
+      ws.onerror = () => {};
+    }
+
+
+    function renderClock(message) { WorkspaceUI.updateClock(message); }
+
+    function fmt(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.round(sec % 60);
+      return `${m}:${String(s).padStart(2, '0')}`;
+    }
+
+    function render(data) {
+      const { session, method, block, lens, clockStatus } = data;
+      const app = document.getElementById('app');
+
+      if (session.status === 'lobby') {
+        app.innerHTML = `<main class="completion-card" id="task"><h1>Room ${roomCode}</h1>
+          <div class="info">Waiting for participants... (${session.participants.length} joined)</div>
+          <div class="presence">${session.participants.map(p =>
+            `<span class="dot present" title="${esc(p.displayName)}"></span>`).join('')}</div></main>`;
+        return;
+      }
+
+      if (session.status === 'complete') {
+        let html = `<h1>Session Complete</h1><div class="info">Thank you!</div>`;
+        if (session.metrics) {
+          const words = session.metrics.wordsBySeat || {};
+          const total = Object.values(words).reduce((a, b) => a + b, 0);
+          if (session.metrics.frameToCommitSec != null) {
+            html += `<div style="margin-top:24px;font-size:1.2em;color:var(--muted)">Time to decision: ${Math.round(session.metrics.frameToCommitSec / 60)} min</div>`;
+          }
+          html += '<div style="margin-top:16px;text-align:left;max-width:500px">';
+          for (const p of session.participants) {
+            const w = words[p.seat] || 0;
+            const pct = total > 0 ? Math.round((w / total) * 100) : 0;
+            let flag = '';
+            if (pct > 40) flag = ' <span style="color:#d64545">dominated</span>';
+            else if (pct < 10 && p.presence !== 'absent') flag = ' <span style="color:#e8b400">quiet</span>';
+            html += `<div style="padding:4px 0;color:var(--ink)">${esc(p.displayName)}: ${w} words (${pct}%)${flag}</div>`;
+          }
+          html += '</div>';
+        }
+        app.innerHTML = `<main class="completion-card" id="task">${html}</main>`;
+        return;
+      }
+
+      if (!block) return;
+
+      const timerClass = clockStatus?.expired ? 'expired' : clockStatus?.amber ? 'amber' : '';
+      const record = session.blocks[block.id] || {};
+      const subs = (record.submissions || []).length;
+      const confs = (record.confirmations || []).length;
+      const active = session.participants.filter(p => p.presence !== 'absent').length;
+
+      let counterText = '';
+      if (block.completion === 'all_submitted') counterText = `Submitted: ${subs}/${active}`;
+      else if (block.completion === 'all_confirmed') counterText = `Confirmed: ${confs}/${active}`;
+      else if (block.completion === 'all_agreed') counterText = `Agreed: ${confs}/${active}`;
+      else if (block.completion === 'reviewer_pass') counterText = `Awaiting decision`;
+      else if (block.completion === 'valid_form') counterText = `Awaiting commitment`;
+
+      const content = WorkspaceUI.heading(data) + `<p class="prompt">${esc(block.prompt || lens?.instruction || '')}</p><p class="info">${esc(counterText)}</p>` +
+        (block.type === 'private_input' ? '<p class="privacy-note">Everyone is thinking privately. Responses will appear on participants’ screens at reveal.</p>' : '<p class="task-intro">Continue on your own device. The facilitator will guide the next step.</p>');
+      app.innerHTML = WorkspaceUI.shell(data, content);
+
+    }
+
+    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+
+    if (new URLSearchParams(location.search).has('demo')) document.querySelector('.workspace-header').insertAdjacentHTML('afterend', '<div class="demo-label">Scripted demonstration · Fictional participants and prewritten responses</div>');
+    connect();
+  </script>
+</body>
+</html>

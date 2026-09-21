@@ -1,0 +1,982 @@
+{
+  "scenarioId": "garden-evening-hours",
+  "title": "An extra evening at the garden",
+  "tier": "opener",
+  "methodId": "pros-cons",
+  "methodName": "Pros-and-cons analysis",
+  "walkthroughIntro": {
+    "inOneLine": "Compare the strongest reasons to adopt a proposal with the strongest reasons to hold back, then state what would change the choice.",
+    "bestFor": "A concrete proposal with benefits, costs and a reversible next step.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "arguments",
+      "name": "Arguments on both sides",
+      "instruction": "Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "weight",
+      "name": "Weight the consequences",
+      "instruction": "Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "conditions",
+      "name": "Conditions for a sensible choice",
+      "instruction": "Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blockSequence": [
+    {
+      "id": "frame",
+      "title": "Agree the question",
+      "type": "frame"
+    },
+    {
+      "id": "arguments-input",
+      "title": "Arguments on both sides",
+      "type": "private_input"
+    },
+    {
+      "id": "arguments-reveal",
+      "title": "Share: arguments on both sides",
+      "type": "reveal"
+    },
+    {
+      "id": "weight-input",
+      "title": "Weight the consequences",
+      "type": "private_input"
+    },
+    {
+      "id": "weight-reveal",
+      "title": "Share: weight the consequences",
+      "type": "reveal"
+    },
+    {
+      "id": "conditions-input",
+      "title": "Conditions for a sensible choice",
+      "type": "private_input"
+    },
+    {
+      "id": "conditions-reveal",
+      "title": "Share: conditions for a sensible choice",
+      "type": "reveal"
+    },
+    {
+      "id": "decide",
+      "title": "Choose the next step",
+      "type": "converge"
+    },
+    {
+      "id": "commit",
+      "title": "Assign the follow-through",
+      "type": "commit"
+    },
+    {
+      "id": "artifact",
+      "title": "Keep the session record",
+      "type": "artifact"
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "blockId": "frame",
+      "blockTitle": "Agree the question",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "frame",
+        "blockType": "frame",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Agree the question",
+        "Prompt: \"Name one proposal, the alternative of not doing it, and whose outcomes matter. Agree what is outside this decision.\""
+      ]
+    },
+    {
+      "n": 2,
+      "blockId": "arguments-input",
+      "blockTitle": "Arguments on both sides",
+      "lensOrRoleName": "Arguments on both sides",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses.",
+        "whyItMatters": "Separate the claim from the evidence behind it."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "arguments-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Arguments on both sides",
+        "Prompt: \"Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses.\""
+      ]
+    },
+    {
+      "n": 3,
+      "blockId": "arguments-input",
+      "blockTitle": "Arguments on both sides",
+      "lensOrRoleName": "Arguments on both sides",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Write one benefit and one drawback of the proposal. For each, explain who is affected and what observation supports it. Mark guesses as guesses.",
+        "whyItMatters": "Separate the claim from the evidence behind it."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "arguments-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors.",
+            "wordCount": 30
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Benefit: cooler hours may help summer watering. Drawback: closing in dim light adds a trip risk near the tool shed. The path has no fixed lighting.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (30 words)",
+        "Seat 2 submitted (26 words)"
+      ]
+    },
+    {
+      "n": 4,
+      "blockId": "arguments-reveal",
+      "blockTitle": "Share: arguments on both sides",
+      "lensOrRoleName": "Arguments on both sides",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Separate the claim from the evidence behind it."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "arguments-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: arguments on both sides"
+      ]
+    },
+    {
+      "n": 5,
+      "blockId": "arguments-reveal",
+      "blockTitle": "Share: arguments on both sides",
+      "lensOrRoleName": "Arguments on both sides",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Separate the claim from the evidence behind it."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "arguments-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors.",
+            "wordCount": 30
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Benefit: cooler hours may help summer watering. Drawback: closing in dim light adds a trip risk near the tool shed. The path has no fixed lighting.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Benefit: cooler hours may help summer watering. Drawback: closing in dim light adds a trip risk near the tool shed. The path has no fixed lighting."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 6,
+      "blockId": "weight-input",
+      "blockTitle": "Weight the consequences",
+      "lensOrRoleName": "Weight the consequences",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice.",
+        "whyItMatters": "A single serious consequence can matter more than several minor ones."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "weight-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Weight the consequences",
+        "Prompt: \"Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice.\""
+      ]
+    },
+    {
+      "n": 7,
+      "blockId": "weight-input",
+      "blockTitle": "Weight the consequences",
+      "lensOrRoleName": "Weight the consequences",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Use the shared arguments. Rate each important consequence low, medium or high impact and confidence. Explain your rating; do not decide by counting bullets. Note a cost or benefit that could reverse your choice.",
+        "whyItMatters": "A single serious consequence can matter more than several minor ones."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "weight-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names.",
+            "wordCount": 31
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "The path risk is high impact even with uncertain frequency. Extra watering is a low-impact benefit because the morning rota already covers the beds. Safety should outweigh that convenience.",
+            "wordCount": 29
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (31 words)",
+        "Seat 2 submitted (29 words)"
+      ]
+    },
+    {
+      "n": 8,
+      "blockId": "weight-reveal",
+      "blockTitle": "Share: weight the consequences",
+      "lensOrRoleName": "Weight the consequences",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A single serious consequence can matter more than several minor ones."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "weight-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: weight the consequences"
+      ]
+    },
+    {
+      "n": 9,
+      "blockId": "weight-reveal",
+      "blockTitle": "Share: weight the consequences",
+      "lensOrRoleName": "Weight the consequences",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A single serious consequence can matter more than several minor ones."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "weight-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names.",
+            "wordCount": 31
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "The path risk is high impact even with uncertain frequency. Extra watering is a low-impact benefit because the morning rota already covers the beds. Safety should outweigh that convenience.",
+            "wordCount": 29
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "The path risk is high impact even with uncertain frequency. Extra watering is a low-impact benefit because the morning rota already covers the beds. Safety should outweigh that convenience."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 10,
+      "blockId": "conditions-input",
+      "blockTitle": "Conditions for a sensible choice",
+      "lensOrRoleName": "Conditions for a sensible choice",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider.",
+        "whyItMatters": "A conditional choice can be tested instead of treated as permanent."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "conditions-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Conditions for a sensible choice",
+        "Prompt: \"Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider.\""
+      ]
+    },
+    {
+      "n": 11,
+      "blockId": "conditions-input",
+      "blockTitle": "Conditions for a sensible choice",
+      "lensOrRoleName": "Conditions for a sensible choice",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Suggest a safeguard for the strongest drawback, one condition for proceeding, and an observation that would make you stop or reconsider.",
+        "whyItMatters": "A conditional choice can be tested instead of treated as permanent."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "conditions-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty.",
+            "wordCount": 25
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Keep the tool shed closed after dusk and mark the lit route. Cancel that evening if the portable lights fail; ask visitors about access at the three-week review.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (25 words)",
+        "Seat 2 submitted (28 words)"
+      ]
+    },
+    {
+      "n": 12,
+      "blockId": "conditions-reveal",
+      "blockTitle": "Share: conditions for a sensible choice",
+      "lensOrRoleName": "Conditions for a sensible choice",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A conditional choice can be tested instead of treated as permanent."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "conditions-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: conditions for a sensible choice"
+      ]
+    },
+    {
+      "n": 13,
+      "blockId": "conditions-reveal",
+      "blockTitle": "Share: conditions for a sensible choice",
+      "lensOrRoleName": "Conditions for a sensible choice",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A conditional choice can be tested instead of treated as permanent."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "conditions-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty.",
+            "wordCount": 25
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Keep the tool shed closed after dusk and mark the lit route. Cancel that evening if the portable lights fail; ask visitors about access at the three-week review.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Keep the tool shed closed after dusk and mark the lit route. Cancel that evening if the portable lights fail; ask visitors about access at the three-week review."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 14,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Entered: Choose the next step",
+        "Prompt: \"Choose the proposal, the alternative, or a limited trial. Explain the strongest benefit and drawback, their importance, the safeguard, and when the choice should be revisited.\""
+      ]
+    },
+    {
+      "n": 15,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": {
+          "pass": true,
+          "feedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "attempt": 1
+        },
+        "decision": "Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.",
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Review 1: Ready to act",
+        "The conclusion addresses the required comparisons, evidence and next check."
+      ]
+    },
+    {
+      "n": 16,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": "Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.",
+        "commitment": null,
+        "timerSec": 300,
+        "acceptanceReason": "Scripted demonstration: participants choose to proceed after considering the review."
+      },
+      "newSinceLastStep": [
+        "Decision deliberately accepted",
+        "Scripted demonstration: participants choose to proceed after considering the review."
+      ]
+    },
+    {
+      "n": 17,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Assign the follow-through",
+        "Prompt: \"Choose an owner, first action, due date and observable success signal.\""
+      ]
+    },
+    {
+      "n": 18,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "{\"owner\":\"seat-1\",\"firstAction\":\"Publish the six-week rota and check the portable lights\",\"dueDate\":\"2026-10-01\",\"successSignal\":\"Each trial shift has two volunteers and a recorded light check\"}",
+            "wordCount": 9
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": {
+          "owner": "seat-1",
+          "firstAction": "Publish the six-week rota and check the portable lights",
+          "dueDate": "2026-10-01",
+          "successSignal": "Each trial shift has two volunteers and a recorded light check"
+        },
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (9 words)",
+        "Owner: seat-1",
+        "Action: Publish the six-week rota and check the portable lights",
+        "Due: 2026-10-01"
+      ]
+    },
+    {
+      "n": 19,
+      "blockId": "artifact",
+      "blockTitle": "Keep the session record",
+      "lensOrRoleName": "",
+      "phase": "complete",
+      "narration": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      },
+      "state": {
+        "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+        "currentBlockId": "artifact",
+        "blockType": "artifact",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 0
+      },
+      "newSinceLastStep": [
+        "Session complete — report generated"
+      ]
+    }
+  ],
+  "report": "# Session Report: Pros-and-cons analysis\n\n- **Room:** 79AAD6\n- **Date:** 2026-09-20\n- **Participants:** 2 participants (anonymous)\n- **Time:** 0 min (budget: 26 min)\n\n## Decision\nRun a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.\n\n## Commitment\n- **Owner:** Seat 1\n- **First action:** Publish the six-week rota and check the portable lights\n- **Due:** 2026-10-01\n- **Success signal:** Each trial shift has two volunteers and a recorded light check\n\n## Outputs by lens\n\n### Arguments on both sides\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors. |\n| Contribution 2 | Seat 2 | Benefit: cooler hours may help summer watering. Drawback: closing in dim light adds a trip risk near the tool shed. The path has no fixed lighting. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors.\n\n**Seat 2:** Benefit: cooler hours may help summer watering. Drawback: closing in dim light adds a trip risk near the tool shed. The path has no fixed lighting.\n\n### Weight the consequences\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names. |\n| Contribution 2 | Seat 2 | The path risk is high impact even with uncertain frequency. Extra watering is a low-impact benefit because the morning rota already covers the beds. Safety should outweigh that convenience. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names.\n\n**Seat 2:** The path risk is high impact even with uncertain frequency. Extra watering is a low-impact benefit because the morning rota already covers the beds. Safety should outweigh that convenience.\n\n### Conditions for a sensible choice\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty. |\n| Contribution 2 | Seat 2 | Keep the tool shed closed after dusk and mark the lit route. Cancel that evening if the portable lights fail; ask visitors about access at the three-week review. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty.\n\n**Seat 2:** Keep the tool shed closed after dusk and mark the lit route. Cancel that evening if the portable lights fail; ask visitors about access at the three-week review.\n\n## Decision acceptance\nDecision: Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.\nAccepted by: Seat 1\nReason: Scripted demonstration: participants choose to proceed after considering the review.\nRecorded: 2026-09-20T13:24:53.398Z\n\n## Advisory decision reviews\nThese assessments are advice, not guarantees. Verified quotations do not establish sound interpretation.\n\n| Block | Attempts | Final | Exit |\n|-------|----------|-------|------|\n| Choose the next step | 1 | Ready to act | gate |\n\n### Choose the next step — Attempt 1 (Ready to act)\nProposal reviewed: Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.\nConfidence: 90% | The conclusion addresses the required comparisons, evidence and next check.\n\n| Criterion | Score | Concern | Reason | Quotation |\n|-----------|-------|---------|--------|-----------|\n| balanced | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered. |\n| weighted | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered. |\n| conditional | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered. |\n\n## How the group worked\n\n**Time to decision:** 0 min\n\n**Participation balance:**\n\n2 seats participated.\n2 seat(s) above 40% share.\n\n**Lens coverage:**\n\n| Lens/Role | Coverage |\n|-----------|----------|\n| Arguments on both sides | substantive |\n| Weight the consequences | substantive |\n| Conditions for a sensible choice | substantive |\n\n**Model usage:** 4 calls, 0 input tokens, 0 output tokens\n\n---\n\n**30-day follow-up:** Check on 2026-10-01 whether the first action happened.\n"
+}

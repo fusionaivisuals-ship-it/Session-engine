@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Replay</title>
+  <link rel="stylesheet" href="../assets/editorial.css" data-inline="editorial.css">
+</head>
+<body class="replay-page">
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand"><span class="brand-mark" aria-hidden="true"></span>Session Engine</a>
+    <div class="nav-links">
+      <a href="index.html">Demo</a>
+      <a href="start.html" id="navStart" class="button">Start a session</a>
+    </div>
+  </nav><div class="demo-label">Session recording · Playback, not a live session</div>
+  <div class="topbar watch-banner">Session replay</div>
+  <div class="controls">
+    <label class="sr-only" for="fileInput">Choose a session recording</label><input type="file" id="fileInput" accept=".json,.replay.json">
+    <label>Speed: <select id="speedSelect">
+      <option value="0.5">0.5x</option>
+      <option value="1" selected>1x</option>
+      <option value="2">2x</option>
+      <option value="5">5x</option>
+      <option value="10">10x</option>
+    </select></label>
+    <button id="playPause">Play</button>
+    <div class="scrubber"><label class="sr-only" for="scrubber">Recording position</label><input type="range" id="scrubber" min="0" max="0" value="0"></div>
+    <div class="timer-display" id="timeDisplay">0:00</div>
+  </div>
+  <div class="stage" id="stage">
+    <p style="color:var(--muted)">Load a .replay.json file to begin</p>
+  </div>
+
+  <script src="../assets/workspace.js" data-inline="workspace.js"></script>
+  <script>
+    let replay = null;
+    let currentIdx = 0;
+    let playing = false;
+    let playTimer = null;
+    let showingReport = false;
+
+    const fileInput = document.getElementById('fileInput');
+    const speedSelect = document.getElementById('speedSelect');
+    const playPauseBtn = document.getElementById('playPause');
+    const scrubber = document.getElementById('scrubber');
+    const timeDisplay = document.getElementById('timeDisplay');
+    const stage = document.getElementById('stage');
+
+    // Load from URL hash if present (e.g. #file=recording.json)
+    const urlParams = new URLSearchParams(location.search);
+    const hashFile = urlParams.get('file') || location.hash.replace('#file=', '');
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          replay = JSON.parse(ev.target.result);
+          initReplay();
+        } catch (err) {
+          stage.innerHTML = '<p style="color:#d64545">Error parsing replay file</p>';
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    function initReplay() {
+      clearTimeout(playTimer);
+      playing = false;
+      playPauseBtn.textContent = 'Play';
+      if (!replay || !replay.snapshots || replay.snapshots.length === 0) {
+        stage.innerHTML = '<p style="color:#d64545">No snapshots in replay</p>';
+        return;
+      }
+      currentIdx = 0;
+      showingReport = false;
+      document.querySelector('.demo-label').textContent = replay.scenarioId
+        ? 'Scripted demonstration · Fictional participants and prewritten responses'
+        : 'Session recording · Playback, not a live session';
+      scrubber.max = replay.snapshots.length - 1;
+      scrubber.value = 0;
+      renderSnapshot(0);
+      document.querySelector('.watch-banner').textContent = `Session Replay: ${replay.title || replay.scenarioId}`;
+    }
+
+    playPauseBtn.addEventListener('click', () => {
+      if (!replay) return;
+      playing = !playing;
+      playPauseBtn.textContent = playing ? 'Pause' : 'Play';
+      if (playing) tick();
+      else clearTimeout(playTimer);
+    });
+
+    scrubber.addEventListener('input', () => {
+      if (!replay) return;
+      currentIdx = parseInt(scrubber.value);
+      showingReport = false;
+      renderSnapshot(currentIdx);
+    });
+
+    function tick() {
+      if (!playing || !replay) return;
+      if (currentIdx >= replay.snapshots.length - 1) {
+        playing = false;
+        playPauseBtn.textContent = 'Play';
+        if (replay.report && !showingReport) {
+          showingReport = true;
+          showReport();
+        }
+        return;
+      }
+      const speed = parseFloat(speedSelect.value);
+      const current = replay.snapshots[currentIdx];
+      const next = replay.snapshots[currentIdx + 1];
+      const dt = Math.max(10, (next.tMs - current.tMs) / speed);
+
+      currentIdx++;
+      scrubber.value = currentIdx;
+      renderSnapshot(currentIdx);
+
+      playTimer = setTimeout(tick, dt);
+    }
+
+    function fmt(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.round(sec % 60);
+      return m + ':' + String(s).padStart(2, '0');
+    }
+
+    function esc(s) {
+      const d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    function renderSnapshot(idx) {
+      const snap = replay.snapshots[idx];
+      if (!snap) return;
+      const data = snap.state;
+      const { session, method, block, lens } = data;
+
+      timeDisplay.textContent = fmt(snap.tMs / 1000);
+
+      if (session.status === 'lobby') {
+        stage.innerHTML = '<h1>Lobby</h1><div style="color:var(--muted)">Waiting for participants...</div>';
+        return;
+      }
+
+      if (session.status === 'complete') {
+        let html = '<h1>Session Complete</h1><div style="color:var(--muted);margin-bottom:16px">Thank you!</div>';
+        if (replay.report) {
+          html += '<button class="report-toggle" onclick="showReport()">Show Report</button>';
+        }
+        stage.innerHTML = html;
+        return;
+      }
+
+      if (!block) { stage.innerHTML = '<p style="color:var(--muted)">No active block</p>'; return; }
+
+      const content = '<p class="eyebrow">Recorded step · ' + esc(block.title) + '</p>' +
+        '<h1>' + esc(session.facts?.problemStatement || block.title) + '</h1>' +
+        (lens ? '<span class="perspective-badge">' + esc(lens.name) + '</span>' : '') +
+        '<p class="prompt">' + esc(block.prompt || lens?.instruction || '') + '</p>' +
+        '<p class="task-intro">Use the playback controls to explore this recorded session.</p>' +
+        (block.type === 'private_input' ? '<p class="privacy-note">Participants are thinking privately. Only their submission status is shown.</p>' : '');
+      stage.innerHTML = WorkspaceUI.shell(data, content);
+      if (!data.clockStatus) stage.querySelector('.clock-state').textContent = 'Countdown not recorded';
+    }
+
+    function showReport() {
+      if (!replay || !replay.report) return;
+      clearTimeout(playTimer);
+      playing = false;
+      playPauseBtn.textContent = 'Play';
+      showingReport = true;
+      stage.innerHTML = '<div class="report-view">' + esc(replay.report) + '</div>' +
+        '<div style="text-align:center;padding:20px"><button class="report-toggle" onclick="initReplay()">Back to Replay</button></div>';
+    }
+
+    // Auto-load from URL
+    if (hashFile) {
+      fetch(hashFile).then(r => r.json()).then(data => {
+        replay = data;
+        initReplay();
+      }).catch(() => {
+        stage.innerHTML = '<p style="color:#d64545">Could not load: ' + esc(hashFile) + '</p>';
+      });
+    }
+  </script>
+</body>
+</html>

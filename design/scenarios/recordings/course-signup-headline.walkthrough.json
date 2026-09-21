@@ -1,0 +1,1197 @@
+{
+  "scenarioId": "course-signup-headline",
+  "title": "Does a clearer course title help?",
+  "tier": "critical-thinking",
+  "methodId": "hypothesis-testing",
+  "methodName": "Hypothesis testing",
+  "walkthroughIntro": {
+    "inOneLine": "Separate the explanation from its predictions, plan a fair test, and decide what the observed results do and do not support.",
+    "bestFor": "An uncertain explanation that can be challenged by observations or a bounded experiment.",
+    "howLong": "31 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "explanations",
+      "name": "Propose competing explanations",
+      "instruction": "Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "predictions",
+      "name": "Make a discriminating prediction",
+      "instruction": "Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "test-plan",
+      "name": "Design the comparison",
+      "instruction": "Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "observations",
+      "name": "Interpret results or record the gap",
+      "instruction": "If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blockSequence": [
+    {
+      "id": "frame",
+      "title": "Agree the question",
+      "type": "frame"
+    },
+    {
+      "id": "explanations-input",
+      "title": "Propose competing explanations",
+      "type": "private_input"
+    },
+    {
+      "id": "explanations-reveal",
+      "title": "Share: propose competing explanations",
+      "type": "reveal"
+    },
+    {
+      "id": "predictions-input",
+      "title": "Make a discriminating prediction",
+      "type": "private_input"
+    },
+    {
+      "id": "predictions-reveal",
+      "title": "Share: make a discriminating prediction",
+      "type": "reveal"
+    },
+    {
+      "id": "test-plan-input",
+      "title": "Design the comparison",
+      "type": "private_input"
+    },
+    {
+      "id": "test-plan-reveal",
+      "title": "Share: design the comparison",
+      "type": "reveal"
+    },
+    {
+      "id": "observations-input",
+      "title": "Interpret results or record the gap",
+      "type": "private_input"
+    },
+    {
+      "id": "observations-reveal",
+      "title": "Share: interpret results or record the gap",
+      "type": "reveal"
+    },
+    {
+      "id": "decide",
+      "title": "Choose the next step",
+      "type": "converge"
+    },
+    {
+      "id": "commit",
+      "title": "Assign the follow-through",
+      "type": "commit"
+    },
+    {
+      "id": "artifact",
+      "title": "Keep the session record",
+      "type": "artifact"
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "blockId": "frame",
+      "blockTitle": "Agree the question",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "frame",
+        "blockType": "frame",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Agree the question",
+        "Prompt: \"State the observation to explain and the practical decision it affects. Separate existing measurements from impressions.\""
+      ]
+    },
+    {
+      "n": 2,
+      "blockId": "explanations-input",
+      "blockTitle": "Propose competing explanations",
+      "lensOrRoleName": "Propose competing explanations",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption.",
+        "whyItMatters": "Competing explanations make the test more informative than a search for agreement."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "explanations-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Propose competing explanations",
+        "Prompt: \"Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption.\""
+      ]
+    },
+    {
+      "n": 3,
+      "blockId": "explanations-input",
+      "blockTitle": "Propose competing explanations",
+      "lensOrRoleName": "Propose competing explanations",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption.",
+        "whyItMatters": "Competing explanations make the test more informative than a search for agreement."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "explanations-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable.",
+            "wordCount": 26
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "The title says only New skills. We do not have evidence that visitors misunderstand it; the low signup count alone cannot distinguish title clarity from price or schedule.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (26 words)",
+        "Seat 2 submitted (28 words)"
+      ]
+    },
+    {
+      "n": 4,
+      "blockId": "explanations-reveal",
+      "blockTitle": "Share: propose competing explanations",
+      "lensOrRoleName": "Propose competing explanations",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Competing explanations make the test more informative than a search for agreement."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "explanations-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: propose competing explanations"
+      ]
+    },
+    {
+      "n": 5,
+      "blockId": "explanations-reveal",
+      "blockTitle": "Share: propose competing explanations",
+      "lensOrRoleName": "Propose competing explanations",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Competing explanations make the test more informative than a search for agreement."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "explanations-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable.",
+            "wordCount": 26
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "The title says only New skills. We do not have evidence that visitors misunderstand it; the low signup count alone cannot distinguish title clarity from price or schedule.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "The title says only New skills. We do not have evidence that visitors misunderstand it; the low signup count alone cannot distinguish title clarity from price or schedule."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 6,
+      "blockId": "predictions-input",
+      "blockTitle": "Make a discriminating prediction",
+      "lensOrRoleName": "Make a discriminating prediction",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction.",
+        "whyItMatters": "A claim needs a possible disappointing result to be meaningfully tested."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "predictions-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Make a discriminating prediction",
+        "Prompt: \"Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction.\""
+      ]
+    },
+    {
+      "n": 7,
+      "blockId": "predictions-input",
+      "blockTitle": "Make a discriminating prediction",
+      "lensOrRoleName": "Make a discriminating prediction",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction.",
+        "whyItMatters": "A claim needs a possible disappointing result to be meaningfully tested."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "predictions-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive.",
+            "wordCount": 31
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "If schedule is the main obstacle, changing only the title may not improve completion. Record optional schedule-related feedback as context, not as a substitute for the signup measure.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (31 words)",
+        "Seat 2 submitted (28 words)"
+      ]
+    },
+    {
+      "n": 8,
+      "blockId": "predictions-reveal",
+      "blockTitle": "Share: make a discriminating prediction",
+      "lensOrRoleName": "Make a discriminating prediction",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A claim needs a possible disappointing result to be meaningfully tested."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "predictions-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: make a discriminating prediction"
+      ]
+    },
+    {
+      "n": 9,
+      "blockId": "predictions-reveal",
+      "blockTitle": "Share: make a discriminating prediction",
+      "lensOrRoleName": "Make a discriminating prediction",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A claim needs a possible disappointing result to be meaningfully tested."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "predictions-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive.",
+            "wordCount": 31
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "If schedule is the main obstacle, changing only the title may not improve completion. Record optional schedule-related feedback as context, not as a substitute for the signup measure.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "If schedule is the main obstacle, changing only the title may not improve completion. Record optional schedule-related feedback as context, not as a substitute for the signup measure."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 10,
+      "blockId": "test-plan-input",
+      "blockTitle": "Design the comparison",
+      "lensOrRoleName": "Design the comparison",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification.",
+        "whyItMatters": "A predeclared comparison reduces the temptation to move the goalposts afterward."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "test-plan-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Design the comparison",
+        "Prompt: \"Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification.\""
+      ]
+    },
+    {
+      "n": 11,
+      "blockId": "test-plan-input",
+      "blockTitle": "Design the comparison",
+      "lensOrRoleName": "Design the comparison",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification.",
+        "whyItMatters": "A predeclared comparison reduces the temptation to move the goalposts afterward."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "test-plan-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change.",
+            "wordCount": 41
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Predeclare a practical threshold of a one-percentage-point improvement and examine uncertainty around the difference. Adopt only if results support an improvement above that threshold; otherwise keep the current title or extend a planned follow-up. Track allocation and technical errors.",
+            "wordCount": 39
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (41 words)",
+        "Seat 2 submitted (39 words)"
+      ]
+    },
+    {
+      "n": 12,
+      "blockId": "test-plan-reveal",
+      "blockTitle": "Share: design the comparison",
+      "lensOrRoleName": "Design the comparison",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A predeclared comparison reduces the temptation to move the goalposts afterward."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "test-plan-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: design the comparison"
+      ]
+    },
+    {
+      "n": 13,
+      "blockId": "test-plan-reveal",
+      "blockTitle": "Share: design the comparison",
+      "lensOrRoleName": "Design the comparison",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A predeclared comparison reduces the temptation to move the goalposts afterward."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "test-plan-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change.",
+            "wordCount": 41
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Predeclare a practical threshold of a one-percentage-point improvement and examine uncertainty around the difference. Adopt only if results support an improvement above that threshold; otherwise keep the current title or extend a planned follow-up. Track allocation and technical errors.",
+            "wordCount": 39
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Predeclare a practical threshold of a one-percentage-point improvement and examine uncertainty around the difference. Adopt only if results support an improvement above that threshold; otherwise keep the current title or extend a planned follow-up. Track allocation and technical errors."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 14,
+      "blockId": "observations-input",
+      "blockTitle": "Interpret results or record the gap",
+      "lensOrRoleName": "Interpret results or record the gap",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome.",
+        "whyItMatters": "A planned test and an observed result are different outputs."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "observations-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Interpret results or record the gap",
+        "Prompt: \"If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome.\""
+      ]
+    },
+    {
+      "n": 15,
+      "blockId": "observations-input",
+      "blockTitle": "Interpret results or record the gap",
+      "lensOrRoleName": "Interpret results or record the gap",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome.",
+        "whyItMatters": "A planned test and an observed result are different outputs."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "observations-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result.",
+            "wordCount": 29
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Results not yet collected. Also log assignment failures and major traffic-source changes. A wide uncertainty range should produce an inconclusive outcome rather than a claim of no effect.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (29 words)",
+        "Seat 2 submitted (28 words)"
+      ]
+    },
+    {
+      "n": 16,
+      "blockId": "observations-reveal",
+      "blockTitle": "Share: interpret results or record the gap",
+      "lensOrRoleName": "Interpret results or record the gap",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A planned test and an observed result are different outputs."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "observations-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: interpret results or record the gap"
+      ]
+    },
+    {
+      "n": 17,
+      "blockId": "observations-reveal",
+      "blockTitle": "Share: interpret results or record the gap",
+      "lensOrRoleName": "Interpret results or record the gap",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A planned test and an observed result are different outputs."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "observations-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result.",
+            "wordCount": 29
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Results not yet collected. Also log assignment failures and major traffic-source changes. A wide uncertainty range should produce an inconclusive outcome rather than a claim of no effect.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Results not yet collected. Also log assignment failures and major traffic-source changes. A wide uncertainty range should produce an inconclusive outcome rather than a claim of no effect."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 18,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Entered: Choose the next step",
+        "Prompt: \"Choose whether to run the test, revise the explanation, or act on existing evidence. State the alternative, prediction, comparison, decision rule, results status and limits.\""
+      ]
+    },
+    {
+      "n": 19,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": {
+          "pass": true,
+          "feedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "attempt": 1
+        },
+        "decision": "Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.",
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Review 1: Ready to act",
+        "The conclusion addresses the required comparisons, evidence and next check."
+      ]
+    },
+    {
+      "n": 20,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": "Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.",
+        "commitment": null,
+        "timerSec": 300,
+        "acceptanceReason": "Scripted demonstration: participants choose to proceed after considering the review."
+      },
+      "newSinceLastStep": [
+        "Decision deliberately accepted",
+        "Scripted demonstration: participants choose to proceed after considering the review."
+      ]
+    },
+    {
+      "n": 21,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Assign the follow-through",
+        "Prompt: \"Choose an owner, first action, due date and observable success signal.\""
+      ]
+    },
+    {
+      "n": 22,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "{\"owner\":\"seat-1\",\"firstAction\":\"Write and review the assignment, measurement and analysis plan\",\"dueDate\":\"2026-10-01\",\"successSignal\":\"The two-week plan records comparison groups, counts, threshold and handling of inconclusive results\"}",
+            "wordCount": 9
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": {
+          "owner": "seat-1",
+          "firstAction": "Write and review the assignment, measurement and analysis plan",
+          "dueDate": "2026-10-01",
+          "successSignal": "The two-week plan records comparison groups, counts, threshold and handling of inconclusive results"
+        },
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (9 words)",
+        "Owner: seat-1",
+        "Action: Write and review the assignment, measurement and analysis plan",
+        "Due: 2026-10-01"
+      ]
+    },
+    {
+      "n": 23,
+      "blockId": "artifact",
+      "blockTitle": "Keep the session record",
+      "lensOrRoleName": "",
+      "phase": "complete",
+      "narration": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      },
+      "state": {
+        "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+        "currentBlockId": "artifact",
+        "blockType": "artifact",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 0
+      },
+      "newSinceLastStep": [
+        "Session complete — report generated"
+      ]
+    }
+  ],
+  "report": "# Session Report: Hypothesis testing\n\n- **Room:** 1F2051\n- **Date:** 2026-09-20\n- **Participants:** 2 participants (anonymous)\n- **Time:** 0 min (budget: 31 min)\n\n## Decision\nRun a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.\n\n## Commitment\n- **Owner:** Seat 1\n- **First action:** Write and review the assignment, measurement and analysis plan\n- **Due:** 2026-10-01\n- **Success signal:** The two-week plan records comparison groups, counts, threshold and handling of inconclusive results\n\n## Outputs by lens\n\n### Propose competing explanations\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable. |\n| Contribution 2 | Seat 2 | The title says only New skills. We do not have evidence that visitors misunderstand it; the low signup count alone cannot distinguish title clarity from price or schedule. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable.\n\n**Seat 2:** The title says only New skills. We do not have evidence that visitors misunderstand it; the low signup count alone cannot distinguish title clarity from price or schedule.\n\n### Make a discriminating prediction\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive. |\n| Contribution 2 | Seat 2 | If schedule is the main obstacle, changing only the title may not improve completion. Record optional schedule-related feedback as context, not as a substitute for the signup measure. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive.\n\n**Seat 2:** If schedule is the main obstacle, changing only the title may not improve completion. Record optional schedule-related feedback as context, not as a substitute for the signup measure.\n\n### Design the comparison\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change. |\n| Contribution 2 | Seat 2 | Predeclare a practical threshold of a one-percentage-point improvement and examine uncertainty around the difference. Adopt only if results support an improvement above that threshold; otherwise keep the current title or extend a planned follow-up. Track allocation and technical errors. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change.\n\n**Seat 2:** Predeclare a practical threshold of a one-percentage-point improvement and examine uncertainty around the difference. Adopt only if results support an improvement above that threshold; otherwise keep the current title or extend a planned follow-up. Track allocation and technical errors.\n\n### Interpret results or record the gap\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result. |\n| Contribution 2 | Seat 2 | Results not yet collected. Also log assignment failures and major traffic-source changes. A wide uncertainty range should produce an inconclusive outcome rather than a claim of no effect. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result.\n\n**Seat 2:** Results not yet collected. Also log assignment failures and major traffic-source changes. A wide uncertainty range should produce an inconclusive outcome rather than a claim of no effect.\n\n## Decision acceptance\nDecision: Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.\nAccepted by: Seat 1\nReason: Scripted demonstration: participants choose to proceed after considering the review.\nRecorded: 2026-09-20T13:24:44.423Z\n\n## Advisory decision reviews\nThese assessments are advice, not guarantees. Verified quotations do not establish sound interpretation.\n\n| Block | Attempts | Final | Exit |\n|-------|----------|-------|------|\n| Choose the next step | 1 | Ready to act | gate |\n\n### Choose the next step — Attempt 1 (Ready to act)\nProposal reviewed: Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.\nConfidence: 90% | The conclusion addresses the required comparisons, evidence and next check.\n\n| Criterion | Score | Concern | Reason | Quotation |\n|-----------|-------|---------|--------|-----------|\n| prediction | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch. |\n| design | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch. |\n| interpretation | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch. |\n\n## How the group worked\n\n**Time to decision:** 0 min\n\n**Participation balance:**\n\n2 seats participated.\n2 seat(s) above 40% share.\n\n**Lens coverage:**\n\n| Lens/Role | Coverage |\n|-----------|----------|\n| Propose competing explanations | substantive |\n| Make a discriminating prediction | substantive |\n| Design the comparison | substantive |\n| Interpret results or record the gap | substantive |\n\n**Model usage:** 5 calls, 0 input tokens, 0 output tokens\n\n---\n\n**30-day follow-up:** Check on 2026-10-01 whether the first action happened.\n"
+}

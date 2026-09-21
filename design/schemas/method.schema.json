@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://session-engine.local/schemas/method.schema.json",
+  "title": "Method",
+  "description": "A facilitation method the engine can run. See design/SPEC.md §2–§6.",
+  "type": "object",
+  "required": ["id", "name", "version", "roleMode", "groupSize", "timing", "blocks"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "roleMode": { "enum": ["rotating", "fixed"] },
+    "groupSize": {
+      "type": "object",
+      "required": ["min", "max"],
+      "properties": { "min": { "type": "integer", "minimum": 2 }, "max": { "type": "integer", "maximum": 12 } }
+    },
+    "timing": {
+      "type": "object",
+      "required": ["totalBudgetSec", "extensionSec", "idleSec", "presenceTimeoutSec"],
+      "properties": {
+        "totalBudgetSec": { "type": "integer" },
+        "extensionSec": { "type": "integer", "default": 60 },
+        "idleSec": { "type": "integer", "default": 90 },
+        "presenceTimeoutSec": { "type": "integer", "default": 120 }
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "anonymous": { "type": "boolean", "default": false, "description": "When true, facilitator UI defaults to anonymous mode." }
+      }
+    },
+    "roles": {
+      "description": "Fixed-mode roles dealt by an assign block. Omit for rotating mode.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/role" }
+    },
+    "lenses": {
+      "description": "Rotating-mode lenses referenced by blocks via lensId.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/lens" }
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/block" }
+    },
+    "walkthroughIntro": {
+      "description": "Short description of the method for walkthrough and site pages.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "inOneLine": { "type": "string" },
+        "bestFor": { "type": "string" },
+        "howLong": { "type": "string" },
+        "origin": { "type": "string" }
+      }
+    },
+    "fallbacks": {
+      "description": "Group-level detour triggers. Rotating-mode only in v1.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/fallback" }
+    }
+  },
+  "$defs": {
+    "role": {
+      "type": "object",
+      "required": ["id", "name", "brief"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "brief": { "type": "string", "description": "Shown to the holder." },
+        "hiddenBrief": { "type": "string", "description": "Shown only to the holder; never revealed to others." }
+      }
+    },
+    "lens": {
+      "type": "object",
+      "required": ["id", "name", "instruction"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "instruction": { "type": "string", "description": "One sentence telling the participant how to think right now." },
+        "colour": { "type": "string" }
+      }
+    },
+    "helper": {
+      "type": "object",
+      "required": ["systemPrompt"],
+      "additionalProperties": false,
+      "properties": {
+        "systemPrompt": { "type": "string" },
+        "hintStyle": { "type": "string", "description": "How the hint step of the stuck ladder should sound." },
+        "examplePool": {
+          "type": "array",
+          "description": "Fictional worked examples for stuck step 2. Never about the group's real problem.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "rubric": {
+      "type": "object",
+      "required": ["passThreshold", "criteria"],
+      "additionalProperties": false,
+      "properties": {
+        "passThreshold": { "type": "number", "description": "Minimum share of max score to pass, 0–1." },
+        "criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "text"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "text": { "type": "string", "description": "Checkable from submitted text alone. Scored 0, 1 or 2." },
+              "weight": { "type": "number", "default": 1 },
+              "scoring": {
+                "type": "object", "required": ["zero", "one", "two"], "additionalProperties": false,
+                "properties": { "zero": { "type": "string", "minLength": 1 }, "one": { "type": "string", "minLength": 1 }, "two": { "type": "string", "minLength": 1 } }
+              }
+            }
+          }
+        },
+        "examples": {
+          "type": "array",
+          "description": "Fictional examples showing the reviewer what a pass and fail look like.",
+          "items": {
+            "type": "object",
+            "required": ["decision", "verdict", "why"],
+            "additionalProperties": false,
+            "properties": {
+              "decision": { "type": "string" },
+              "verdict": { "enum": ["pass", "fail"] },
+              "why": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": ["id", "type", "title", "timeboxSec", "completion"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "type": { "enum": ["frame", "assign", "private_input", "reveal", "converge", "commit", "artifact"] },
+        "title": { "type": "string" },
+        "timeboxSec": { "type": "integer", "minimum": 0 },
+        "completion": { "enum": ["all_submitted", "all_confirmed", "all_agreed", "all_assigned", "reviewer_pass", "valid_form", "auto"] },
+        "lensId": { "type": "string", "description": "Rotating mode: which lens is active for this block." },
+        "prompt": { "type": "string", "description": "What participants are asked, shown on screen." },
+        "sourceBlockId": { "type": "string", "description": "reveal: which private_input block to cluster. converge: which reveals feed the candidate list (comma-separated ids)." },
+        "assignStrategy": { "enum": ["random", "choose", "facilitator"] },
+        "minWords": { "type": "integer", "description": "private_input: below this the submission is flagged token." },
+        "helper": { "$ref": "#/$defs/helper" },
+        "rubric": { "$ref": "#/$defs/rubric" },
+        "stuck": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "idleSec": { "type": "integer" },
+            "enabled": { "type": "boolean", "default": true }
+          }
+        },
+        "ideaBlock": { "type": "boolean", "description": "Marks this block as an idea-generation block for ideas_thin detour trigger." },
+        "walkthrough": {
+          "description": "Narration for the stepped walkthrough player. Describes the mechanic, never the scenario content.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "whatHappens": { "type": "string", "description": "One or two sentences, present tense, plain language." },
+            "whyItMatters": { "type": "string", "description": "One sentence explaining why this step exists." },
+            "watchFor": { "type": "string", "description": "Optional. Points at something on screen the viewer should notice." }
+          }
+        }
+      }
+    },
+    "fallback": {
+      "type": "object",
+      "required": ["trigger", "detourMethodId", "blockIds", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "trigger": { "enum": ["converge_failed_twice", "ideas_thin", "facilitator"] },
+        "detourMethodId": { "type": "string", "description": "Method id to pull detour blocks from." },
+        "blockIds": { "type": "array", "items": { "type": "string" }, "description": "Block ids from the detour method to insert." },
+        "reason": { "type": "string", "description": "Human-readable explanation shown to facilitator." }
+      }
+    }
+  }
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Method</title>
+  <link rel="stylesheet" href="../assets/editorial.css" data-inline="editorial.css">
+</head>
+<body class="method-page">
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand"><span class="brand-mark" aria-hidden="true"></span>Session Engine</a>
+    <div class="nav-links">
+      <a href="index.html">Demo</a>
+      <details class="method-nav"><summary>Methods</summary><div id="methodLinks"></div></details>
+      <a href="start.html" id="navStart" class="button">Start a session</a>
+    </div>
+  </nav>
+  <div id="content"><div class="loading">Loading method...</div></div>
+
+  <script src="../assets/workspace.js" data-inline="workspace.js"></script>
+  <script>
+    (function() {
+      async function loadMethod() {
+        const params = new URLSearchParams(location.search);
+        const methodId = params.get('m');
+        if (!methodId) {
+          document.getElementById('content').innerHTML = '<div class="loading">No method specified. Use ?m=&lt;methodId&gt;</div>';
+          return;
+        }
+
+        const paths = [
+          `methods/${methodId}.json`,
+          `../methods/${methodId}.json`,
+          `../../design/methods/${methodId}.json`,
+        ];
+
+        let method = (window.__METHODS__ || []).find(m => m.id === methodId);
+        for (const path of (method ? [] : paths)) {
+          try {
+            const resp = await fetch(path);
+            if (resp.ok) { method = await resp.json(); break; }
+          } catch (e) { /* try next */ }
+        }
+
+        if (!method) {
+          document.getElementById('content').innerHTML = '<div class="loading">Could not load method file.</div>';
+          return;
+        }
+
+        // Load scenario index to find walkthroughs for this method
+        let scenarios = window.__SCENARIOS__ || [];
+        const scenarioPaths = [
+          'scenarios/index.json',
+          '../scenarios/index.json',
+          '../../design/scenarios/index.json',
+        ];
+        for (const path of (scenarios.length ? [] : scenarioPaths)) {
+          try {
+            const resp = await fetch(path);
+            if (resp.ok) { scenarios = await resp.json(); break; }
+          } catch (e) { /* try next */ }
+        }
+        const methodScenarios = scenarios.filter(s => s.methodId === methodId);
+
+        // Also load all methods for the nav
+        const allMethodIds = [...new Set(scenarios.map(s => s.methodId))];
+        const allMethods = Object.fromEntries((window.__METHODS__ || []).map(m => [m.id, m]));
+        allMethods[methodId] = method;
+        for (const mid of allMethodIds) {
+          if (allMethods[mid]) continue;
+          const mPaths2 = [`methods/${mid}.json`, `../methods/${mid}.json`, `../../design/methods/${mid}.json`];
+          for (const path of mPaths2) {
+            try { const r = await fetch(path); if (r.ok) { allMethods[mid] = await r.json(); break; } } catch(e) {}
+          }
+        }
+
+        // Populate nav method links
+        const navEl = document.getElementById('methodLinks');
+        navEl.innerHTML = allMethodIds.map(mid => {
+          const m = allMethods[mid];
+          const cls = mid === methodId ? ' class="active"' : '';
+          return m ? `<a href="method.html?m=${esc(mid)}"${cls}>${esc(m.name)}</a>` : '';
+        }).join('');
+
+        render(method, methodScenarios);
+      }
+
+      function render(method, scenarios) {
+        document.title = method.name;
+        const intro = method.walkthroughIntro || {};
+        const isRotating = method.roleMode === 'rotating';
+
+        let html = '';
+
+        // Header
+        html += `<div class="header">
+          <h1>${esc(method.name)}</h1>
+          <div class="one-line">${esc(intro.inOneLine || method.description || '')}</div>
+          <div class="meta">
+            ${intro.howLong ? `<span>${esc(intro.howLong)}</span>` : ''}
+            ${intro.bestFor ? `<span>${esc(intro.bestFor)}</span>` : ''}
+          </div>
+        </div>`;
+
+        html += '<div class="container">';
+
+        // Origin
+        if (intro.origin) {
+          html += `<h2>Origin</h2><p style="color:var(--muted);line-height:1.6">${esc(intro.origin)}</p>`;
+        }
+
+        // Lenses or Roles
+        if (isRotating && method.lenses) {
+          html += '<h2>Thinking stages</h2><div class="cards">';
+          for (const lens of method.lenses) {
+            const colour = lens.colour || '#555';
+            html += `<div class="card" style="border-left-color:${esc(colour)}">
+              <div class="card-name">${esc(lens.name)}</div>
+              <div class="card-text">${esc(lens.instruction)}</div>
+            </div>`;
+          }
+          html += '</div>';
+        } else if (method.roles) {
+          html += '<h2>Roles</h2><div class="cards">';
+          for (const role of method.roles) {
+            html += `<div class="card" style="border-left-color:#555">
+              <div class="card-name">${esc(role.name)}</div>
+              <div class="card-text">${esc(role.brief)}</div>
+            </div>`;
+          }
+          html += '</div>';
+        }
+
+        // Block sequence
+        html += '<h2>Session flow</h2><div class="block-seq">';
+        const typeLabels = {
+          frame: 'Frame the problem together',
+          assign: 'Roles are assigned',
+          private_input: 'Everyone writes privately',
+          reveal: 'Read the responses together',
+          converge: 'Choose and check a decision',
+          commit: 'One person commits to act',
+          artifact: 'Report generated',
+        };
+        for (let i = 0; i < method.blocks.length; i++) {
+          const b = method.blocks[i];
+          html += `<div class="block-step">
+            <div class="step-num">${i + 1}</div>
+            <div class="step-body">
+              <div class="step-title">${esc(b.title)}</div>
+              <div class="step-type">${esc(typeLabels[b.type] || b.type)}</div>
+            </div>
+          </div>`;
+        }
+        html += '</div>';
+
+        // AI note
+        const hasReviewer = method.blocks.some(b => b.rubric);
+        const hasClustering = method.blocks.some(b => b.type === 'reveal');
+        const hasHelper = method.blocks.some(b => b.helper);
+
+        let aiDoes = [];
+        if (hasClustering) aiDoes.push('clusters what you wrote by theme and highlights where people agree and disagree');
+        if (hasReviewer) aiDoes.push('offers advisory feedback against a rubric, with reasons you can inspect');
+        if (hasHelper) aiDoes.push('coaches you privately if you are stuck on a block');
+
+        html += '<div class="ai-note"><h3>What the AI does and does not do</h3>';
+        html += `<p>When configured, AI ${aiDoes.join(', and ')}. You decide whether to proceed, and can record why you accept unresolved concerns. Solo sessions also work without AI using a self-check.</p>`;
+        html += '</div>';
+
+        // Walkthrough links
+        if (scenarios.length > 0) {
+          html += '<h2>Try a walkthrough</h2><ul class="wt-links">';
+          for (const s of scenarios) {
+            html += `<li><a href="walkthroughs/${esc(s.id)}.html">${esc(s.title)}</a><span class="wt-meta">${esc(s.tier)}</span></li>`;
+          }
+          html += '</ul>';
+        }
+
+        // "Run this" button — shown when engine is detected
+        html += '<div id="runBtnSlot"></div>';
+
+        html += '</div>';
+
+        document.getElementById('content').innerHTML = html;
+
+        // Detect engine and show run button + nav Start link
+        fetch('/api/health').then(r => { if (r.ok) {
+          const slot = document.getElementById('runBtnSlot');
+          if (slot) slot.innerHTML = '<a class="button run-btn" href="start.html?method=' + esc(method.id) + '">Run this on your problem</a>';
+          const navStart = document.getElementById('navStart');
+          if (navStart) navStart.style.display = '';
+        }}).catch(() => {});
+      }
+
+      function esc(s) {
+        if (!s) return '';
+        const d = document.createElement('div');
+        d.textContent = String(s);
+        return d.innerHTML;
+      }
+
+      loadMethod();
+    })();
+  </script>
+</body>
+</html>

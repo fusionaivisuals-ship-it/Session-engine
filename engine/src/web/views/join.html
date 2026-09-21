@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Session</title>
+  <link rel="stylesheet" href="../assets/editorial.css" data-inline="editorial.css">
+</head>
+<body class="workspace-page">
+  <a class="skip-link" href="#task">Skip to task</a>
+  <header class="site-nav workspace-header"><a class="nav-brand" href="/"> <span class="brand-mark" aria-hidden="true"></span>Session Engine</a><div class="header-context"><span>Participant workspace</span>  <div class="conn-indicator" id="connIndicator" style="display:none">
+    <span class="conn-dot" id="connDot"></span>
+    <span id="connLabel"></span>
+  </div></div></header>
+  <div id="joinForm">
+    <h1>Join Session</h1>
+    <div class="form-group">
+      <label for="nameInput">Your name</label>
+      <input id="nameInput" type="text" placeholder="Display name" autofocus>
+    </div>
+    <button onclick="doJoin()">Join</button>
+    <div id="joinError" style="color:red;margin-top:8px"></div>
+  </div>
+  <div id="app" class="hidden"></div>
+
+  <script src="../assets/workspace.js" data-inline="workspace.js"></script>
+  <script>
+    const roomCode = location.pathname.split('/').pop();
+    let mySeat = new URLSearchParams(location.search).get('seat');
+    let ws = null;
+    let currentState = null;
+    let stuckData = null; // last stuck result from API
+    let typingInterval = null;
+
+    async function doJoin() {
+      const name = document.getElementById('nameInput').value.trim();
+      if (!name) return;
+      try {
+        const res = await fetch(`/api/sessions/${roomCode}/join`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ displayName: name })
+        });
+        const data = await res.json();
+        if (data.error) { document.getElementById('joinError').textContent = data.error; return; }
+        mySeat = data.seat;
+        document.getElementById('joinForm').classList.add('hidden');
+        document.getElementById('app').classList.remove('hidden');
+        connectWS();
+      } catch (e) {
+        document.getElementById('joinError').textContent = e.message;
+      }
+    }
+
+    let reconnectDelay = 1000;
+    let heartbeatTimer = null;
+    let draftText = '';
+    let draftBlockId = null;
+    let draftRevision = 0;
+    let draftSaveStatus = 'Draft empty';
+    function updateSaveStatus() { const status = document.getElementById('draftStatus'); if (status) status.textContent = draftSaveStatus; }
+    let rttMs = 0;
+
+    function updateConnQuality() {
+      const label = document.getElementById('connLabel');
+      if (!label || reconnectDelay > 1000) return; // only show when connected
+      if (rttMs < 200) label.textContent = 'Connected';
+      else if (rttMs < 600) label.textContent = 'Fair (' + rttMs + 'ms)';
+      else label.textContent = 'Poor (' + rttMs + 'ms)';
+    }
+
+    function setConnStatus(state) {
+      const ind = document.getElementById('connIndicator');
+      const dot = document.getElementById('connDot');
+      const label = document.getElementById('connLabel');
+      ind.style.display = 'flex';
+      dot.className = 'conn-dot ' + state;
+      label.textContent = state === 'connected' ? 'Connected' : state === 'reconnecting' ? 'Reconnecting...' : 'Disconnected';
+    }
+
+    function connectWS() {
+      const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+      ws = new WebSocket(`${proto}//${location.host}?room=${roomCode}&seat=${mySeat}`);
+      setConnStatus('reconnecting');
+
+      ws.onopen = () => {
+        reconnectDelay = 1000;
+        setConnStatus('connected');
+        if (draftText) flushDraft();
+        // Restore draft if textarea exists
+        if (draftText) {
+          const el = document.getElementById('inputText');
+          if (el && !el.value) el.value = draftText;
+        }
+      };
+      ws.onmessage = (e) => {
+        const msg = JSON.parse(e.data);
+        if (msg.type === 'clock') { renderClock(msg); return; }
+        if (msg.type === 'draft_saved') {
+          if (msg.blockId === draftBlockId && msg.revision === draftRevision) {
+            draftSaveStatus = msg.saved ? 'All changes saved' : 'Draft not saved — session is not accepting input';
+            updateSaveStatus();
+          }
+          return;
+        }
+        if (msg.type === 'time') {
+          const now = Date.now();
+          // Send ping to measure RTT
+          ws.send(JSON.stringify({ type: 'ping', clientMs: now }));
+        } else if (msg.type === 'pong') {
+          rttMs = Date.now() - msg.clientMs;
+          updateConnQuality();
+        } else if (msg.type === 'state') {
+          const nextBlockId = msg.data.session.currentBlockId;
+          if (draftBlockId !== nextBlockId) {
+            draftText = msg.data.session.blocks[nextBlockId]?.drafts?.[mySeat] || '';
+            draftBlockId = nextBlockId;
+            draftRevision++;
+            draftSaveStatus = draftText ? 'All changes saved' : 'Draft empty';
+            stuckData = null;
+          } else {
+            const input = document.getElementById('inputText');
+            if (input) draftText = input.value;
+          }
+          currentState = msg.data; render();
+        }
+      };
+      ws.onclose = () => {
+        // Save draft before reconnect
+        const el = document.getElementById('inputText');
+        if (el && el.value) draftText = el.value;
+        setConnStatus(reconnectDelay >= 30000 ? 'disconnected' : 'reconnecting');
+        draftSaveStatus = 'Offline — keep this tab open';
+        updateSaveStatus();
+        setTimeout(connectWS, reconnectDelay);
+        reconnectDelay = Math.min(reconnectDelay * 2, 30000);
+      };
+      ws.onerror = () => {}; // onclose fires after onerror
+
+      if (!heartbeatTimer) {
+        heartbeatTimer = setInterval(() => {
+          if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ type: 'heartbeat' }));
+          }
+        }, 10000);
+      }
+    }
+
+
+    function renderClock(message) { WorkspaceUI.updateClock(message); }
+
+    function fmt(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.round(sec % 60);
+      return `${m}:${String(s).padStart(2, '0')}`;
+    }
+
+    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+
+    function render() {
+      if (!currentState) return;
+      const { session, block, method } = currentState;
+      const app = document.getElementById('app');
+      const restore = WorkspaceUI.preserveForm(app, block?.id || session.status);
+      if (session.status === 'lobby') {
+        app.innerHTML = `<main class="completion-card" id="task"><p class="eyebrow">Room ${esc(roomCode)}</p><h1>Waiting to begin.</h1><p>${session.participants.length} participant(s) have joined. Your facilitator will start the session.</p></main>`;
+        return;
+      }
+      if (session.status === 'complete') {
+        app.innerHTML = `<main class="completion-card" id="task"><p class="eyebrow">A clear next step</p><h1>Session Complete</h1><p class="muted">Your thinking and commitment are ready to take forward.</p>${WorkspaceUI.decisionRecord(session)}<div class="controls"><a class="button" href="/api/sessions/${roomCode}/report">Download Report</a><a class="button secondary" href="/api/sessions/${roomCode}/report?kind=onepager">Download One-pager</a></div></main>`;
+        return;
+      }
+      if (!block) { app.innerHTML = '<p class="loading">Waiting for the next step…</p>'; return; }
+      const record = session.blocks[block.id] || {};
+      let html = WorkspaceUI.heading(currentState, mySeat);
+      if (block.type === 'private_input' || block.type === 'converge') html += renderEarlierRounds(session, method, block);
+      const renderers = { frame: renderFrame, assign: renderAssign, private_input: renderPrivateInput, reveal: renderReveal, converge: renderConverge, commit: renderCommit };
+      html += renderers[block.type] ? renderers[block.type](block, record, session) : '<p>Preparing your record…</p>';
+      if (block.type === 'private_input') html += '<p class="privacy-note">Your response stays private until this round ends and the answers are revealed.</p>';
+      app.innerHTML = WorkspaceUI.shell(currentState, html, mySeat);
+      const input = document.getElementById('inputText');
+      if (input) { input.value = draftText; input.disabled = session.status === 'paused'; }
+      restore();
+      updateWC();
+      updateSaveStatus();
+    }
+
+    function renderEarlierRounds(session, method, currentBlock) {
+      const earlier = method.blocks.slice(0, method.blocks.findIndex(b => b.id === currentBlock.id))
+        .filter(b => b.type === 'reveal' && session.blocks[b.id]?.exitedAt);
+      if (!earlier.length) return '';
+      let html = '<details class="earlier-rounds"><summary>Review earlier rounds</summary>';
+      for (const previous of earlier) {
+        const record = session.blocks[previous.id];
+        html += `<h3>${esc(previous.title)}</h3>`;
+        html += WorkspaceUI.themes(session, previous, record);
+      }
+      return html + '</details>';
+    }
+
+    function renderFrame(block, record, session) {
+      const agreed = (record.confirmations || []).includes(mySeat);
+      const stmt = session.facts.problemStatement || '(Facilitator is writing the problem statement...)';
+      let h = `<div class="prompt">${esc(block.prompt || '')}</div>`;
+      h += `<div class="problem-display">${esc(stmt)}</div>`;
+      if (agreed) {
+        h += `<button disabled>Agreed</button>`;
+      } else if (session.facts.problemStatement) {
+        h += `<button onclick="doAgree()">I agree with this</button>`;
+      }
+      const active = session.participants.filter(p => p.presence !== 'absent').length;
+      h += `<p class="info">Agreed: ${(record.confirmations || []).length}/${active}</p>`;
+      return h;
+    }
+
+    function renderAssign(block, record, session) {
+      const me = session.participants.find(p => p.seat === mySeat);
+      const method = currentState.method;
+      const roles = method?.roles || [];
+      let h = '';
+
+      if (me?.roleId) {
+        const myRole = roles.find(r => r.id === me.roleId);
+        h += `<div class="prompt"><strong>Your role:</strong> ${esc(myRole?.name || me.roleId)}</div>`;
+        h += `<p>${esc(myRole?.brief || '')}</p>`;
+        if (myRole?.hiddenBrief) {
+          h += `<p style="background:#fefcbf;padding:8px;border-radius:4px"><em>${esc(myRole.hiddenBrief)}</em></p>`;
+        }
+        h += `<p class="info">Waiting for all roles to be assigned...</p>`;
+      } else if (block.assignStrategy === 'choose') {
+        const takenRoles = new Set(session.participants.filter(p => p.roleId).map(p => p.roleId));
+        const available = roles.filter(r => !takenRoles.has(r.id));
+        h += `<p>Choose your role:</p>`;
+        for (const r of available) {
+          h += `<button onclick="doChooseRole('${r.id}')" style="display:block;margin-bottom:4px">${esc(r.name)}: ${esc(r.brief)}</button>`;
+        }
+      } else {
+        h += `<p class="info">Roles are being assigned...</p>`;
+      }
+
+      const assigned = session.participants.filter(p => p.roleId).length;
+      const active = session.participants.filter(p => p.presence !== 'absent').length;
+      h += `<p class="info">Assigned: ${assigned}/${active}</p>`;
+      return h;
+    }
+
+    function renderPrivateInput(block, record) {
+      const submitted = (record.submissions || []).some(s => s.seat === mySeat);
+      let h = `<div class="prompt">${esc(block.prompt || '')}</div>`;
+      if (submitted) {
+        const mySub = (record.submissions || []).find(s => s.seat === mySeat);
+        h += `<p class="info">${mySub?.passed ? 'Passed' : 'Submitted'}! (${mySub?.wordCount || 0} words)</p>`;
+      } else {
+        h += `<label for="inputText">Your thoughts</label><textarea id="inputText" maxlength="4000" aria-describedby="draftStatus wc" oninput="updateWC(); sendTyping()" placeholder="Start with what you notice. There is room to work it through."></textarea>`;
+        h += `<div class="writing-meta"><span id="draftStatus" role="status" aria-live="polite">Draft empty</span><span class="word-count" id="wc">0 words</span></div>`;
+        h += `<div class="writing-actions"><button class="secondary" onclick="doStuck()">I’m stuck</button><button onclick="doSubmit()">Submit my thoughts <span aria-hidden="true">→</span></button></div>`;
+        // Show stuck ladder result
+        if (stuckData) {
+          h += `<section class="help-options"><h3>A little help, if useful</h3><p>Choose one option, or return to writing. There is no required sequence.</p><div class="controls"><button class="secondary" onclick="requestHelp('hint')" ${currentState.modelConfigured ? '' : 'disabled'}>Ask one question</button><button class="secondary" onclick="requestHelp('example')">Show an example</button><button class="secondary" onclick="requestHelp('${currentState.method.roleMode === 'fixed' && currentState.session.mode !== 'solo' ? 'swap' : 'pass'}')">Other options</button><button class="secondary" onclick="backToWriting()">Back to writing</button></div>${currentState.modelConfigured ? '' : '<p class="info">Personalized questions need AI. Built-in examples and writing are available.</p>'}</section>`;
+          if (stuckData.step === 'hint' && stuckData.hint) {
+            h += `<div class="stuck-msg hint"><strong>Hint:</strong> ${esc(stuckData.hint)}</div>`;
+          } else if (stuckData.step === 'example' && stuckData.example) {
+            h += `<div class="stuck-msg example"><strong>Example:</strong> ${esc(stuckData.example)}</div>`;
+          } else if (stuckData.step === 'swap' && stuckData.swapForm) {
+            const others = currentState.session.participants.filter(p => p.seat !== mySeat && p.presence !== 'absent');
+            const method = currentState.method;
+            const roles = method?.roles || [];
+            h += `<div class="stuck-msg pass-form">
+              <p><strong>Swap roles?</strong> Pick a partner to swap with (one swap per person per session).</p>
+              <label for="swapPartner">Swap partner</label><select id="swapPartner" style="margin:8px 0;width:100%;padding:8px;border:1px solid #ccc;border-radius:4px">
+                ${others.map(p => {
+                  const r = roles.find(rr => rr.id === p.roleId);
+                  return `<option value="${p.seat}">${esc(p.displayName)}${r ? ' (' + esc(r.name) + ')' : ''}</option>`;
+                }).join('')}
+              </select>
+              <button class="danger" onclick="doSwap()">Swap</button>
+            </div>`;
+          } else if (stuckData.step === 'pass' && stuckData.passForm) {
+            h += `<div class="stuck-msg pass-form">
+              <p><strong>Still stuck?</strong> You can pass this round.</p>
+              <label for="passReason">Reason for passing</label><input id="passReason" type="text" placeholder="Brief reason for passing..." style="margin:8px 0;width:100%;padding:8px;border:1px solid #ccc;border-radius:4px">
+              <button class="danger" onclick="doPass()">Pass</button>
+            </div>`;
+          } else if (stuckData.step === 'facilitator') {
+            h += `<div class="stuck-msg flag"><strong>Flagged for facilitator.</strong> They have been notified and will help you shortly.</div>`;
+          }
+        }
+      }
+      return h;
+    }
+
+    function renderReveal(block, record, session) {
+      const confirmed = (record.confirmations || []).includes(mySeat);
+      const sourceBlockId = block.sourceBlockId;
+      const sourceRecord = sourceBlockId ? session.blocks[sourceBlockId] : null;
+      const subs = sourceRecord?.submissions || [];
+      const reveal = record.reveal || {};
+      let h = '';
+
+      h += WorkspaceUI.themes(session, block, record);
+
+      if (confirmed) {
+        h += `<button disabled>Read</button>`;
+      } else {
+        h += `<button onclick="doConfirm()">I've read this</button>`;
+      }
+      const active = session.participants.filter(p => p.presence !== 'absent').length;
+      h += `<p class="info">Confirmed: ${(record.confirmations || []).length}/${active}</p>`;
+      return h;
+    }
+
+    function renderConverge(block, record, session) {
+      let h = `<div class="prompt">${esc(block.prompt || '')}</div>`;
+      h += renderVoting(record, session, block);
+      // Show source reveal clusters
+      const sourceIds = (block.sourceBlockId || '').split(',').map(s => s.trim());
+      for (const sid of sourceIds) {
+        const sr = session.blocks[sid];
+        if (sr?.reveal?.clusters) {
+          const revealBlock = currentState.method.blocks.find(b => b.id === sid);
+          if (revealBlock) h += WorkspaceUI.themes(session, revealBlock, sr);
+        }
+      }
+
+      // Decision input
+      if (record.decision) {
+        h += `<p><strong>Current decision:</strong> ${esc(record.decision)}</p>`;
+      }
+      h += `<label for="decisionText">Your proposed decision</label><textarea id="decisionText" placeholder="Propose a decision...">${esc(record.decision || '')}</textarea>`;
+      h += `<button onclick="doDecision()" ${record.votes?.[mySeat] ? 'disabled' : ''}>Vote for Decision</button>`;
+      if (session.mode === 'solo' && !currentState.modelConfigured) {
+        h += '<fieldset><legend>Check your decision against the rubric</legend>';
+        for (const criterion of block.rubric?.criteria || []) {
+          h += `<label style="display:block"><input type="checkbox" id="selfCheck-${esc(criterion.id)}" name="selfCheck" value="${esc(criterion.id)}"> ${esc(criterion.text)}</label>`;
+        }
+        h += `<button onclick="doSelfCheck()" ${record.decision ? '' : 'disabled'}>Confirm self-check and continue</button></fieldset>`;
+      } else if (currentState.modelConfigured) {
+        h += `<button class="secondary" onclick="doReview()" ${record.decision ? '' : 'disabled'}>Request Review</button>`;
+      } else h += '<p class="info">AI review is unavailable. The facilitator can proceed with a recorded reason.</p>';
+
+      h += WorkspaceUI.review(record, block);
+      if (session.mode === 'solo' || mySeat === session.facilitatorSeat) h += WorkspaceUI.acceptance(record);
+      else h += '<p class="info">The facilitator records the group decision to proceed.</p>';
+
+      return h;
+    }
+
+    function renderCommit(block, record, session) {
+      const submitted = session.facts.commitment != null;
+      if (submitted) {
+        const c = session.facts.commitment;
+        return `<p class="info">Commitment submitted!</p>
+          <p><strong>Owner:</strong> ${esc(c.owner)}</p>
+          <p><strong>Action:</strong> ${esc(c.firstAction)}</p>
+          <p><strong>Due:</strong> ${esc(c.dueDate)}</p>
+          <p><strong>Success signal:</strong> ${esc(c.successSignal)}</p>`;
+      }
+      let h = `<div class="prompt">${esc(block.prompt || '')}</div>`;
+      h += `<div class="form-group"><label for="commitOwner">Owner</label>
+        <select id="commitOwner">${session.participants.map(p =>
+          `<option value="${esc(p.seat)}">${esc(p.displayName)}</option>`).join('')}
+        </select></div>`;
+      h += `<div class="form-group"><label for="commitAction">First concrete action</label><input id="commitAction" type="text"></div>`;
+      h += `<div class="form-group"><label for="commitDate">Due date</label><input id="commitDate" type="date"></div>`;
+      h += `<div class="form-group"><label for="commitSignal">How you'll know it worked</label><input id="commitSignal" type="text"></div>`;
+      h += `<button onclick="doCommit()">Submit Commitment</button>`;
+      return h;
+    }
+
+    function isLight(hex) {
+      if (!hex) return true;
+      hex = hex.replace('#', '');
+      const r = parseInt(hex.substr(0, 2), 16);
+      const g = parseInt(hex.substr(2, 2), 16);
+      const b = parseInt(hex.substr(4, 2), 16);
+      return (r * 299 + g * 587 + b * 114) / 1000 > 128;
+    }
+
+    function updateWC() {
+      const el = document.getElementById('inputText');
+      if (!el) return;
+      const words = el.value.trim().split(/\s+/).filter(Boolean).length;
+      document.getElementById('wc').textContent = `${words} words`;
+    }
+
+    async function doAgree() {
+      await postAction('agree', { seat: mySeat });
+    }
+
+    async function doSubmit() {
+      const text = document.getElementById('inputText')?.value || '';
+      await postAction('submit', { seat: mySeat, text });
+    }
+
+    async function doConfirm() {
+      await postAction('confirm', { seat: mySeat });
+    }
+
+    function doStuck() { stuckData = { step: 'menu' }; render(); }
+    function backToWriting() { stuckData = null; render(); document.getElementById('inputText')?.focus(); }
+    async function doAcceptDecision() { await postAction('accept-decision', { seat: mySeat, reason: document.getElementById('proceedReason')?.value || '' }); }
+    async function requestHelp(step) {
+      const res = await fetch(`/api/sessions/${roomCode}/stuck`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ seat: mySeat, step })
+      });
+      const data = await res.json();
+      if (data.error) alert(data.error);
+      if (data.stuck) stuckData = data.stuck;
+      render();
+    }
+
+    async function doSwap() {
+      const partner = document.getElementById('swapPartner')?.value;
+      if (!partner) { alert('Pick a partner'); return; }
+      const res = await fetch(`/api/sessions/${roomCode}/swap`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ seatA: mySeat, seatB: partner })
+      });
+      const data = await res.json();
+      if (data.error) alert(data.error);
+      stuckData = null;
+    }
+
+    async function doPass() {
+      const reason = document.getElementById('passReason')?.value || '';
+      if (!reason.trim()) { alert('Please give a brief reason'); return; }
+      await postAction('pass', { seat: mySeat, reason });
+      stuckData = null;
+    }
+
+    let lastTypingSent = 0;
+    let draftSendTimer = null;
+    function sendTyping() {
+      draftText = document.getElementById('inputText')?.value || '';
+      draftRevision++;
+      draftSaveStatus = ws?.readyState === WebSocket.OPEN ? 'Saving…' : 'Offline — keep this tab open';
+      updateSaveStatus();
+      clearTimeout(draftSendTimer);
+      const delay = Math.max(0, 5000 - (Date.now() - lastTypingSent));
+      draftSendTimer = setTimeout(flushDraft, delay);
+    }
+
+    function flushDraft() {
+      if (!draftBlockId || currentState?.block?.type !== 'private_input') return;
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        lastTypingSent = Date.now();
+        ws.send(JSON.stringify({ type: 'typing', blockId: draftBlockId, text: draftText, revision: draftRevision }));
+      }
+    }
+
+    function renderVoting(record, session, block) {
+      const tally = Object.create(null);
+      for (const choice of Object.values(record.votes || {})) tally[choice] = (tally[choice] || 0) + 1;
+      let html = '<ul>' + Object.entries(tally).map(([choice, count]) => `<li>${esc(choice)}: ${count} vote(s)</li>`).join('') + '</ul>';
+      const candidates = (block.sourceBlockId || '').split(',').flatMap(id => session.blocks[id.trim()]?.reveal?.clusters || []);
+      html += `<label>Candidate <select id="candidate" onchange="document.getElementById('decisionText').value=this.value"><option value="">Write your own option</option>`;
+      html += candidates.map(c => `<option value="${esc(c.label)}">${esc(c.label)}</option>`).join('') + '</select></label>';
+      if (mySeat === session.facilitatorSeat) html += '<button class="secondary" onclick="doResetVotes()">Start a new vote</button>';
+      return html;
+    }
+
+    async function postAction(action, data = {}) {
+      const response = await fetch(`/api/sessions/${roomCode}/${action}`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+      });
+      const result = await response.json();
+      if (!response.ok) { alert(result.error || 'Request failed'); return null; }
+      return result;
+    }
+    async function doSelfCheck() {
+      const checked = Array.from(document.querySelectorAll('input[name="selfCheck"]:checked'), el => el.value);
+      await postAction('self-check', { seat: mySeat, checked });
+    }
+    async function doResetVotes() { await postAction('reset-votes', { seat: mySeat }); }
+
+    async function doChooseRole(roleId) {
+      await postAction('assign-choose', { seat: mySeat, roleId });
+    }
+
+    async function doDecision() {
+      const text = document.getElementById('decisionText')?.value || '';
+      await postAction('decision', { seat: mySeat, decision: text });
+    }
+
+    async function doReview() {
+      const res = await fetch(`/api/sessions/${roomCode}/review`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }
+      });
+      const data = await res.json();
+      if (data.error) alert(data.error);
+    }
+
+    async function doCommit() {
+      const owner = document.getElementById('commitOwner')?.value;
+      const firstAction = document.getElementById('commitAction')?.value;
+      const dueDate = document.getElementById('commitDate')?.value;
+      const successSignal = document.getElementById('commitSignal')?.value;
+      await postAction('commitment', { seat: mySeat, owner, firstAction, dueDate, successSignal });
+    }
+    if (mySeat) {
+      document.getElementById('joinForm').classList.add('hidden');
+      document.getElementById('app').classList.remove('hidden');
+      connectWS();
+    }
+  </script>
+</body>
+</html>

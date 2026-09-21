@@ -1,0 +1,294 @@
+{
+  "id": "hypothesis-testing",
+  "name": "Hypothesis testing",
+  "version": "2.0.0",
+  "description": "Separate the explanation from its predictions, plan a fair test, and decide what the observed results do and do not support.",
+  "roleMode": "rotating",
+  "groupSize": {
+    "min": 2,
+    "max": 6
+  },
+  "timing": {
+    "totalBudgetSec": 1860,
+    "extensionSec": 60,
+    "idleSec": 90,
+    "presenceTimeoutSec": 120
+  },
+  "walkthroughIntro": {
+    "inOneLine": "Separate the explanation from its predictions, plan a fair test, and decide what the observed results do and do not support.",
+    "bestFor": "An uncertain explanation that can be challenged by observations or a bounded experiment.",
+    "howLong": "31 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "explanations",
+      "name": "Propose competing explanations",
+      "instruction": "Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "predictions",
+      "name": "Make a discriminating prediction",
+      "instruction": "Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "test-plan",
+      "name": "Design the comparison",
+      "instruction": "Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "observations",
+      "name": "Interpret results or record the gap",
+      "instruction": "If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "frame",
+      "type": "frame",
+      "title": "Agree the question",
+      "timeboxSec": 180,
+      "completion": "all_agreed",
+      "prompt": "State the observation to explain and the practical decision it affects. Separate existing measurements from impressions.",
+      "walkthrough": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      }
+    },
+    {
+      "id": "explanations-input",
+      "type": "private_input",
+      "title": "Propose competing explanations",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "explanations",
+      "prompt": "Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Does a clearer course title help?: Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Write one tentative explanation and an alternative. State what is already observed and which part is still an assumption.",
+        "whyItMatters": "Competing explanations make the test more informative than a search for agreement."
+      }
+    },
+    {
+      "id": "explanations-reveal",
+      "type": "reveal",
+      "title": "Share: propose competing explanations",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "explanations",
+      "sourceBlockId": "explanations-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Competing explanations make the test more informative than a search for agreement."
+      }
+    },
+    {
+      "id": "predictions-input",
+      "type": "private_input",
+      "title": "Make a discriminating prediction",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "predictions",
+      "prompt": "Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Does a clearer course title help?: Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Predict an observable difference if your explanation is useful. Name the measure, expected direction and a result that would weaken the explanation. Compare the alternative prediction.",
+        "whyItMatters": "A claim needs a possible disappointing result to be meaningfully tested."
+      }
+    },
+    {
+      "id": "predictions-reveal",
+      "type": "reveal",
+      "title": "Share: make a discriminating prediction",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "predictions",
+      "sourceBlockId": "predictions-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A claim needs a possible disappointing result to be meaningfully tested."
+      }
+    },
+    {
+      "id": "test-plan-input",
+      "type": "private_input",
+      "title": "Design the comparison",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "test-plan",
+      "prompt": "Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Does a clearer course title help?: Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Describe the comparison, assignment or sampling approach, measurement window and decision rule chosen before seeing results. Identify confounders and limits. Use a safe, proportionate test; do not claim a sample is adequate without justification.",
+        "whyItMatters": "A predeclared comparison reduces the temptation to move the goalposts afterward."
+      }
+    },
+    {
+      "id": "test-plan-reveal",
+      "type": "reveal",
+      "title": "Share: design the comparison",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "test-plan",
+      "sourceBlockId": "test-plan-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A predeclared comparison reduces the temptation to move the goalposts afterward."
+      }
+    },
+    {
+      "id": "observations-input",
+      "type": "private_input",
+      "title": "Interpret results or record the gap",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "observations",
+      "prompt": "If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Does a clearer course title help?: Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: If results exist, record the raw counts or observations, compare them with the prediction and describe uncertainty. If the test has not run, write \"Results not yet collected\" and identify what to collect; do not invent an outcome.",
+        "whyItMatters": "A planned test and an observed result are different outputs."
+      }
+    },
+    {
+      "id": "observations-reveal",
+      "type": "reveal",
+      "title": "Share: interpret results or record the gap",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "observations",
+      "sourceBlockId": "observations-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A planned test and an observed result are different outputs."
+      }
+    },
+    {
+      "id": "decide",
+      "type": "converge",
+      "title": "Choose the next step",
+      "timeboxSec": 300,
+      "completion": "reviewer_pass",
+      "prompt": "Choose whether to run the test, revise the explanation, or act on existing evidence. State the alternative, prediction, comparison, decision rule, results status and limits.",
+      "sourceBlockId": "explanations-reveal,predictions-reveal,test-plan-reveal,observations-reveal",
+      "rubric": {
+        "passThreshold": 0.8,
+        "criteria": [
+          {
+            "id": "prediction",
+            "text": "The explanation, an alternative and a potentially disconfirming prediction are stated.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No testable prediction or competing explanation is stated.",
+              "one": "An explanation and prediction are given, but no alternative or disconfirming result is specified.",
+              "two": "An explanation, alternative, and result that would count against the explanation are explicit."
+            }
+          },
+          {
+            "id": "design",
+            "text": "The test names its comparison, measure, window and predeclared decision rule.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No usable test is described, e.g. see if it improves.",
+              "one": "A measure is named but comparison, observation window, or decision rule is missing.",
+              "two": "Comparison, measure, observation window and a decision rule set before the test are all explicit."
+            }
+          },
+          {
+            "id": "interpretation",
+            "text": "The conclusion distinguishes observed results from uncollected data and limits its claim accordingly.",
+            "weight": 1,
+            "scoring": {
+              "zero": "Uncollected outcomes are treated as observed, or the conclusion contradicts recorded results.",
+              "one": "The conclusion acknowledges uncertainty but blurs observed and planned results or overgeneralizes.",
+              "two": "Actual observations are separated from uncollected data, with conclusions limited to the tested conditions; a planned test claims no result yet."
+            }
+          }
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      }
+    },
+    {
+      "id": "commit",
+      "type": "commit",
+      "title": "Assign the follow-through",
+      "timeboxSec": 180,
+      "completion": "valid_form",
+      "prompt": "Choose an owner, first action, due date and observable success signal.",
+      "walkthrough": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      }
+    },
+    {
+      "id": "artifact",
+      "type": "artifact",
+      "title": "Keep the session record",
+      "timeboxSec": 0,
+      "completion": "auto",
+      "walkthrough": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      }
+    }
+  ],
+  "fallbacks": [
+    {
+      "trigger": "facilitator",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    },
+    {
+      "trigger": "converge_failed_twice",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    }
+  ]
+}

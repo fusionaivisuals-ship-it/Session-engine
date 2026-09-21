@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`report snapshot: full report for fixture manifest 1`] = `
+"# Session Report: Test Method
+
+- **Room:** SNAP01
+- **Date:** 2026-09-17
+- **Participants:** Alice, Bob, Carol
+- **Time:** 30 min (budget: 60 min)
+
+## Decision
+We will pursue option A because it addresses the top risk identified.
+
+## Commitment
+- **Owner:** Alice
+- **First action:** Schedule a meeting with the bottleneck team
+- **Due:** 2026-10-01
+- **Success signal:** Meeting held and action items assigned
+
+## Outputs by lens
+
+### Alpha — facts
+
+| Cluster | Seats | Summary |
+|---------|-------|---------|
+| Data-driven approach | Alice, Bob | Both emphasized verifiable data |
+
+**Disagreements:** Alice focused on numbers, Bob on process
+
+Themes are not consensus. Original responses, including minority views:
+
+**Alice:** Alice wrote a long thoughtful analysis about the alpha facts lens here
+
+**Bob:** Bob also contributed his perspective on the facts
+
+**Carol:** (passed)
+
+### Beta — risks
+
+| Seat | Submission |
+|------|-----------|
+| Alice | Alice wrote even more here about risks and concerns and potential problems and failure modes and edge cases and all the things that could go wrong |
+| Bob | Bob wrote a bit about risk |
+| Carol | *(passed: nothing to add)*  |
+
+## Advisory decision reviews
+These assessments are advice, not guarantees. Verified quotations do not establish sound interpretation.
+
+| Block | Attempts | Final | Exit |
+|-------|----------|-------|------|
+| Decide | 2 | Ready to act | gate |
+
+### Decide — Attempt 1 (Needs attention)
+Confidence: 60% | Missing fact reference
+
+| Criterion | Score | Concern | Reason | Quotation |
+|-----------|-------|---------|--------|-----------|
+| addresses-risk | 1/2 | Not classified (older review) |  | partially addressed |
+| uses-fact | 0/2 | Not classified (older review) |  |  |
+
+Ignored lenses: beta
+
+### Decide — Attempt 2 (Ready to act)
+Confidence: 85% | Good decision
+
+| Criterion | Score | Concern | Reason | Quotation |
+|-----------|-------|---------|--------|-----------|
+| addresses-risk | 2/2 | Not classified (older review) |  | the top risk identified |
+| uses-fact | 2/2 | Not classified (older review) |  | verifiable data |
+
+## How the group worked
+
+**Time to decision:** 30 min
+
+**Participation balance:**
+
+| Participant | Words | Share |
+|-------------|-------|-------|
+| Alice | 38 | 70% **dominated** (70% of words) |
+| Bob | 16 | 30% |
+| Carol | 0 | 0% **quiet** (0% of words), **passed 2 blocks** |
+
+**Lens coverage:**
+
+| Lens/Role | Coverage |
+|-----------|----------|
+| Alpha — facts | token |
+| Beta — risks | token |
+
+**Stuck and override log:**
+
+- Carol: stuck steps [hint]
+
+---
+
+**30-day follow-up:** Check on 2026-10-01 whether the first action happened.
+"
+`;

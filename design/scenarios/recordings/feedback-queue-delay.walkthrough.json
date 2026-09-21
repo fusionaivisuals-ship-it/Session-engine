@@ -1,0 +1,1412 @@
+{
+  "scenarioId": "feedback-queue-delay",
+  "title": "Feedback waits in the queue",
+  "tier": "team",
+  "methodId": "five-whys",
+  "methodName": "Five Whys",
+  "walkthroughIntro": {
+    "inOneLine": "Follow a chain of contributing conditions, checking each link and stopping claims where the evidence stops.",
+    "bestFor": "A recurring, observable failure whose contributing causes need checking.",
+    "howLong": "36 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "why-1",
+      "name": "Why did this outcome occur?",
+      "instruction": "Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-2",
+      "name": "What produced that condition?",
+      "instruction": "Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-3",
+      "name": "What sustained the pattern?",
+      "instruction": "Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-4",
+      "name": "Check another link or branch",
+      "instruction": "Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "why-5",
+      "name": "Choose a cause to investigate or change",
+      "instruction": "Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blockSequence": [
+    {
+      "id": "frame",
+      "title": "Agree the question",
+      "type": "frame"
+    },
+    {
+      "id": "why-1-input",
+      "title": "Why did this outcome occur?",
+      "type": "private_input"
+    },
+    {
+      "id": "why-1-reveal",
+      "title": "Share: why did this outcome occur?",
+      "type": "reveal"
+    },
+    {
+      "id": "why-2-input",
+      "title": "What produced that condition?",
+      "type": "private_input"
+    },
+    {
+      "id": "why-2-reveal",
+      "title": "Share: what produced that condition?",
+      "type": "reveal"
+    },
+    {
+      "id": "why-3-input",
+      "title": "What sustained the pattern?",
+      "type": "private_input"
+    },
+    {
+      "id": "why-3-reveal",
+      "title": "Share: what sustained the pattern?",
+      "type": "reveal"
+    },
+    {
+      "id": "why-4-input",
+      "title": "Check another link or branch",
+      "type": "private_input"
+    },
+    {
+      "id": "why-4-reveal",
+      "title": "Share: check another link or branch",
+      "type": "reveal"
+    },
+    {
+      "id": "why-5-input",
+      "title": "Choose a cause to investigate or change",
+      "type": "private_input"
+    },
+    {
+      "id": "why-5-reveal",
+      "title": "Share: choose a cause to investigate or change",
+      "type": "reveal"
+    },
+    {
+      "id": "decide",
+      "title": "Choose the next step",
+      "type": "converge"
+    },
+    {
+      "id": "commit",
+      "title": "Assign the follow-through",
+      "type": "commit"
+    },
+    {
+      "id": "artifact",
+      "title": "Keep the session record",
+      "type": "artifact"
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "blockId": "frame",
+      "blockTitle": "Agree the question",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "frame",
+        "blockType": "frame",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Agree the question",
+        "Prompt: \"Describe one observed outcome, when it occurred and how often. Avoid naming a person as the cause. Agree which records the group can inspect.\""
+      ]
+    },
+    {
+      "n": 2,
+      "blockId": "why-1-input",
+      "blockTitle": "Why did this outcome occur?",
+      "lensOrRoleName": "Why did this outcome occur?",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it.",
+        "whyItMatters": "Start with a testable link rather than a broad accusation."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-1-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Why did this outcome occur?",
+        "Prompt: \"Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it.\""
+      ]
+    },
+    {
+      "n": 3,
+      "blockId": "why-1-input",
+      "blockTitle": "Why did this outcome occur?",
+      "lensOrRoleName": "Why did this outcome occur?",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Name the immediate condition that could explain the outcome. Cite an observation or record. Keep an alternative explanation alongside it.",
+        "whyItMatters": "Start with a testable link rather than a broad accusation."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-1-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative.",
+            "wordCount": 30
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Two late notes were opened promptly but took several drafts. Assignment delay cannot explain every case, so we should keep review complexity as a separate branch.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (30 words)",
+        "Seat 2 submitted (26 words)"
+      ]
+    },
+    {
+      "n": 4,
+      "blockId": "why-1-reveal",
+      "blockTitle": "Share: why did this outcome occur?",
+      "lensOrRoleName": "Why did this outcome occur?",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Start with a testable link rather than a broad accusation."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-1-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: why did this outcome occur?"
+      ]
+    },
+    {
+      "n": 5,
+      "blockId": "why-1-reveal",
+      "blockTitle": "Share: why did this outcome occur?",
+      "lensOrRoleName": "Why did this outcome occur?",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Start with a testable link rather than a broad accusation."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-1-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative.",
+            "wordCount": 30
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Two late notes were opened promptly but took several drafts. Assignment delay cannot explain every case, so we should keep review complexity as a separate branch.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Two late notes were opened promptly but took several drafts. Assignment delay cannot explain every case, so we should keep review complexity as a separate branch."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 6,
+      "blockId": "why-2-input",
+      "blockTitle": "What produced that condition?",
+      "lensOrRoleName": "What produced that condition?",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link.",
+        "whyItMatters": "Explicit links keep the investigation from turning into unrelated complaints."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-2-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: What produced that condition?",
+        "Prompt: \"Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link.\""
+      ]
+    },
+    {
+      "n": 7,
+      "blockId": "why-2-input",
+      "blockTitle": "What produced that condition?",
+      "lensOrRoleName": "What produced that condition?",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Choose a supported link from the first reveal and ask what made that condition possible. Name the earlier answer you are building on and the evidence for this link.",
+        "whyItMatters": "Explicit links keep the investigation from turning into unrelated complaints."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-2-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff.",
+            "wordCount": 24
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Four days can pass between a learner submitting and the meeting. The queue has a received date but no person responsible before the meeting.",
+            "wordCount": 24
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (24 words)",
+        "Seat 2 submitted (24 words)"
+      ]
+    },
+    {
+      "n": 8,
+      "blockId": "why-2-reveal",
+      "blockTitle": "Share: what produced that condition?",
+      "lensOrRoleName": "What produced that condition?",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Explicit links keep the investigation from turning into unrelated complaints."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-2-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: what produced that condition?"
+      ]
+    },
+    {
+      "n": 9,
+      "blockId": "why-2-reveal",
+      "blockTitle": "Share: what produced that condition?",
+      "lensOrRoleName": "What produced that condition?",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Explicit links keep the investigation from turning into unrelated complaints."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-2-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff.",
+            "wordCount": 24
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Four days can pass between a learner submitting and the meeting. The queue has a received date but no person responsible before the meeting.",
+            "wordCount": 24
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Four days can pass between a learner submitting and the meeting. The queue has a received date but no person responsible before the meeting."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 10,
+      "blockId": "why-3-input",
+      "blockTitle": "What sustained the pattern?",
+      "lensOrRoleName": "What sustained the pattern?",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause.",
+        "whyItMatters": "Unknown is a useful result when the next evidence check is clear."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-3-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: What sustained the pattern?",
+        "Prompt: \"Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause.\""
+      ]
+    },
+    {
+      "n": 11,
+      "blockId": "why-3-input",
+      "blockTitle": "What sustained the pattern?",
+      "lensOrRoleName": "What sustained the pattern?",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Ask what contributed to the condition in the second reveal. Separate a recurring system condition from a one-time event. If evidence has run out, describe the missing check instead of inventing a cause.",
+        "whyItMatters": "Unknown is a useful result when the next evidence check is clear."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-3-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record.",
+            "wordCount": 31
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "The current checklist says to review the queue on Fridays only. That written rule supports the recurring delay; we do not yet know why it was retained.",
+            "wordCount": 27
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (31 words)",
+        "Seat 2 submitted (27 words)"
+      ]
+    },
+    {
+      "n": 12,
+      "blockId": "why-3-reveal",
+      "blockTitle": "Share: what sustained the pattern?",
+      "lensOrRoleName": "What sustained the pattern?",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Unknown is a useful result when the next evidence check is clear."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-3-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: what sustained the pattern?"
+      ]
+    },
+    {
+      "n": 13,
+      "blockId": "why-3-reveal",
+      "blockTitle": "Share: what sustained the pattern?",
+      "lensOrRoleName": "What sustained the pattern?",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Unknown is a useful result when the next evidence check is clear."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-3-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record.",
+            "wordCount": 31
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "The current checklist says to review the queue on Fridays only. That written rule supports the recurring delay; we do not yet know why it was retained.",
+            "wordCount": 27
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "The current checklist says to review the queue on Fridays only. That written rule supports the recurring delay; we do not yet know why it was retained."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 14,
+      "blockId": "why-4-input",
+      "blockTitle": "Check another link or branch",
+      "lensOrRoleName": "Check another link or branch",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain.",
+        "whyItMatters": "An alternative prevents the first plausible story becoming an unquestioned answer."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-4-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Check another link or branch",
+        "Prompt: \"Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain.\""
+      ]
+    },
+    {
+      "n": 15,
+      "blockId": "why-4-input",
+      "blockTitle": "Check another link or branch",
+      "lensOrRoleName": "Check another link or branch",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Investigate one more supported link, or return to an alternative explanation. State what observation would contradict your current causal chain.",
+        "whyItMatters": "An alternative prevents the first plausible story becoming an unquestioned answer."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-4-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation.",
+            "wordCount": 25
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Compare queue size and tutor hours for late and timely notes. A concentration of long, complex submissions would support the complexity branch.",
+            "wordCount": 22
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (25 words)",
+        "Seat 2 submitted (22 words)"
+      ]
+    },
+    {
+      "n": 16,
+      "blockId": "why-4-reveal",
+      "blockTitle": "Share: check another link or branch",
+      "lensOrRoleName": "Check another link or branch",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "An alternative prevents the first plausible story becoming an unquestioned answer."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-4-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: check another link or branch"
+      ]
+    },
+    {
+      "n": 17,
+      "blockId": "why-4-reveal",
+      "blockTitle": "Share: check another link or branch",
+      "lensOrRoleName": "Check another link or branch",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "An alternative prevents the first plausible story becoming an unquestioned answer."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-4-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation.",
+            "wordCount": 25
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Compare queue size and tutor hours for late and timely notes. A concentration of long, complex submissions would support the complexity branch.",
+            "wordCount": 22
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Compare queue size and tutor hours for late and timely notes. A concentration of long, complex submissions would support the complexity branch."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 18,
+      "blockId": "why-5-input",
+      "blockTitle": "Choose a cause to investigate or change",
+      "lensOrRoleName": "Choose a cause to investigate or change",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause.",
+        "whyItMatters": "End with a bounded investigation or intervention rather than certainty the records do not support."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-5-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Choose a cause to investigate or change",
+        "Prompt: \"Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause.\""
+      ]
+    },
+    {
+      "n": 19,
+      "blockId": "why-5-input",
+      "blockTitle": "Choose a cause to investigate or change",
+      "lensOrRoleName": "Choose a cause to investigate or change",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Review the chain. Identify one contributing condition within reach, its evidence, and a check that could disprove it. Five questions are a guide, not a requirement to claim a single root cause.",
+        "whyItMatters": "End with a bounded investigation or intervention rather than certainty the records do not support."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-5-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure.",
+            "wordCount": 29
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Record tutor workload during the trial. A faster first opening with unchanged completion times would indicate that assignment helped one link but did not solve the whole delay.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (29 words)",
+        "Seat 2 submitted (28 words)"
+      ]
+    },
+    {
+      "n": 20,
+      "blockId": "why-5-reveal",
+      "blockTitle": "Share: choose a cause to investigate or change",
+      "lensOrRoleName": "Choose a cause to investigate or change",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "End with a bounded investigation or intervention rather than certainty the records do not support."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-5-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: choose a cause to investigate or change"
+      ]
+    },
+    {
+      "n": 21,
+      "blockId": "why-5-reveal",
+      "blockTitle": "Share: choose a cause to investigate or change",
+      "lensOrRoleName": "Choose a cause to investigate or change",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "End with a bounded investigation or intervention rather than certainty the records do not support."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "why-5-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure.",
+            "wordCount": 29
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Record tutor workload during the trial. A faster first opening with unchanged completion times would indicate that assignment helped one link but did not solve the whole delay.",
+            "wordCount": 28
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Record tutor workload during the trial. A faster first opening with unchanged completion times would indicate that assignment helped one link but did not solve the whole delay."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 22,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Entered: Choose the next step",
+        "Prompt: \"State the supported causal chain, the unresolved alternative, and the next check or small intervention. Do not call an untested explanation the root cause.\""
+      ]
+    },
+    {
+      "n": 23,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": {
+          "pass": true,
+          "feedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "attempt": 1
+        },
+        "decision": "Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.",
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Review 1: Ready to act",
+        "The conclusion addresses the required comparisons, evidence and next check."
+      ]
+    },
+    {
+      "n": 24,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": "Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.",
+        "commitment": null,
+        "timerSec": 300,
+        "acceptanceReason": "Scripted demonstration: participants choose to proceed after considering the review."
+      },
+      "newSinceLastStep": [
+        "Decision deliberately accepted",
+        "Scripted demonstration: participants choose to proceed after considering the review."
+      ]
+    },
+    {
+      "n": 25,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Assign the follow-through",
+        "Prompt: \"Choose an owner, first action, due date and observable success signal.\""
+      ]
+    },
+    {
+      "n": 26,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "{\"owner\":\"seat-1\",\"firstAction\":\"Add a daily queue owner and timestamp fields to the feedback log\",\"dueDate\":\"2026-10-01\",\"successSignal\":\"Twenty notes have assignment, opening, completion and workload records\"}",
+            "wordCount": 12
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": {
+          "owner": "seat-1",
+          "firstAction": "Add a daily queue owner and timestamp fields to the feedback log",
+          "dueDate": "2026-10-01",
+          "successSignal": "Twenty notes have assignment, opening, completion and workload records"
+        },
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (12 words)",
+        "Owner: seat-1",
+        "Action: Add a daily queue owner and timestamp fields to the feedback log",
+        "Due: 2026-10-01"
+      ]
+    },
+    {
+      "n": 27,
+      "blockId": "artifact",
+      "blockTitle": "Keep the session record",
+      "lensOrRoleName": "",
+      "phase": "complete",
+      "narration": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      },
+      "state": {
+        "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+        "currentBlockId": "artifact",
+        "blockType": "artifact",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 0
+      },
+      "newSinceLastStep": [
+        "Session complete — report generated"
+      ]
+    }
+  ],
+  "report": "# Session Report: Five Whys\n\n- **Room:** 873B68\n- **Date:** 2026-09-20\n- **Participants:** 2 participants (anonymous)\n- **Time:** 0 min (budget: 36 min)\n\n## Decision\nTrial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.\n\n## Commitment\n- **Owner:** Seat 1\n- **First action:** Add a daily queue owner and timestamp fields to the feedback log\n- **Due:** 2026-10-01\n- **Success signal:** Twenty notes have assignment, opening, completion and workload records\n\n## Outputs by lens\n\n### Why did this outcome occur?\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative. |\n| Contribution 2 | Seat 2 | Two late notes were opened promptly but took several drafts. Assignment delay cannot explain every case, so we should keep review complexity as a separate branch. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative.\n\n**Seat 2:** Two late notes were opened promptly but took several drafts. Assignment delay cannot explain every case, so we should keep review complexity as a separate branch.\n\n### What produced that condition?\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff. |\n| Contribution 2 | Seat 2 | Four days can pass between a learner submitting and the meeting. The queue has a received date but no person responsible before the meeting. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff.\n\n**Seat 2:** Four days can pass between a learner submitting and the meeting. The queue has a received date but no person responsible before the meeting.\n\n### What sustained the pattern?\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record. |\n| Contribution 2 | Seat 2 | The current checklist says to review the queue on Fridays only. That written rule supports the recurring delay; we do not yet know why it was retained. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record.\n\n**Seat 2:** The current checklist says to review the queue on Fridays only. That written rule supports the recurring delay; we do not yet know why it was retained.\n\n### Check another link or branch\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation. |\n| Contribution 2 | Seat 2 | Compare queue size and tutor hours for late and timely notes. A concentration of long, complex submissions would support the complexity branch. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation.\n\n**Seat 2:** Compare queue size and tutor hours for late and timely notes. A concentration of long, complex submissions would support the complexity branch.\n\n### Choose a cause to investigate or change\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure. |\n| Contribution 2 | Seat 2 | Record tutor workload during the trial. A faster first opening with unchanged completion times would indicate that assignment helped one link but did not solve the whole delay. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure.\n\n**Seat 2:** Record tutor workload during the trial. A faster first opening with unchanged completion times would indicate that assignment helped one link but did not solve the whole delay.\n\n## Decision acceptance\nDecision: Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.\nAccepted by: Seat 1\nReason: Scripted demonstration: participants choose to proceed after considering the review.\nRecorded: 2026-09-20T13:24:49.381Z\n\n## Advisory decision reviews\nThese assessments are advice, not guarantees. Verified quotations do not establish sound interpretation.\n\n| Block | Attempts | Final | Exit |\n|-------|----------|-------|------|\n| Choose the next step | 1 | Ready to act | gate |\n\n### Choose the next step — Attempt 1 (Ready to act)\nProposal reviewed: Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.\nConfidence: 90% | The conclusion addresses the required comparisons, evidence and next check.\n\n| Criterion | Score | Concern | Reason | Quotation |\n|-----------|-------|---------|--------|-----------|\n| chain | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation. |\n| evidence | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation. |\n| check | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation. |\n\n## How the group worked\n\n**Time to decision:** 0 min\n\n**Participation balance:**\n\n2 seats participated.\n2 seat(s) above 40% share.\n\n**Lens coverage:**\n\n| Lens/Role | Coverage |\n|-----------|----------|\n| Why did this outcome occur? | substantive |\n| What produced that condition? | substantive |\n| What sustained the pattern? | substantive |\n| Check another link or branch | substantive |\n| Choose a cause to investigate or change | substantive |\n\n**Model usage:** 6 calls, 0 input tokens, 0 output tokens\n\n---\n\n**30-day follow-up:** Check on 2026-10-01 whether the first action happened.\n"
+}

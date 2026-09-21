@@ -1,0 +1,27 @@
+[
+  {
+    "mode": "compiled",
+    "health": 200,
+    "home": 404,
+    "methods": 500,
+    "methodError": "ENOENT: no such file or directory, scandir 'C:\\Users\\dekoc\\OneDrive\\Documents\\training engigene\\engine\\design\\methods'"
+  },
+  {
+    "mode": "source",
+    "health": 200,
+    "home": 200,
+    "methods": 200,
+    "methodError": null
+  },
+  {
+    "mode": "source",
+    "privateTextSentToOtherSeatBeforeReveal": true,
+    "block": "white-input",
+    "timerStateUpdatesOver2Seconds": 0
+  },
+  {
+    "mode": "source",
+    "reportDownload": 500,
+    "error": "ReferenceError: require is not defined"
+  }
+]

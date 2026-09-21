@@ -1,0 +1,597 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://session-engine.local/schemas/session-state.schema.json",
+  "title": "SessionState",
+  "description": "The manifest written to sessions/<roomCode>.json after every state change. The only memory the system has. See SPEC §9.",
+  "type": "object",
+  "required": [
+    "roomCode",
+    "methodId",
+    "methodVersion",
+    "createdAt",
+    "status",
+    "clock",
+    "participants",
+    "currentBlockId",
+    "blocks",
+    "facts",
+    "metrics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "roomCode": {
+      "type": "string"
+    },
+    "methodId": {
+      "type": "string"
+    },
+    "methodVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "lobby",
+        "running",
+        "paused",
+        "complete"
+      ]
+    },
+    "anonymous": {
+      "type": "boolean",
+      "default": false
+    },
+    "facilitatorSeat": {
+      "type": "string"
+    },
+    "clock": {
+      "type": "object",
+      "required": [
+        "blockStartedAt",
+        "remainingSecAtPause",
+        "extensionsUsed",
+        "totalElapsedSec"
+      ],
+      "properties": {
+        "blockStartedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "remainingSecAtPause": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "savedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "extensionsUsed": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "totalElapsedSec": {
+          "type": "integer"
+        },
+        "extensionSeconds": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "seat",
+          "displayName",
+          "presence",
+          "lastSeenAt"
+        ],
+        "properties": {
+          "seat": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "presence": {
+            "enum": [
+              "present",
+              "idle",
+              "absent"
+            ]
+          },
+          "lastSeenAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "swapsUsed": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      }
+    },
+    "currentBlockId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "blocks": {
+      "description": "Per-block record, keyed by block id. Written once the block is entered.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "enteredAt",
+          "exitReason"
+        ],
+        "properties": {
+          "enteredAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "exitedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "exitReason": {
+            "enum": [
+              "pending",
+              "gate",
+              "timeout",
+              "facilitator_override",
+              "auto"
+            ]
+          },
+          "overrideReason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "submissions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "seat",
+                "text",
+                "submittedAt",
+                "autoSubmitted",
+                "passed"
+              ],
+              "properties": {
+                "seat": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "submittedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "autoSubmitted": {
+                  "type": "boolean"
+                },
+                "passed": {
+                  "type": "boolean"
+                },
+                "passReason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "wordCount": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "confirmations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reveal": {
+            "type": "object",
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "seats"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "seats": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "summary": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "disagreements": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "decision": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "stuckEvents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "seat",
+                "step",
+                "at"
+              ],
+              "properties": {
+                "seat": {
+                  "type": "string"
+                },
+                "step": {
+                  "enum": [
+                    "hint",
+                    "example",
+                    "swap",
+                    "pass",
+                    "facilitator"
+                  ]
+                },
+                "at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "votes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "drafts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "decisionRound": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "reviewerVerdicts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "pass",
+                "scores",
+                "ignoredLenses",
+                "oneLineFeedback"
+              ],
+              "properties": {
+                "pass": {
+                  "type": "boolean"
+                },
+                "scores": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "criterion",
+                      "score",
+                      "evidence"
+                    ],
+                    "properties": {
+                      "criterion": {
+                        "type": "string"
+                      },
+                      "score": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2
+                      },
+                      "evidence": {
+                        "type": "string"
+                      },
+                      "concern": {
+                        "enum": [
+                          "none",
+                          "missing_evidence",
+                          "weak_reasoning",
+                          "contradiction"
+                        ]
+                      },
+                      "explanation": {
+                        "type": "string"
+                      },
+                      "unverifiedEvidence": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "ignoredLenses": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "oneLineFeedback": {
+                  "type": "string"
+                },
+                "decisionRound": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "decision": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "decisionAcceptance": {
+            "type": "object",
+            "required": [
+              "seat",
+              "decision",
+              "round",
+              "reason",
+              "at"
+            ],
+            "properties": {
+              "seat": {
+                "type": "string"
+              },
+              "decision": {
+                "type": "string"
+              },
+              "round": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "reason": {
+                "type": "string"
+              },
+              "at": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "facts": {
+      "description": "The compact session-facts block injected at the top of every agent prompt (SPEC §7.5).",
+      "type": "object",
+      "properties": {
+        "problemStatement": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "commitment": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "owner",
+            "firstAction",
+            "dueDate",
+            "successSignal"
+          ],
+          "properties": {
+            "owner": {
+              "type": "string"
+            },
+            "firstAction": {
+              "type": "string"
+            },
+            "dueDate": {
+              "type": "string",
+              "format": "date"
+            },
+            "successSignal": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "frameToCommitSec": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "wordsBySeat": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "lensCoverage": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "substantive",
+              "token",
+              "pass",
+              "missing"
+            ]
+          }
+        },
+        "anonymous": {
+          "type": "boolean"
+        },
+        "modelCalls": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "detours": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "trigger",
+          "detourMethodId",
+          "insertedBlockIds",
+          "reason",
+          "accepted",
+          "at"
+        ],
+        "properties": {
+          "trigger": {
+            "enum": [
+              "converge_failed_twice",
+              "ideas_thin",
+              "facilitator"
+            ]
+          },
+          "detourMethodId": {
+            "type": "string"
+          },
+          "insertedBlockIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string"
+          },
+          "accepted": {
+            "type": "boolean"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "onePagerPath": {
+          "type": "string"
+        },
+        "reportPath": {
+          "type": "string"
+        }
+      }
+    },
+    "mode": {
+      "enum": [
+        "solo",
+        "group"
+      ],
+      "default": "group"
+    },
+    "effectiveMethod": {
+      "$ref": "method.schema.json"
+    },
+    "pendingDetour": {
+      "type": "object",
+      "required": [
+        "trigger",
+        "detourMethodId",
+        "blocks",
+        "lenses",
+        "reason",
+        "addedMinutes"
+      ],
+      "properties": {
+        "trigger": {
+          "enum": [
+            "converge_failed_twice",
+            "ideas_thin",
+            "facilitator"
+          ]
+        },
+        "detourMethodId": {
+          "type": "string"
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "lenses": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "reason": {
+          "type": "string"
+        },
+        "addedMinutes": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

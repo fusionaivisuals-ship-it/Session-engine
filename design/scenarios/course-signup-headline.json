@@ -1,0 +1,157 @@
+{
+  "id": "course-signup-headline",
+  "title": "Does a clearer course title help?",
+  "tier": "critical-thinking",
+  "methodId": "hypothesis-testing",
+  "minutes": 31,
+  "audience": "A small education website team",
+  "whatItTeaches": "Separate the explanation from its predictions, plan a fair test, and decide what the observed results do and do not support.",
+  "problemStatement": "A fictional evening-course website sees many visits but few signups. The team suspects the page title is vague. How should it test that explanation without assuming it is right?",
+  "anonymous": false,
+  "seats": [
+    {
+      "seat": "seat-1",
+      "persona": "A volunteer focused on observable evidence.",
+      "submissions": {
+        "explanations-input": "Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable.",
+        "predictions-input": "Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive.",
+        "test-plan-input": "Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change.",
+        "observations-input": "Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result."
+      }
+    },
+    {
+      "seat": "seat-2",
+      "persona": "A volunteer focused on alternatives and practical constraints.",
+      "submissions": {
+        "explanations-input": "The title says only New skills. We do not have evidence that visitors misunderstand it; the low signup count alone cannot distinguish title clarity from price or schedule.",
+        "predictions-input": "If schedule is the main obstacle, changing only the title may not improve completion. Record optional schedule-related feedback as context, not as a substitute for the signup measure.",
+        "test-plan-input": "Predeclare a practical threshold of a one-percentage-point improvement and examine uncertainty around the difference. Adopt only if results support an improvement above that threshold; otherwise keep the current title or extend a planned follow-up. Track allocation and technical errors.",
+        "observations-input": "Results not yet collected. Also log assignment failures and major traffic-source changes. A wide uncertainty range should produce an inconclusive outcome rather than a claim of no effect."
+      }
+    }
+  ],
+  "canned": {
+    "reveals": {
+      "explanations-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Observation: last month 1,200 eligible visitors produced 36 completed signups. Explanation: the vague title hides who the course is for. Alternative: the evening schedule is unsuitable."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "The title says only New skills. We do not have evidence that visitors misunderstand it; the low signup count alone cannot distinguish title clarity from price or schedule."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "predictions-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Prediction: a title naming the skill and intended learner increases completed signups per eligible visitor. A flat or lower rate would weaken the title explanation, though noisy results may remain inconclusive."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "If schedule is the main obstacle, changing only the title may not improve completion. Record optional schedule-related feedback as context, not as a substitute for the signup measure."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "test-plan-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Randomly assign eligible visitors once to current or clearer title, keeping price, schedule and layout fixed. Count one completed signup per visitor over two weeks. Check traffic before choosing an appropriate analysis; do not claim a small sample proves a change."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Predeclare a practical threshold of a one-percentage-point improvement and examine uncertainty around the difference. Adopt only if results support an improvement above that threshold; otherwise keep the current title or extend a planned follow-up. Track allocation and technical errors."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "observations-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Results not yet collected. Collect eligible visitors, assigned title and completed signups for both groups during the two-week window. The earlier 36/1200 rate is context, not a treatment result."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Results not yet collected. Also log assignment failures and major traffic-source changes. A wide uncertainty range should produce an inconclusive outcome rather than a claim of no effect."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      }
+    },
+    "verdicts": {
+      "decide": [
+        {
+          "pass": true,
+          "scores": [
+            {
+              "criterion": "prediction",
+              "score": 2,
+              "evidence": "Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "design",
+              "score": 2,
+              "evidence": "Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "interpretation",
+              "score": 2,
+              "evidence": "Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            }
+          ],
+          "ignoredLenses": [],
+          "oneLineFeedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "decision": "Run a two-week randomized comparison of current versus clearer title, holding price, schedule and layout fixed. The title explanation predicts a higher completed-signup rate; a flat or lower rate weakens it, while an unsuitable schedule remains an alternative. Predeclare a one-percentage-point practical threshold and assess uncertainty before adoption; wide uncertainty is inconclusive. Results not yet collected: 36 signups from 1200 earlier visitors is baseline context only. Collect group counts, assignments and errors, and verify the analysis plan before launch.",
+    "commitment": {
+      "owner": "seat-1",
+      "firstAction": "Write and review the assignment, measurement and analysis plan",
+      "dueDate": "2026-10-01",
+      "successSignal": "The two-week plan records comparison groups, counts, threshold and handling of inconclusive results"
+    }
+  }
+}

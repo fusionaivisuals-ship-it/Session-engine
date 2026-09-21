@@ -1,0 +1,179 @@
+{
+  "id": "feedback-queue-delay",
+  "title": "Feedback waits in the queue",
+  "tier": "team",
+  "methodId": "five-whys",
+  "minutes": 36,
+  "audience": "A fictional community class team",
+  "whatItTeaches": "Follow a chain of contributing conditions, checking each link and stopping claims where the evidence stops.",
+  "problemStatement": "In a community drawing class, eight of twenty feedback notes reached learners more than seven days after submission last month. What should the teaching team investigate or change?",
+  "anonymous": false,
+  "seats": [
+    {
+      "seat": "seat-1",
+      "persona": "A volunteer focused on observable evidence.",
+      "submissions": {
+        "why-1-input": "Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative.",
+        "why-2-input": "For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff.",
+        "why-3-input": "The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record.",
+        "why-4-input": "Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation.",
+        "why-5-input": "Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure."
+      }
+    },
+    {
+      "seat": "seat-2",
+      "persona": "A volunteer focused on alternatives and practical constraints.",
+      "submissions": {
+        "why-1-input": "Two late notes were opened promptly but took several drafts. Assignment delay cannot explain every case, so we should keep review complexity as a separate branch.",
+        "why-2-input": "Four days can pass between a learner submitting and the meeting. The queue has a received date but no person responsible before the meeting.",
+        "why-3-input": "The current checklist says to review the queue on Fridays only. That written rule supports the recurring delay; we do not yet know why it was retained.",
+        "why-4-input": "Compare queue size and tutor hours for late and timely notes. A concentration of long, complex submissions would support the complexity branch.",
+        "why-5-input": "Record tutor workload during the trial. A faster first opening with unchanged completion times would indicate that assignment helped one link but did not solve the whole delay."
+      }
+    }
+  ],
+  "canned": {
+    "reveals": {
+      "why-1-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Six of the eight late notes waited at least four days before a tutor opened them, according to timestamps. Waiting for assignment may contribute; unusually difficult submissions are an alternative."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Two late notes were opened promptly but took several drafts. Assignment delay cannot explain every case, so we should keep review complexity as a separate branch."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "why-2-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "For the six unopened notes, the rota names a tutor only at the weekly meeting. The meeting log and assignment timestamps match that handoff."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Four days can pass between a learner submitting and the meeting. The queue has a received date but no person responsible before the meeting."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "why-3-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "The weekly handoff was copied from a previous short course. No one checked whether it still fit rolling submissions; this is an explanation from the coordinator, not a verified historical record."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "The current checklist says to review the queue on Fridays only. That written rule supports the recurring delay; we do not yet know why it was retained."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "why-4-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Alternative: tutors may already be at capacity. If daily assignment still leaves notes unopened for four days, the weekly handoff is not the whole explanation."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Compare queue size and tutor hours for late and timely notes. A concentration of long, complex submissions would support the complexity branch."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "why-5-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Change the reachable condition: assign a named tutor within one day for the next twenty notes, then compare time to first opening. Keep completion time as a separate measure."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Record tutor workload during the trial. A faster first opening with unchanged completion times would indicate that assignment helped one link but did not solve the whole delay."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      }
+    },
+    "verdicts": {
+      "decide": [
+        {
+          "pass": true,
+          "scores": [
+            {
+              "criterion": "chain",
+              "score": 2,
+              "evidence": "Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "evidence",
+              "score": 2,
+              "evidence": "Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "check",
+              "score": 2,
+              "evidence": "Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            }
+          ],
+          "ignoredLenses": [],
+          "oneLineFeedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "decision": "Trial daily tutor assignment for the next twenty notes. Six late notes waited unopened, and the written Friday-only checklist connects the weekly handoff to missing ownership and delayed opening. The claim about an inherited checklist is unverified. Tutor capacity and submission complexity remain alternatives. Record assignment, first opening, completion and tutor hours; if early assignment does not shorten the first wait, revise the explanation.",
+    "commitment": {
+      "owner": "seat-1",
+      "firstAction": "Add a daily queue owner and timestamp fields to the feedback log",
+      "dueDate": "2026-10-01",
+      "successSignal": "Twenty notes have assignment, opening, completion and workload records"
+    }
+  }
+}

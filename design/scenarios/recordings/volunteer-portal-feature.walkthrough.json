@@ -1,0 +1,982 @@
+{
+  "scenarioId": "volunteer-portal-feature",
+  "title": "One feature for the volunteer portal",
+  "tier": "critical-thinking",
+  "methodId": "decision-matrix",
+  "methodName": "Decision matrix",
+  "walkthroughIntro": {
+    "inOneLine": "Agree what matters, score every option on the same scale, and check whether the ranking survives uncertain assumptions.",
+    "bestFor": "Several feasible options that need comparison against agreed criteria.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "criteria",
+      "name": "Define criteria and weights",
+      "instruction": "Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "options",
+      "name": "Check comparable options",
+      "instruction": "List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "scores",
+      "name": "Score, calculate and challenge",
+      "instruction": "Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blockSequence": [
+    {
+      "id": "frame",
+      "title": "Agree the question",
+      "type": "frame"
+    },
+    {
+      "id": "criteria-input",
+      "title": "Define criteria and weights",
+      "type": "private_input"
+    },
+    {
+      "id": "criteria-reveal",
+      "title": "Share: define criteria and weights",
+      "type": "reveal"
+    },
+    {
+      "id": "options-input",
+      "title": "Check comparable options",
+      "type": "private_input"
+    },
+    {
+      "id": "options-reveal",
+      "title": "Share: check comparable options",
+      "type": "reveal"
+    },
+    {
+      "id": "scores-input",
+      "title": "Score, calculate and challenge",
+      "type": "private_input"
+    },
+    {
+      "id": "scores-reveal",
+      "title": "Share: score, calculate and challenge",
+      "type": "reveal"
+    },
+    {
+      "id": "decide",
+      "title": "Choose the next step",
+      "type": "converge"
+    },
+    {
+      "id": "commit",
+      "title": "Assign the follow-through",
+      "type": "commit"
+    },
+    {
+      "id": "artifact",
+      "title": "Keep the session record",
+      "type": "artifact"
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "blockId": "frame",
+      "blockTitle": "Agree the question",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "frame",
+        "blockType": "frame",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Agree the question",
+        "Prompt: \"Name the decision, constraints and feasible options, including doing nothing where useful. Exclude options that break a non-negotiable constraint before scoring.\""
+      ]
+    },
+    {
+      "n": 2,
+      "blockId": "criteria-input",
+      "blockTitle": "Define criteria and weights",
+      "lensOrRoleName": "Define criteria and weights",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round.",
+        "whyItMatters": "A shared scale prevents each participant scoring a different question."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "criteria-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Define criteria and weights",
+        "Prompt: \"Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round.\""
+      ]
+    },
+    {
+      "n": 3,
+      "blockId": "criteria-input",
+      "blockTitle": "Define criteria and weights",
+      "lensOrRoleName": "Define criteria and weights",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round.",
+        "whyItMatters": "A shared scale prevents each participant scoring a different question."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "criteria-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month.",
+            "wordCount": 36
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "For delivery confidence, 1 is no estimate, 3 is a rough estimate and 5 is a tested approach. For low upkeep, 1 means over four hours weekly, 3 means two and 5 means under one. Weights 50 + 30 + 20 = 100.",
+            "wordCount": 43
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (36 words)",
+        "Seat 2 submitted (43 words)"
+      ]
+    },
+    {
+      "n": 4,
+      "blockId": "criteria-reveal",
+      "blockTitle": "Share: define criteria and weights",
+      "lensOrRoleName": "Define criteria and weights",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A shared scale prevents each participant scoring a different question."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "criteria-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: define criteria and weights"
+      ]
+    },
+    {
+      "n": 5,
+      "blockId": "criteria-reveal",
+      "blockTitle": "Share: define criteria and weights",
+      "lensOrRoleName": "Define criteria and weights",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A shared scale prevents each participant scoring a different question."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "criteria-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month.",
+            "wordCount": 36
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "For delivery confidence, 1 is no estimate, 3 is a rough estimate and 5 is a tested approach. For low upkeep, 1 means over four hours weekly, 3 means two and 5 means under one. Weights 50 + 30 + 20 = 100.",
+            "wordCount": 43
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "For delivery confidence, 1 is no estimate, 3 is a rough estimate and 5 is a tested approach. For low upkeep, 1 means over four hours weekly, 3 means two and 5 means under one. Weights 50 + 30 + 20 = 100."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 6,
+      "blockId": "options-input",
+      "blockTitle": "Check comparable options",
+      "lensOrRoleName": "Check comparable options",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone.",
+        "whyItMatters": "Comparable options and disclosed gaps make scores interpretable."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "options-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Check comparable options",
+        "Prompt: \"List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone.\""
+      ]
+    },
+    {
+      "n": 7,
+      "blockId": "options-input",
+      "blockTitle": "Check comparable options",
+      "lensOrRoleName": "Check comparable options",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone.",
+        "whyItMatters": "Comparable options and disclosed gaps make scores interpretable."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "options-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured.",
+            "wordCount": 28
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Wait means logging requests for two weeks, not abandoning the portal. All three meet the budget constraint. Monthly reach is an estimate for both build options.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (28 words)",
+        "Seat 2 submitted (26 words)"
+      ]
+    },
+    {
+      "n": 8,
+      "blockId": "options-reveal",
+      "blockTitle": "Share: check comparable options",
+      "lensOrRoleName": "Check comparable options",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Comparable options and disclosed gaps make scores interpretable."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "options-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: check comparable options"
+      ]
+    },
+    {
+      "n": 9,
+      "blockId": "options-reveal",
+      "blockTitle": "Share: check comparable options",
+      "lensOrRoleName": "Check comparable options",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Comparable options and disclosed gaps make scores interpretable."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "options-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured.",
+            "wordCount": 28
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "Wait means logging requests for two weeks, not abandoning the portal. All three meet the budget constraint. Monthly reach is an estimate for both build options.",
+            "wordCount": 26
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "Wait means logging requests for two weeks, not abandoning the portal. All three meet the budget constraint. Monthly reach is an estimate for both build options."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 10,
+      "blockId": "scores-input",
+      "blockTitle": "Score, calculate and challenge",
+      "lensOrRoleName": "Score, calculate and challenge",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer.",
+        "whyItMatters": "The total summarizes assumptions; a sensitivity check reveals how fragile the ranking is."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "scores-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Score, calculate and challenge",
+        "Prompt: \"Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer.\""
+      ]
+    },
+    {
+      "n": 11,
+      "blockId": "scores-input",
+      "blockTitle": "Score, calculate and challenge",
+      "lensOrRoleName": "Score, calculate and challenge",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "Each participant writes privately: Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer.",
+        "whyItMatters": "The total summarizes assumptions; a sensitivity check reveals how fragile the ranking is."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "scores-input",
+        "blockType": "private_input",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": true
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach.",
+            "wordCount": 32
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "If Guide impact is 2 rather than 3, its total becomes (100+150+100)/100 = 3.5, below Reminder at 3.8. The ranking depends on reach; interview ten volunteers before committing the slot.",
+            "wordCount": 30
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (32 words)",
+        "Seat 2 submitted (30 words)"
+      ]
+    },
+    {
+      "n": 12,
+      "blockId": "scores-reveal",
+      "blockTitle": "Share: score, calculate and challenge",
+      "lensOrRoleName": "Score, calculate and challenge",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "The total summarizes assumptions; a sensitivity check reveals how fragile the ranking is."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "scores-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "Entered: Share: score, calculate and challenge"
+      ]
+    },
+    {
+      "n": 13,
+      "blockId": "scores-reveal",
+      "blockTitle": "Share: score, calculate and challenge",
+      "lensOrRoleName": "Score, calculate and challenge",
+      "phase": "reveal",
+      "narration": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "The total summarizes assumptions; a sensitivity check reveals how fragile the ranking is."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "scores-reveal",
+        "blockType": "reveal",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach.",
+            "wordCount": 32
+          },
+          {
+            "seatLabel": "Seat 2",
+            "text": "If Guide impact is 2 rather than 3, its total becomes (100+150+100)/100 = 3.5, below Reminder at 3.8. The ranking depends on reach; interview ten volunteers before committing the slot.",
+            "wordCount": 30
+          }
+        ],
+        "reveal": {
+          "clusters": [
+            {
+              "label": "Contribution 1",
+              "seats": [
+                "Seat 1"
+              ],
+              "summary": "Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach."
+            },
+            {
+              "label": "Contribution 2",
+              "seats": [
+                "Seat 2"
+              ],
+              "summary": "If Guide impact is 2 rather than 3, its total becomes (100+150+100)/100 = 3.5, below Reminder at 3.8. The ranking depends on reach; interview ten volunteers before committing the slot."
+            }
+          ],
+          "agreements": [],
+          "disagreements": []
+        },
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 120
+      },
+      "newSinceLastStep": [
+        "2 clusters formed"
+      ]
+    },
+    {
+      "n": 14,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Entered: Choose the next step",
+        "Prompt: \"State the selected option and the shared criteria, weights and scores. Show weighted totals and one sensitivity calculation. Explain any choice that differs from the highest score.\""
+      ]
+    },
+    {
+      "n": 15,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": {
+          "pass": true,
+          "feedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "attempt": 1
+        },
+        "decision": "Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.",
+        "commitment": null,
+        "timerSec": 300
+      },
+      "newSinceLastStep": [
+        "Review 1: Ready to act",
+        "The conclusion addresses the required comparisons, evidence and next check."
+      ]
+    },
+    {
+      "n": 16,
+      "blockId": "decide",
+      "blockTitle": "Choose the next step",
+      "lensOrRoleName": "",
+      "phase": "verdict",
+      "narration": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "decide",
+        "blockType": "converge",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": "Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.",
+        "commitment": null,
+        "timerSec": 300,
+        "acceptanceReason": "Scripted demonstration: participants choose to proceed after considering the review."
+      },
+      "newSinceLastStep": [
+        "Decision deliberately accepted",
+        "Scripted demonstration: participants choose to proceed after considering the review."
+      ]
+    },
+    {
+      "n": 17,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "enter",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Entered: Assign the follow-through",
+        "Prompt: \"Choose an owner, first action, due date and observable success signal.\""
+      ]
+    },
+    {
+      "n": 18,
+      "blockId": "commit",
+      "blockTitle": "Assign the follow-through",
+      "lensOrRoleName": "",
+      "phase": "submissions",
+      "narration": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "commit",
+        "blockType": "commit",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": true
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [
+          {
+            "seatLabel": "Seat 1",
+            "text": "{\"owner\":\"seat-1\",\"firstAction\":\"Interview ten volunteers about the guide and reminder use cases\",\"dueDate\":\"2026-10-01\",\"successSignal\":\"Reach estimates are recorded and the matrix is recalculated before booking the slot\"}",
+            "wordCount": 10
+          }
+        ],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": {
+          "owner": "seat-1",
+          "firstAction": "Interview ten volunteers about the guide and reminder use cases",
+          "dueDate": "2026-10-01",
+          "successSignal": "Reach estimates are recorded and the matrix is recalculated before booking the slot"
+        },
+        "timerSec": 180
+      },
+      "newSinceLastStep": [
+        "Seat 1 submitted (10 words)",
+        "Owner: seat-1",
+        "Action: Interview ten volunteers about the guide and reminder use cases",
+        "Due: 2026-10-01"
+      ]
+    },
+    {
+      "n": 19,
+      "blockId": "artifact",
+      "blockTitle": "Keep the session record",
+      "lensOrRoleName": "",
+      "phase": "complete",
+      "narration": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      },
+      "state": {
+        "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+        "currentBlockId": "artifact",
+        "blockType": "artifact",
+        "seats": [
+          {
+            "id": "seat-1",
+            "label": "Seat 1",
+            "roleName": null,
+            "hasSubmitted": false
+          },
+          {
+            "id": "seat-2",
+            "label": "Seat 2",
+            "roleName": null,
+            "hasSubmitted": false
+          }
+        ],
+        "submissions": [],
+        "reveal": null,
+        "verdict": null,
+        "decision": null,
+        "commitment": null,
+        "timerSec": 0
+      },
+      "newSinceLastStep": [
+        "Session complete — report generated"
+      ]
+    }
+  ],
+  "report": "# Session Report: Decision matrix\n\n- **Room:** 7ACA6E\n- **Date:** 2026-09-20\n- **Participants:** 2 participants (anonymous)\n- **Time:** 0 min (budget: 26 min)\n\n## Decision\nPrefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.\n\n## Commitment\n- **Owner:** Seat 1\n- **First action:** Interview ten volunteers about the guide and reminder use cases\n- **Due:** 2026-10-01\n- **Success signal:** Reach estimates are recorded and the matrix is recalculated before booking the slot\n\n## Outputs by lens\n\n### Define criteria and weights\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month. |\n| Contribution 2 | Seat 2 | For delivery confidence, 1 is no estimate, 3 is a rough estimate and 5 is a tested approach. For low upkeep, 1 means over four hours weekly, 3 means two and 5 means under one. Weights 50 + 30 + 20 = 100. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month.\n\n**Seat 2:** For delivery confidence, 1 is no estimate, 3 is a rough estimate and 5 is a tested approach. For low upkeep, 1 means over four hours weekly, 3 means two and 5 means under one. Weights 50 + 30 + 20 = 100.\n\n### Check comparable options\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured. |\n| Contribution 2 | Seat 2 | Wait means logging requests for two weeks, not abandoning the portal. All three meet the budget constraint. Monthly reach is an estimate for both build options. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured.\n\n**Seat 2:** Wait means logging requests for two weeks, not abandoning the portal. All three meet the budget constraint. Monthly reach is an estimate for both build options.\n\n### Score, calculate and challenge\n\n| Cluster | Seats | Summary |\n|---------|-------|---------|\n| Contribution 1 | Seat 1 | Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach. |\n| Contribution 2 | Seat 2 | If Guide impact is 2 rather than 3, its total becomes (100+150+100)/100 = 3.5, below Reminder at 3.8. The ranking depends on reach; interview ten volunteers before committing the slot. |\n\nThemes are not consensus. Original responses, including minority views:\n\n**Seat 1:** Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach.\n\n**Seat 2:** If Guide impact is 2 rather than 3, its total becomes (100+150+100)/100 = 3.5, below Reminder at 3.8. The ranking depends on reach; interview ten volunteers before committing the slot.\n\n## Decision acceptance\nDecision: Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.\nAccepted by: Seat 1\nReason: Scripted demonstration: participants choose to proceed after considering the review.\nRecorded: 2026-09-20T13:25:05.218Z\n\n## Advisory decision reviews\nThese assessments are advice, not guarantees. Verified quotations do not establish sound interpretation.\n\n| Block | Attempts | Final | Exit |\n|-------|----------|-------|------|\n| Choose the next step | 1 | Ready to act | gate |\n\n### Choose the next step — Attempt 1 (Ready to act)\nProposal reviewed: Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.\nConfidence: 90% | The conclusion addresses the required comparisons, evidence and next check.\n\n| Criterion | Score | Concern | Reason | Quotation |\n|-----------|-------|---------|--------|-----------|\n| comparable | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide. |\n| arithmetic | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide. |\n| sensitivity | 2/2 | none | The conclusion addresses the required comparisons, evidence and next check. | Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide. |\n\n## How the group worked\n\n**Time to decision:** 0 min\n\n**Participation balance:**\n\n2 seats participated.\n2 seat(s) above 40% share.\n\n**Lens coverage:**\n\n| Lens/Role | Coverage |\n|-----------|----------|\n| Define criteria and weights | substantive |\n| Check comparable options | substantive |\n| Score, calculate and challenge | substantive |\n\n**Model usage:** 4 calls, 0 input tokens, 0 output tokens\n\n---\n\n**30-day follow-up:** Check on 2026-10-01 whether the first action happened.\n"
+}

@@ -1,0 +1,233 @@
+{
+  "id": "brainstorming-prioritization",
+  "name": "Brainstorming with prioritization",
+  "version": "2.0.0",
+  "description": "Generate independently, combine overlapping ideas without erasing differences, then rank candidates against explicit priorities.",
+  "roleMode": "rotating",
+  "groupSize": {
+    "min": 2,
+    "max": 6
+  },
+  "timing": {
+    "totalBudgetSec": 1560,
+    "extensionSec": 60,
+    "idleSec": 90,
+    "presenceTimeoutSec": 120
+  },
+  "walkthroughIntro": {
+    "inOneLine": "Generate independently, combine overlapping ideas without erasing differences, then rank candidates against explicit priorities.",
+    "bestFor": "A team that needs several options before selecting a practical priority.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "ideas",
+      "name": "Generate independent ideas",
+      "instruction": "Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "refine",
+      "name": "Combine and make candidates testable",
+      "instruction": "Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "priorities",
+      "name": "Rank against explicit priorities",
+      "instruction": "Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "frame",
+      "type": "frame",
+      "title": "Agree the question",
+      "timeboxSec": 180,
+      "completion": "all_agreed",
+      "prompt": "Name the opportunity and the constraints an idea must respect. Delay evaluation until everyone has had a chance to contribute.",
+      "walkthrough": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      }
+    },
+    {
+      "id": "ideas-input",
+      "type": "private_input",
+      "title": "Generate independent ideas",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "ideas",
+      "prompt": "Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea.",
+      "minWords": 8,
+      "ideaBlock": true,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — A quieter museum evening: Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Offer two different ways to address the opportunity. Explain the mechanism in one sentence each. At this stage, avoid rating another person's idea.",
+        "whyItMatters": "Independent generation reduces the pull of the first idea spoken aloud."
+      }
+    },
+    {
+      "id": "ideas-reveal",
+      "type": "reveal",
+      "title": "Share: generate independent ideas",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "ideas",
+      "sourceBlockId": "ideas-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Independent generation reduces the pull of the first idea spoken aloud."
+      }
+    },
+    {
+      "id": "refine-input",
+      "type": "private_input",
+      "title": "Combine and make candidates testable",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "refine",
+      "prompt": "Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — A quieter museum evening: Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Choose a shared idea or combine compatible ones. Give the candidate a clear label, the outcome it seeks and a small first trial. Keep meaningfully different ideas separate.",
+        "whyItMatters": "Specific candidates are easier to compare than broad slogans."
+      }
+    },
+    {
+      "id": "refine-reveal",
+      "type": "reveal",
+      "title": "Share: combine and make candidates testable",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "refine",
+      "sourceBlockId": "refine-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Specific candidates are easier to compare than broad slogans."
+      }
+    },
+    {
+      "id": "priorities-input",
+      "type": "private_input",
+      "title": "Rank against explicit priorities",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "priorities",
+      "prompt": "Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — A quieter museum evening: Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Rank your top two candidates. Explain the expected benefit, effort and main uncertainty for each. Say which criterion matters most and what would change your ranking.",
+        "whyItMatters": "Reasons for a ranking expose tradeoffs that a raw vote count hides."
+      }
+    },
+    {
+      "id": "priorities-reveal",
+      "type": "reveal",
+      "title": "Share: rank against explicit priorities",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "priorities",
+      "sourceBlockId": "priorities-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Reasons for a ranking expose tradeoffs that a raw vote count hides."
+      }
+    },
+    {
+      "id": "decide",
+      "type": "converge",
+      "title": "Choose the next step",
+      "timeboxSec": 300,
+      "completion": "reviewer_pass",
+      "prompt": "Choose one candidate through the vote. Explain why it outranks the alternative on benefit and effort, describe the trial, and name the uncertainty to check.",
+      "sourceBlockId": "ideas-reveal,refine-reveal,priorities-reveal",
+      "rubric": {
+        "passThreshold": 0.8,
+        "criteria": [
+          {
+            "id": "candidate",
+            "text": "One clearly labeled candidate and a small first trial are selected.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No candidate is selected, e.g. try something new.",
+              "one": "A candidate is selected but no small trial is defined, e.g. choose reminders.",
+              "two": "A candidate and bounded trial are named, e.g. test one reminder message with ten volunteers."
+            }
+          },
+          {
+            "id": "comparison",
+            "text": "The reasoning compares at least two candidates on benefit and effort.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No comparison is provided, e.g. idea A feels best.",
+              "one": "Two candidates are compared on benefit alone or effort alone.",
+              "two": "Two candidates are compared on both benefit and effort, with unknown estimates labeled."
+            }
+          },
+          {
+            "id": "uncertainty",
+            "text": "A main uncertainty and an observation that could change the priority are named.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No uncertainty or reconsideration signal is stated.",
+              "one": "An uncertainty is named, e.g. people may ignore reminders, without a check.",
+              "two": "An uncertainty and a result that changes priority are named, e.g. deprioritize reminders if fewer than two of ten recipients respond."
+            }
+          }
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      }
+    },
+    {
+      "id": "commit",
+      "type": "commit",
+      "title": "Assign the follow-through",
+      "timeboxSec": 180,
+      "completion": "valid_form",
+      "prompt": "Choose an owner, first action, due date and observable success signal.",
+      "walkthrough": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      }
+    },
+    {
+      "id": "artifact",
+      "type": "artifact",
+      "title": "Keep the session record",
+      "timeboxSec": 0,
+      "completion": "auto",
+      "walkthrough": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      }
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "typescriptFiles": 30,
+  "ruleFlags": {
+    "rulesVersion": "ts-pack-v1/11",
+    "hits": {
+      "as-unknown-as": 0,
+      "async-no-await": 1,
+      "catch-log-continue": 0,
+      "declare-then-return": 0,
+      "double-guarded-read": 0,
+      "empty-catch": 0,
+      "explicit-any": 10,
+      "explicit-boolean-comparison": 1,
+      "inline-error-message-ternary": 0,
+      "nested-ternary": 3,
+      "redundant-self-ternary": 0
+    },
+    "perFile": {
+      "main.ts": [
+        135
+      ],
+      "agents/client.ts": [
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183
+      ],
+      "agents/cluster.ts": [
+        36
+      ],
+      "agents/helper.ts": [
+        46,
+        56,
+        64
+      ],
+      "agents/reviewer.ts": [
+        46,
+        207,
+        223
+      ],
+      "engine/artifacts.ts": [
+        38
+      ],
+      "engine/report.ts": [
+        119
+      ],
+      "engine/scenario.ts": [
+        16,
+        17
+      ],
+      "engine/store.ts": [
+        580,
+        581,
+        582
+      ],
+      "web/api.ts": [
+        73
+      ]
+    },
+    "flaggedLines": 34
+  },
+  "typescriptVerbosity": {
+    "verbosity": 0.0629,
+    "flaggedLines": 34,
+    "cloneLinesInSet": 287,
+    "unionLines": 314,
+    "loc": 4991,
+    "rulesVersion": "ts-pack-v1/11",
+    "ruleHits": {
+      "as-unknown-as": 0,
+      "async-no-await": 1,
+      "catch-log-continue": 0,
+      "declare-then-return": 0,
+      "double-guarded-read": 0,
+      "empty-catch": 0,
+      "explicit-any": 10,
+      "explicit-boolean-comparison": 1,
+      "inline-error-message-ternary": 0,
+      "nested-ternary": 3,
+      "redundant-self-ternary": 0
+    }
+  },
+  "inlineHtmlScripts": {
+    "files": 8,
+    "definition": "named",
+    "erosion": {
+      "callables": 121,
+      "highComplexityCallables": 21,
+      "totalMass": 3663.611,
+      "highComplexityMass": 2597.498,
+      "erosion": 0.709,
+      "worst": [
+        {
+          "file": "web/views/facilitate.html",
+          "name": "render",
+          "line": 175,
+          "cc": 37,
+          "sloc": 89,
+          "mass": 349.057
+        },
+        {
+          "file": "web/views/join.html",
+          "name": "render",
+          "line": 204,
+          "cc": 30,
+          "sloc": 63,
+          "mass": 238.118
+        },
+        {
+          "file": "web/views/room.html",
+          "name": "render",
+          "line": 105,
+          "cc": 31,
+          "sloc": 58,
+          "mass": 236.089
+        },
+        {
+          "file": "web/views/join.html",
+          "name": "renderConverge",
+          "line": 438,
+          "cc": 28,
+          "sloc": 57,
+          "mass": 211.395
+        },
+        {
+          "file": "web/views/method.html",
+          "name": "render",
+          "line": 148,
+          "cc": 20,
+          "sloc": 85,
+          "mass": 184.391
+        },
+        {
+          "file": "web/views/join.html",
+          "name": "renderReveal",
+          "line": 376,
+          "cc": 21,
+          "sloc": 54,
+          "mass": 154.318
+        },
+        {
+          "file": "web/views/method.html",
+          "name": "loadMethod",
+          "line": 83,
+          "cc": 19,
+          "sloc": 54,
+          "mass": 139.621
+        },
+        {
+          "file": "web/views/join.html",
+          "name": "renderPrivateInput",
+          "line": 331,
+          "cc": 18,
+          "sloc": 43,
+          "mass": 118.034
+        },
+        {
+          "file": "web/views/replay.html",
+          "name": "renderSnapshot",
+          "line": 166,
+          "cc": 16,
+          "sloc": 38,
+          "mass": 98.631
+        },
+        {
+          "file": "web/views/start.html",
+          "name": "startSession",
+          "line": 2645,
+          "cc": 13,
+          "sloc": 54,
+          "mass": 95.53
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "buildContentHTML",
+          "line": 416,
+          "cc": 13,
+          "sloc": 46,
+          "mass": 88.17
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "renderStep",
+          "line": 329,
+          "cc": 12,
+          "sloc": 51,
+          "mass": 85.697
+        },
+        {
+          "file": "web/views/start.html",
+          "name": "renderMethods",
+          "line": 2556,
+          "cc": 12,
+          "sloc": 39,
+          "mass": 74.94
+        },
+        {
+          "file": "web/views/site-index.html",
+          "name": "load",
+          "line": 121,
+          "cc": 12,
+          "sloc": 38,
+          "mass": 73.973
+        },
+        {
+          "file": "web/views/facilitate.html",
+          "name": "renderVerdict",
+          "line": 380,
+          "cc": 13,
+          "sloc": 32,
+          "mass": 73.539
+        },
+        {
+          "file": "web/views/site-index.html",
+          "name": "render",
+          "line": 166,
+          "cc": 12,
+          "sloc": 35,
+          "mass": 70.993
+        },
+        {
+          "file": "web/views/facilitate.html",
+          "name": "renderSeats",
+          "line": 304,
+          "cc": 12,
+          "sloc": 26,
+          "mass": 61.188
+        },
+        {
+          "file": "web/views/facilitate.html",
+          "name": "renderGroupMetrics",
+          "line": 553,
+          "cc": 12,
+          "sloc": 26,
+          "mass": 61.188
+        },
+        {
+          "file": "web/views/start.html",
+          "name": "loadMethods",
+          "line": 2527,
+          "cc": 12,
+          "sloc": 26,
+          "mass": 61.188
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "renderWalkthroughSeats",
+          "line": 509,
+          "cc": 12,
+          "sloc": 26,
+          "mass": 61.188
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "renderWalkthroughReveal",
+          "line": 559,
+          "cc": 11,
+          "sloc": 30,
+          "mass": 60.249
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "loadData",
+          "line": 212,
+          "cc": 9,
+          "sloc": 32,
+          "mass": 50.912
+        },
+        {
+          "file": "web/views/facilitate.html",
+          "name": "renderRoleControls",
+          "line": 347,
+          "cc": 8,
+          "sloc": 29,
+          "mass": 43.081
+        },
+        {
+          "file": "web/views/join.html",
+          "name": "renderAssign",
+          "line": 300,
+          "cc": 8,
+          "sloc": 28,
+          "mass": 42.332
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "injectIntroStep",
+          "line": 250,
+          "cc": 7,
+          "sloc": 35,
+          "mass": 41.413
+        },
+        {
+          "file": "web/views/facilitate.html",
+          "name": "doSuggestRewrite",
+          "line": 500,
+          "cc": 9,
+          "sloc": 21,
+          "mass": 41.243
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "renderWalkthroughOutcome",
+          "line": 593,
+          "cc": 7,
+          "sloc": 24,
+          "mass": 34.293
+        },
+        {
+          "file": "web/views/walkthrough.html",
+          "name": "init",
+          "line": 300,
+          "cc": 7,
+          "sloc": 23,
+          "mass": 33.571
+        },
+        {
+          "file": "web/views/start.html",
+          "name": "renderRecent",
+          "line": 2865,
+          "cc": 7,
+          "sloc": 17,
+          "mass": 28.862
+        },
+        {
+          "file": "web/views/replay.html",
+          "name": "tick",
+          "line": 131,
+          "cc": 6,
+          "sloc": 20,
+          "mass": 26.833
+        }
+      ]
+    }
+  },
+  "note": "Inline JS is parsed as TypeScript for supplemental measurement. Do not compare this separate scope to the default TS baseline. Clone paths normalized for Windows before TS-only union."
+}

@@ -1,0 +1,195 @@
+{
+  "target": "C:\\Users\\dekoc\\OneDrive\\Documents\\training engigene\\engine",
+  "at": "2026-09-20T02:32:52.992Z",
+  "provenance": {
+    "tool": "slopcheck@0.1.0",
+    "callableDefinition": "named",
+    "ccCutoff": 10,
+    "gitSha": null,
+    "metricSource": "SlopCodeBench arXiv:2603.24755v2 §2.3"
+  },
+  "erosion": {
+    "callables": 268,
+    "highComplexityCallables": 14,
+    "totalMass": 4594.112,
+    "highComplexityMass": 1493.456,
+    "erosion": 0.3251,
+    "worst": [
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/walkthrough-steps.ts",
+        "name": "extractSteps",
+        "line": 121,
+        "cc": 21,
+        "sloc": 145,
+        "mass": 252.873
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/artifacts.ts",
+        "name": "generateOnePager",
+        "line": 17,
+        "cc": 24,
+        "sloc": 57,
+        "mass": 181.196
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/agents/reviewer.ts",
+        "name": "buildReviewerInput",
+        "line": 66,
+        "cc": 19,
+        "sloc": 49,
+        "mass": 133
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/agents/scripted-client.ts",
+        "name": "scriptedCallForcedTool",
+        "line": 80,
+        "cc": 16,
+        "sloc": 51,
+        "mass": 114.263
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/report.ts",
+        "name": "reportOutputs",
+        "line": 80,
+        "cc": 16,
+        "sloc": 40,
+        "mass": 101.193
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/agents/client.ts",
+        "name": "callOpenRouter",
+        "line": 85,
+        "cc": 12,
+        "sloc": 69,
+        "mass": 99.679
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/store.ts",
+        "name": "checkTimeouts",
+        "line": 538,
+        "cc": 16,
+        "sloc": 31,
+        "mass": 89.084
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/simulate.ts",
+        "name": "driveBlocks",
+        "line": 119,
+        "cc": 14,
+        "sloc": 39,
+        "mass": 87.43
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/report.ts",
+        "name": "reportReviews",
+        "line": 129,
+        "cc": 13,
+        "sloc": 41,
+        "mass": 83.241
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/store.ts",
+        "name": "submitInput",
+        "line": 159,
+        "cc": 14,
+        "sloc": 34,
+        "mass": 81.633
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/store.ts",
+        "name": "handleReview",
+        "line": 351,
+        "cc": 15,
+        "sloc": 28,
+        "mass": 79.373
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/store.ts",
+        "name": "triggerClusteringIfNeeded",
+        "line": 56,
+        "cc": 12,
+        "sloc": 35,
+        "mass": 70.993
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/artifacts.ts",
+        "name": "writeArtifacts",
+        "line": 86,
+        "cc": 10,
+        "sloc": 47,
+        "mass": 68.557
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/metrics.ts",
+        "name": "participationFlags",
+        "line": 124,
+        "cc": 12,
+        "sloc": 28,
+        "mass": 63.498
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/agents/reviewer.ts",
+        "name": "validateVerdict",
+        "line": 45,
+        "cc": 14,
+        "sloc": 16,
+        "mass": 56
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/metrics.ts",
+        "name": "coverageForBlocksAndSeats",
+        "line": 224,
+        "cc": 10,
+        "sloc": 29,
+        "mass": 53.852
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/store.ts",
+        "name": "updatePresence",
+        "line": 572,
+        "cc": 10,
+        "sloc": 28,
+        "mass": 52.915
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/metrics.ts",
+        "name": "lensCoverage",
+        "line": 158,
+        "cc": 9,
+        "sloc": 32,
+        "mass": 50.912
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/metrics.ts",
+        "name": "coverageForBlocks",
+        "line": 196,
+        "cc": 10,
+        "sloc": 25,
+        "mass": 50
+      },
+      {
+        "file": "C:/Users/dekoc/OneDrive/Documents/training engigene/engine/src/engine/detour.ts",
+        "name": "acceptDetour",
+        "line": 134,
+        "cc": 9,
+        "sloc": 29,
+        "mass": 48.466
+      }
+    ]
+  },
+  "verbosity": null,
+  "cloneShare": null,
+  "reference": {
+    "humanRepos": {
+      "erosion": 0.34,
+      "verbosity": 0.19,
+      "n": 473
+    },
+    "agentCheckpoints": {
+      "erosion": 0.68,
+      "verbosity": 0.44,
+      "n": 2869
+    }
+  },
+  "reading": "erosion 0.3251 — at or below the human-repo mean"
+}

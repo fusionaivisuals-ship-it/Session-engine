@@ -1,0 +1,135 @@
+{
+  "id": "garden-evening-hours",
+  "title": "An extra evening at the garden",
+  "tier": "opener",
+  "methodId": "pros-cons",
+  "minutes": 26,
+  "audience": "A small volunteer group",
+  "whatItTeaches": "Compare the strongest reasons to adopt a proposal with the strongest reasons to hold back, then state what would change the choice.",
+  "problemStatement": "The fictional Brook Lane garden is considering opening on Thursdays until 8 pm for six weeks. Two volunteers can cover each evening; should it try the longer hours?",
+  "anonymous": false,
+  "seats": [
+    {
+      "seat": "seat-1",
+      "persona": "A volunteer focused on observable evidence.",
+      "submissions": {
+        "arguments-input": "Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors.",
+        "weight-input": "Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names.",
+        "conditions-input": "Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty."
+      }
+    },
+    {
+      "seat": "seat-2",
+      "persona": "A volunteer focused on alternatives and practical constraints.",
+      "submissions": {
+        "arguments-input": "Benefit: cooler hours may help summer watering. Drawback: closing in dim light adds a trip risk near the tool shed. The path has no fixed lighting.",
+        "weight-input": "The path risk is high impact even with uncertain frequency. Extra watering is a low-impact benefit because the morning rota already covers the beds. Safety should outweigh that convenience.",
+        "conditions-input": "Keep the tool shed closed after dusk and mark the lit route. Cancel that evening if the portable lights fail; ask visitors about access at the three-week review."
+      }
+    }
+  ],
+  "canned": {
+    "reveals": {
+      "arguments-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Benefit: members working until 6 pm could visit. Seven of twelve survey replies requested an evening. Drawback: two volunteers would lose a free evening; the replies may overrepresent keen visitors."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Benefit: cooler hours may help summer watering. Drawback: closing in dim light adds a trip risk near the tool shed. The path has no fixed lighting."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "weight-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Access is high impact for the seven respondents but confidence about actual turnout is medium. Volunteer fatigue is medium impact and high confidence because the rota has only four regular names."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "The path risk is high impact even with uncertain frequency. Extra watering is a low-impact benefit because the morning rota already covers the beds. Safety should outweigh that convenience."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "conditions-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Try six Thursdays only with two named volunteers per shift. Count evening visitors; review after week three and stop if either volunteer slot remains empty."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Keep the tool shed closed after dusk and mark the lit route. Cancel that evening if the portable lights fail; ask visitors about access at the three-week review."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      }
+    },
+    "verdicts": {
+      "decide": [
+        {
+          "pass": true,
+          "scores": [
+            {
+              "criterion": "balanced",
+              "score": 2,
+              "evidence": "Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "weighted",
+              "score": 2,
+              "evidence": "Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "conditional",
+              "score": 2,
+              "evidence": "Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            }
+          ],
+          "ignoredLenses": [],
+          "oneLineFeedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "decision": "Run a six-Thursday trial: seven survey replies suggest an access benefit, but only four regular volunteers makes fatigue a credible cost. The unlit path is a high-impact risk that outweighs watering convenience. Require two volunteers, close the shed at dusk and cancel if portable lights fail. Review visitor counts and the rota after week three; stop if a shift cannot be covered.",
+    "commitment": {
+      "owner": "seat-1",
+      "firstAction": "Publish the six-week rota and check the portable lights",
+      "dueDate": "2026-10-01",
+      "successSignal": "Each trial shift has two volunteers and a recorded light check"
+    }
+  }
+}

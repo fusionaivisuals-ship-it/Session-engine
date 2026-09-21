@@ -1,0 +1,135 @@
+{
+  "id": "museum-quiet-evening",
+  "title": "A quieter museum evening",
+  "tier": "fun",
+  "methodId": "brainstorming-prioritization",
+  "minutes": 26,
+  "audience": "An exhibition team",
+  "whatItTeaches": "Generate independently, combine overlapping ideas without erasing differences, then rank candidates against explicit priorities.",
+  "problemStatement": "A fictional local museum wants a calmer visitor experience during one evening a month with no additional staff. What small trial should it prioritize?",
+  "anonymous": false,
+  "seats": [
+    {
+      "seat": "seat-1",
+      "persona": "A volunteer focused on observable evidence.",
+      "submissions": {
+        "ideas-input": "Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits.",
+        "refine-input": "Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing.",
+        "priorities-input": "Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects."
+      }
+    },
+    {
+      "seat": "seat-2",
+      "persona": "A volunteer focused on alternatives and practical constraints.",
+      "submissions": {
+        "ideas-input": "Try a no-announcements hour with written notices. Or label a seating corner as a pause space where visitors can rest between rooms.",
+        "refine-input": "Calm arrival trial: reserve three entry windows using the existing booking form. Record queue length; keep walk-in access so the trial does not exclude spontaneous visitors.",
+        "priorities-input": "I also rank Quiet route first on low effort, but its main uncertainty is whether noisy rooms are actually the obstacle. If feedback mainly mentions entrance queues, move Calm arrival to first."
+      }
+    }
+  ],
+  "canned": {
+    "reveals": {
+      "ideas-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Offer timed entry slots to reduce arrival bunching. Alternatively, make a quiet route card so visitors can skip noisy rooms without missing the main exhibits."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Try a no-announcements hour with written notices. Or label a seating corner as a pause space where visitors can rest between rooms."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "refine-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Quiet route trial: print a single-page route card for one evening and ask visitors which room they skipped. This needs a layout check but no new staffing."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Calm arrival trial: reserve three entry windows using the existing booking form. Record queue length; keep walk-in access so the trial does not exclude spontaneous visitors."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "priorities-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Rank Quiet route first: clear visitor control, about two hours of preparation, and no booking change. Calm arrival is second because it may reduce queues but adds setup and uncertain walk-in effects."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "I also rank Quiet route first on low effort, but its main uncertainty is whether noisy rooms are actually the obstacle. If feedback mainly mentions entrance queues, move Calm arrival to first."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      }
+    },
+    "verdicts": {
+      "decide": [
+        {
+          "pass": true,
+          "scores": [
+            {
+              "criterion": "candidate",
+              "score": 2,
+              "evidence": "Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "comparison",
+              "score": 2,
+              "evidence": "Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "uncertainty",
+              "score": 2,
+              "evidence": "Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            }
+          ],
+          "ignoredLenses": [],
+          "oneLineFeedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "decision": "Choose Quiet route for one evening: a printed route card gives visitors control with about two hours of preparation. Calm arrival may reduce queues but requires booking setup and has uncertain effects on walk-ins, so it ranks second on effort. Ask which spaces visitors avoided. If entrance queues dominate feedback rather than noisy rooms, prioritize Calm arrival next.",
+    "commitment": {
+      "owner": "seat-1",
+      "firstAction": "Draft and walk-test the route card before the trial evening",
+      "dueDate": "2026-10-01",
+      "successSignal": "A checked route card is available and visitor feedback distinguishes room noise from queues"
+    }
+  }
+}

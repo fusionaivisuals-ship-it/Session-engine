@@ -1,0 +1,135 @@
+{
+  "id": "incomplete-tool-kits",
+  "title": "Tool kits return incomplete",
+  "tier": "team",
+  "methodId": "fishbone-analysis",
+  "minutes": 26,
+  "audience": "A neighborhood lending library",
+  "whatItTeaches": "Map possible causes under categories, connect each branch to the outcome, and choose which links deserve evidence.",
+  "problemStatement": "A fictional lending library found missing parts in five of its last thirty returned tool kits. Which causes should the volunteers investigate first?",
+  "anonymous": false,
+  "seats": [
+    {
+      "seat": "seat-1",
+      "persona": "A volunteer focused on observable evidence.",
+      "submissions": {
+        "categories-input": "Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both.",
+        "causes-input": "Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference.",
+        "checks-input": "Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage."
+      }
+    },
+    {
+      "seat": "seat-2",
+      "persona": "A volunteer focused on alternatives and practical constraints.",
+      "submissions": {
+        "categories-input": "Return handoff covers the exchange at the desk. Borrower instructions covers what people are told to count or report before returning a kit.",
+        "causes-input": "Kit design > small bit slips behind foam > loose foam in two affected cases. Return handoff > rushed check > no return checklist. The physical gaps are observed; parts escaping is untested.",
+        "checks-input": "Before those loans, inspect behind the foam without changing it and record the result. Finding the supposedly missing bits in a case would favor the kit-design branch over borrower loss."
+      }
+    }
+  ],
+  "canned": {
+    "reveals": {
+      "categories-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Return handoff covers the exchange at the desk. Borrower instructions covers what people are told to count or report before returning a kit."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "causes-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Kit design > small bit slips behind foam > loose foam in two affected cases. Return handoff > rushed check > no return checklist. The physical gaps are observed; parts escaping is untested."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "checks-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Before those loans, inspect behind the foam without changing it and record the result. Finding the supposedly missing bits in a case would favor the kit-design branch over borrower loss."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      }
+    },
+    "verdicts": {
+      "decide": [
+        {
+          "pass": true,
+          "scores": [
+            {
+              "criterion": "branches",
+              "score": 2,
+              "evidence": "Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "uncertainty",
+              "score": 2,
+              "evidence": "Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "verification",
+              "score": 2,
+              "evidence": "Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            }
+          ],
+          "ignoredLenses": [],
+          "oneLineFeedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "decision": "Investigate packing first: blank pre-loan count boxes could allow an incomplete kit to leave, but blank records do not prove that happened. Keep kit design as a competing category: loose foam could conceal small bits rather than a borrower losing them. Inspect behind the foam and record before-and-after part counts plus tray photos for ten loans. Parts missing before departure favor packing; parts found behind foam favor kit design.",
+    "commitment": {
+      "owner": "seat-1",
+      "firstAction": "Create a before-and-after count sheet for ten loans and inspect the foam",
+      "dueDate": "2026-10-01",
+      "successSignal": "Ten loans have counts and tray photos, with concealed parts recorded separately"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A guided space to think together, make a decision, and move forward.">
+  <title>Session Engine — Think together</title>
+  <link rel="stylesheet" href="../assets/editorial.css" data-inline="editorial.css">
+</head>
+<body class="home-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-nav"><a class="nav-brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Session Engine</a><nav class="nav-links" aria-label="Main navigation"><a href="#methods">Methods</a><a href="#demo">Demo</a><a href="#about">About</a><a href="start.html" class="button">Start a session</a></nav></header>
+  <main id="main">
+    <section class="hero section-inner" aria-labelledby="heroTitle">
+      <div><p class="eyebrow">A little structure. Room to think.</p><h1 id="heroTitle"><span>Different perspectives.</span><span>One clear next step.</span></h1><p class="tagline">A guided space to think together, make a decision, and move forward.</p><div class="hero-actions"><a class="button" id="sampleLink" href="#demo">Explore a sample session <span aria-hidden="true">↗</span></a><a class="button secondary" href="start.html">Start a session</a></div><p class="hero-note">Think on your own, or bring your group together.</p></div>
+      <div class="preview-wrap"><div class="preview-caption"><span>Inside a session</span><span>Scripted example</span></div><div id="sessionPreview" class="session-preview" aria-label="Preview of the session interface"><p class="loading">Loading session preview…</p></div></div>
+    </section>
+    <section class="process-strip" aria-label="How a session works"><div class="section-inner"><p class="eyebrow">A clear path from question to commitment</p><ol class="process-steps"><li><span class="step-number">01</span>Frame</li><li><span class="step-number">02</span>Think privately</li><li><span class="step-number">03</span>Reveal</li><li><span class="step-number">04</span>Decide</li><li><span class="step-number">05</span>Commit</li></ol></div></section>
+    <section id="methods" class="section-inner"><div class="section-heading"><div><p class="eyebrow">Find your way into the question</p><h2>One space. Different ways to think.</h2></div><p>Choose a method that fits your question.<br>We’ll guide you through each step.</p></div><div id="methodGrid" class="method-grid"><p class="loading">Loading methods…</p></div></section>
+    <section class="section-inner record-section" aria-labelledby="recordTitle"><div><p class="eyebrow">Something to take forward</p><h2 id="recordTitle">Leave with a decision.<br>And a place to begin.</h2><p>Your perspectives, your reasoning, and a concrete commitment — together in one record you can return to.</p><p class="hero-note">Shown here: a fictional sample session.</p></div><div id="recordPreview"></div></section>
+    <section id="demo" class="scenario-section"><div class="section-inner"><div class="section-heading"><div><p class="eyebrow">See the process in practice</p><h2>Follow a sample session.</h2></div><p>Scripted demonstrations with fictional participants and prewritten responses. Go at your own pace.</p></div><div id="scenarioGrid" class="scenario-cards"></div></div></section>
+    <section id="about" class="section-inner about-section"><p class="eyebrow">About Session Engine</p><h2>A shared question. Space for every answer.</h2><p>Start with a question, write independently, then bring your perspectives together. The session keeps track of time and the next step; the decision stays with you.</p><p>Use any of the six methods alone or with a group. When configured, AI can help with coaching, organizing responses, and reviewing your reasoning.</p><a class="button secondary" href="start.html">Make room to think</a></section>
+  </main>
+  <footer class="footer"><span>Session Engine</span><span>Structured thinking. Human decisions.</span></footer>
+  <script src="../assets/workspace.js" data-inline="workspace.js"></script>
+  <script>
+    (async function () {
+      const esc = WorkspaceUI.esc;
+      try {
+        const methods = window.__METHODS__ || await (await fetch('/api/methods')).json();
+        const scenarios = window.__SCENARIOS__ || await (await fetch('scenarios/index.json')).json();
+        const sampleMeta = scenarios.find(s => s.tier === 'opener') || scenarios[0];
+        const sample = window.__SAMPLE__ || (sampleMeta ? await (await fetch('scenarios/' + sampleMeta.id + '.json')).json() : null);
+        const symbolPaths = ['<path d="M5 8h14M5 16h14M12 4v16"/>', '<path d="M5 5h6v5h6v5h3M5 10h3M5 15h6M5 20h12"/>', '<path d="M3 12h18M7 5l5 7-5 7M15 5l5 7-5 7"/>', '<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16M10 4v16M4 15h16M15 4v16"/>', '<path d="M5 7h14M5 12h10M5 17h6"/><circle cx="19" cy="17" r="2"/>', '<path d="M9 3h6M10 3v7L4 20h16l-6-10V3M7 15h10"/>'];
+        document.getElementById('methodGrid').innerHTML = methods.map((m, i) => `<article class="method-tile"><span class="method-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">${symbolPaths[i % symbolPaths.length]}</svg></span><h3>${esc(m.name)}</h3><p>${esc(m.walkthroughIntro?.inOneLine || m.description)}</p><div class="tile-footer"><span>${Math.round((m.timing?.totalBudgetSec || m.totalBudgetSec || 0) / 60)} min · Solo or group</span><a href="method.html?m=${esc(m.id)}">Explore <span aria-hidden="true">↗</span><span class="sr-only"> ${esc(m.name)}</span></a></div></article>`).join('');
+        document.getElementById('scenarioGrid').innerHTML = scenarios.map(s => `<a class="scenario-card" href="walkthroughs/${esc(s.id)}.html"><div class="eyebrow">Scripted sample</div><h3 class="sc-title">${esc(s.title)}</h3><p class="sc-meta">${esc(methods.find(m => m.id === s.methodId)?.name || s.methodId)}</p><span class="sc-action">View walkthrough <span aria-hidden="true">→</span></span></a>`).join('');
+        if (!sample) return;
+        document.getElementById('sampleLink').href = 'walkthroughs/' + encodeURIComponent(sample.id) + '.html';
+        const method = methods.find(m => m.id === sample.methodId);
+        const block = method.blocks.find(b => b.type === 'private_input');
+        const session = { status: 'running', mode: 'group', anonymous: true, participants: sample.seats.map(s => ({ seat: s.seat, displayName: s.seat.replace('seat-', 'Seat '), presence: 'present' })), blocks: { [block.id]: {} }, facts: { problemStatement: sample.problemStatement, decision: sample.canned.decision, commitment: sample.canned.commitment } };
+        const data = { session, method, block, lens: method.lenses.find(l => l.id === block.lensId), clockStatus: { remainingSec: block.timeboxSec, totalSec: block.timeboxSec } };
+        const preview = `<p class="eyebrow">Think privately</p><h1>${esc(sample.title)}</h1><span class="perspective-badge">${esc(block.title)}</span><p class="prompt">${esc(block.prompt)}</p><textarea disabled aria-label="Sample writing area" placeholder="A little space for your perspective…"></textarea><div class="writing-meta"><span>Private until reveal</span><span>0 words</span></div><button tabindex="-1" aria-disabled="true">Submit my thoughts</button>`;
+        document.getElementById('sessionPreview').innerHTML = WorkspaceUI.shell(data, preview, 'seat-1');
+        document.getElementById('sessionPreview').querySelector('#task').removeAttribute('id');
+        document.getElementById('recordPreview').innerHTML = WorkspaceUI.decisionRecord(session);
+      } catch (error) {
+        document.getElementById('methodGrid').innerHTML = '<p>Could not load the catalog. Please refresh the page.</p>';
+        console.error(error);
+      }
+    })();
+  </script>
+</body>
+</html>

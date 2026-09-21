@@ -1,0 +1,18 @@
+node_modules/
+dist/
+engine/sessions/
+sessions/*.json
+sessions/reports/
+sessions/20*.md
+*.log
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.claude/settings.json
+.audit-tools/
+.publish/
+archive/
+Thinking Frameworks.md
+engine/test-sessions-*/
+engine/sessions-recording/

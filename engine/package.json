@@ -1,0 +1,39 @@
+{
+  "name": "session-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && tsx scripts/build-assets.ts",
+    "start": "node dist/src/main.js",
+    "dev": "tsx --env-file=.env src/main.ts",
+    "validate": "tsx scripts/validate-methods.ts && tsx scripts/validate-scenarios.ts",
+    "validate:methods": "tsx scripts/validate-methods.ts",
+    "validate:scenarios": "tsx scripts/validate-scenarios.ts",
+    "record": "tsx scripts/record-scenario.ts",
+    "build:site": "tsx scripts/build-site.ts",
+    "test": "npx jest --forceExit",
+    "test:e2e": "node e2e/runtime.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "ajv": "^8.17.0",
+    "ajv-formats": "^3.0.1",
+    "express": "^4.21.0",
+    "uuid": "^10.0.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.0",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.12",
+    "jest": "^29.7.0",
+    "jsqr": "1.4.0",
+    "qrcode-generator": "2.0.4",
+    "ts-jest": "^29.2.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

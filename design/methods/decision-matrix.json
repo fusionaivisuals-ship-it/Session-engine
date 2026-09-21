@@ -1,0 +1,253 @@
+{
+  "id": "decision-matrix",
+  "name": "Decision matrix",
+  "version": "2.0.0",
+  "description": "Agree what matters, score every option on the same scale, and check whether the ranking survives uncertain assumptions.",
+  "roleMode": "rotating",
+  "groupSize": {
+    "min": 2,
+    "max": 6
+  },
+  "timing": {
+    "totalBudgetSec": 1560,
+    "extensionSec": 60,
+    "idleSec": 90,
+    "presenceTimeoutSec": 120
+  },
+  "walkthroughIntro": {
+    "inOneLine": "Agree what matters, score every option on the same scale, and check whether the ranking survives uncertain assumptions.",
+    "bestFor": "Several feasible options that need comparison against agreed criteria.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "criteria",
+      "name": "Define criteria and weights",
+      "instruction": "Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "options",
+      "name": "Check comparable options",
+      "instruction": "List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "scores",
+      "name": "Score, calculate and challenge",
+      "instruction": "Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "frame",
+      "type": "frame",
+      "title": "Agree the question",
+      "timeboxSec": 180,
+      "completion": "all_agreed",
+      "prompt": "Name the decision, constraints and feasible options, including doing nothing where useful. Exclude options that break a non-negotiable constraint before scoring.",
+      "walkthrough": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      }
+    },
+    {
+      "id": "criteria-input",
+      "type": "private_input",
+      "title": "Define criteria and weights",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "criteria",
+      "prompt": "Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — One feature for the volunteer portal: Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Propose measurable criteria and weights that total 100. Define a 1-to-5 scale for each: 1 is least desirable and 5 most desirable. Keep cost direction explicit. Agree the shared criteria and anchors before the next round.",
+        "whyItMatters": "A shared scale prevents each participant scoring a different question."
+      }
+    },
+    {
+      "id": "criteria-reveal",
+      "type": "reveal",
+      "title": "Share: define criteria and weights",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "criteria",
+      "sourceBlockId": "criteria-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A shared scale prevents each participant scoring a different question."
+      }
+    },
+    {
+      "id": "options-input",
+      "type": "private_input",
+      "title": "Check comparable options",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "options",
+      "prompt": "List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — One feature for the volunteer portal: Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: List the feasible options against the agreed constraints. Note missing facts for each option and assumptions that could make a comparison unfair. Confirm the same option labels for everyone.",
+        "whyItMatters": "Comparable options and disclosed gaps make scores interpretable."
+      }
+    },
+    {
+      "id": "options-reveal",
+      "type": "reveal",
+      "title": "Share: check comparable options",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "options",
+      "sourceBlockId": "options-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Comparable options and disclosed gaps make scores interpretable."
+      }
+    },
+    {
+      "id": "scores-input",
+      "type": "private_input",
+      "title": "Score, calculate and challenge",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "scores",
+      "prompt": "Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — One feature for the volunteer portal: Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Record a row per option: criterion scores from 1 to 5, evidence or assumption for each score, and total = sum(weight × score) / 100. Use the agreed weights. Compare totals, then recalculate under one plausible changed score or weight. Record arithmetic in your answer.",
+        "whyItMatters": "The total summarizes assumptions; a sensitivity check reveals how fragile the ranking is."
+      }
+    },
+    {
+      "id": "scores-reveal",
+      "type": "reveal",
+      "title": "Share: score, calculate and challenge",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "scores",
+      "sourceBlockId": "scores-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "The total summarizes assumptions; a sensitivity check reveals how fragile the ranking is."
+      }
+    },
+    {
+      "id": "decide",
+      "type": "converge",
+      "title": "Choose the next step",
+      "timeboxSec": 300,
+      "completion": "reviewer_pass",
+      "prompt": "State the selected option and the shared criteria, weights and scores. Show weighted totals and one sensitivity calculation. Explain any choice that differs from the highest score.",
+      "sourceBlockId": "criteria-reveal,options-reveal,scores-reveal",
+      "rubric": {
+        "passThreshold": 0.8,
+        "criteria": [
+          {
+            "id": "comparable",
+            "text": "Options are scored against the same named criteria, scale and weights totaling 100.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No common criteria or scoring scale is stated.",
+              "one": "A common scale is stated but weights are missing, inconsistent, or do not total 100.",
+              "two": "All options use the same named criteria and scale, with weights explicitly totaling 100."
+            }
+          },
+          {
+            "id": "arithmetic",
+            "text": "Weighted totals follow the stated formula and identify the preferred feasible option.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No weighted calculation supports the selected option, or the stated arithmetic contradicts the ranking.",
+              "one": "Totals are given but the formula, feasibility check, or preferred option is unclear.",
+              "two": "Calculations follow the stated formula, e.g. score times weight divided by 100, and select the highest-ranked feasible option."
+            }
+          },
+          {
+            "id": "sensitivity",
+            "text": "A plausible changed assumption is recalculated and its effect on the ranking is discussed.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No changed assumption is examined.",
+              "one": "A changed weight or score is proposed but the ranking is not recalculated.",
+              "two": "A plausible weight or score change is recalculated and the resulting ranking change or stability is explained."
+            }
+          }
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      }
+    },
+    {
+      "id": "commit",
+      "type": "commit",
+      "title": "Assign the follow-through",
+      "timeboxSec": 180,
+      "completion": "valid_form",
+      "prompt": "Choose an owner, first action, due date and observable success signal.",
+      "walkthrough": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      }
+    },
+    {
+      "id": "artifact",
+      "type": "artifact",
+      "title": "Keep the session record",
+      "timeboxSec": 0,
+      "completion": "auto",
+      "walkthrough": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      }
+    }
+  ],
+  "fallbacks": [
+    {
+      "trigger": "facilitator",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    },
+    {
+      "trigger": "converge_failed_twice",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    }
+  ]
+}

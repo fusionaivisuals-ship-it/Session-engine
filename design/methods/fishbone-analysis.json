@@ -1,0 +1,253 @@
+{
+  "id": "fishbone-analysis",
+  "name": "Cause-and-effect / fishbone analysis",
+  "version": "2.0.0",
+  "description": "Map possible causes under categories, connect each branch to the outcome, and choose which links deserve evidence.",
+  "roleMode": "rotating",
+  "groupSize": {
+    "min": 2,
+    "max": 6
+  },
+  "timing": {
+    "totalBudgetSec": 1560,
+    "extensionSec": 60,
+    "idleSec": 90,
+    "presenceTimeoutSec": 120
+  },
+  "walkthroughIntro": {
+    "inOneLine": "Map possible causes under categories, connect each branch to the outcome, and choose which links deserve evidence.",
+    "bestFor": "A shared outcome with several plausible families of causes.",
+    "howLong": "26 minutes for 2–6 participants; also available solo.",
+    "origin": "An independently written workflow using a widely known thinking method. Instructions and fictional examples were created for this app; no third-party endorsement is claimed."
+  },
+  "lenses": [
+    {
+      "id": "categories",
+      "name": "Choose the branches",
+      "instruction": "Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "causes",
+      "name": "Attach causes and subcauses",
+      "instruction": "Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes.",
+      "colour": "#dce9ef"
+    },
+    {
+      "id": "checks",
+      "name": "Test the strongest branches",
+      "instruction": "Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them.",
+      "colour": "#dce9ef"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "frame",
+      "type": "frame",
+      "title": "Agree the question",
+      "timeboxSec": 180,
+      "completion": "all_agreed",
+      "prompt": "Define the effect in observable terms. Choose categories that fit this situation; they are organizing labels, not proof of a cause.",
+      "walkthrough": {
+        "whatHappens": "The group agrees the question and boundaries before contributing.",
+        "whyItMatters": "A shared question keeps the later comparisons relevant."
+      }
+    },
+    {
+      "id": "categories-input",
+      "type": "private_input",
+      "title": "Choose the branches",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "categories",
+      "prompt": "Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Tool kits return incomplete: Packing process covers checks before a kit leaves. Kit design covers how parts are held and labeled inside the case; these differ even when the same volunteer sees both."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Propose two categories for possible causes of the effect. Give each a short label and an example of the kind of condition it covers. Categories may overlap; explain the boundary.",
+        "whyItMatters": "Situation-specific categories help the group search broadly without forcing a stock diagram."
+      }
+    },
+    {
+      "id": "categories-reveal",
+      "type": "reveal",
+      "title": "Share: choose the branches",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "categories",
+      "sourceBlockId": "categories-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Situation-specific categories help the group search broadly without forcing a stock diagram."
+      }
+    },
+    {
+      "id": "causes-input",
+      "type": "private_input",
+      "title": "Attach causes and subcauses",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "causes",
+      "prompt": "Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Tool kits return incomplete: Packing process > no pre-loan count > blank count box on four affected loan cards. Blank boxes are observed; kits leaving incomplete is still an inference."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Use category > possible cause > contributing condition for each branch. Explain how it could lead to the effect. Mark each link observed, inferred or unknown; do not label people as causes.",
+        "whyItMatters": "A branch is a hypothesis about a mechanism, not a verdict."
+      }
+    },
+    {
+      "id": "causes-reveal",
+      "type": "reveal",
+      "title": "Share: attach causes and subcauses",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "causes",
+      "sourceBlockId": "causes-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "A branch is a hypothesis about a mechanism, not a verdict."
+      }
+    },
+    {
+      "id": "checks-input",
+      "type": "private_input",
+      "title": "Test the strongest branches",
+      "timeboxSec": 180,
+      "completion": "all_submitted",
+      "lensId": "checks",
+      "prompt": "Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them.",
+      "minWords": 8,
+      "ideaBlock": false,
+      "helper": {
+        "systemPrompt": "Coach the participant on this task: Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them. Ask one short question about their own reasoning. Do not supply an answer to their real problem. Separate evidence from assumptions and do not invent results.",
+        "hintStyle": "Point to one missing piece and ask a concrete question.",
+        "examplePool": [
+          "Fictional practice case — Tool kits return incomplete: Count every part before and after ten loans and photograph the packed tray. If parts are already missing before departure, packing explains some cases; if counts drop later, investigate return and storage."
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Each participant writes privately: Pick a consequential, plausible branch. Name evidence for and against it, a competing branch, and one observation or safe test that would distinguish them.",
+        "whyItMatters": "Prioritizing checks keeps an attractive diagram from replacing investigation."
+      }
+    },
+    {
+      "id": "checks-reveal",
+      "type": "reveal",
+      "title": "Share: test the strongest branches",
+      "timeboxSec": 120,
+      "completion": "all_confirmed",
+      "lensId": "checks",
+      "sourceBlockId": "checks-input",
+      "walkthrough": {
+        "whatHappens": "Answers appear together. Read each contribution, compare differences and confirm before moving on.",
+        "whyItMatters": "Prioritizing checks keeps an attractive diagram from replacing investigation."
+      }
+    },
+    {
+      "id": "decide",
+      "type": "converge",
+      "title": "Choose the next step",
+      "timeboxSec": 300,
+      "completion": "reviewer_pass",
+      "prompt": "Select the first branch to investigate. Include a competing branch from another category, explain the causal links, distinguish evidence from assumptions, and state the observation that will discriminate between them.",
+      "sourceBlockId": "categories-reveal,causes-reveal,checks-reveal",
+      "rubric": {
+        "passThreshold": 0.8,
+        "criteria": [
+          {
+            "id": "branches",
+            "text": "The conclusion names possible causes from at least two categories and explains their links to the effect.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No causal link is explained, e.g. staff are the problem.",
+              "one": "One category has an explained possible cause, or several categories are named without links.",
+              "two": "Possible causes from at least two categories are linked to the effect, e.g. unclear labels and rushed packing could each cause missing parts."
+            }
+          },
+          {
+            "id": "uncertainty",
+            "text": "Observed conditions and untested causal claims are distinguished.",
+            "weight": 1,
+            "scoring": {
+              "zero": "An untested cause is presented as established fact.",
+              "one": "Some uncertainty is acknowledged but observations and causal claims are mixed.",
+              "two": "Observed conditions and hypotheses are explicitly separated, e.g. three kits lacked bolts; rushed packing is an untested explanation."
+            }
+          },
+          {
+            "id": "verification",
+            "text": "A prioritized check can distinguish competing explanations.",
+            "weight": 1,
+            "scoring": {
+              "zero": "No verification step is stated.",
+              "one": "A check is named but its possible results cannot distinguish the explanations.",
+              "two": "A prioritized check states what differing results would support competing causes, e.g. compare omissions before and after packing."
+            }
+          }
+        ]
+      },
+      "walkthrough": {
+        "whatHappens": "Participants propose and vote on a conclusion. Review checks the method-specific criteria; solo sessions can use the same checklist.",
+        "whyItMatters": "A choice should explain its reasoning and limits."
+      }
+    },
+    {
+      "id": "commit",
+      "type": "commit",
+      "title": "Assign the follow-through",
+      "timeboxSec": 180,
+      "completion": "valid_form",
+      "prompt": "Choose an owner, first action, due date and observable success signal.",
+      "walkthrough": {
+        "whatHappens": "The group assigns one person the first action and records when and how to check it.",
+        "whyItMatters": "An owner and a check make the conclusion actionable."
+      }
+    },
+    {
+      "id": "artifact",
+      "type": "artifact",
+      "title": "Keep the session record",
+      "timeboxSec": 0,
+      "completion": "auto",
+      "walkthrough": {
+        "whatHappens": "The engine saves the contributions, conclusion and commitment as reports.",
+        "whyItMatters": "The record makes assumptions and follow-through available for review."
+      }
+    }
+  ],
+  "fallbacks": [
+    {
+      "trigger": "facilitator",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    },
+    {
+      "trigger": "converge_failed_twice",
+      "detourMethodId": "brainstorming-prioritization",
+      "blockIds": [
+        "ideas-input",
+        "ideas-reveal"
+      ],
+      "reason": "Pause the current approach to generate alternative next steps, then return to the decision."
+    }
+  ]
+}

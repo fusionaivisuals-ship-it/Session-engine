@@ -1,0 +1,2363 @@
+{
+  "duplicates": [
+    {
+      "firstFile": {
+        "end": 168,
+        "endLoc": {
+          "column": 2,
+          "line": 168,
+          "position": 5313
+        },
+        "name": "agents\\client.ts",
+        "start": 162,
+        "startLoc": {
+          "column": 58,
+          "line": 162,
+          "position": 5109
+        }
+      },
+      "format": "typescript",
+      "fragment": "type ScriptedOverrideFn<T = unknown> = (roomCode: string, opts: {\n  role: 'helper' | 'cluster' | 'reviewer';\n  systemPrompt: string;\n  userContent: string;\n  tool: ToolDef;\n  validate: (input: unknown) => { ok: true; value: T } | { ok: false; error: string };\n}) => ForcedToolResult<T>;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 7,
+      "secondFile": {
+        "end": 193,
+        "endLoc": {
+          "column": 2,
+          "line": 193,
+          "position": 6002
+        },
+        "name": "agents\\client.ts",
+        "start": 187,
+        "startLoc": {
+          "column": 40,
+          "line": 187,
+          "position": 5798
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 168,
+        "endLoc": {
+          "column": 2,
+          "line": 168,
+          "position": 5313
+        },
+        "name": "agents\\client.ts",
+        "start": 162,
+        "startLoc": {
+          "column": 39,
+          "line": 162,
+          "position": 5090
+        }
+      },
+      "format": "typescript",
+      "fragment": "type ScriptedOverrideFn<T = unknown> = (roomCode: string, opts: {\n  role: 'helper' | 'cluster' | 'reviewer';\n  systemPrompt: string;\n  userContent: string;\n  tool: ToolDef;\n  validate: (input: unknown) => { ok: true; value: T } | { ok: false; error: string };\n}) => ForcedToolResult<T>;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 7,
+      "secondFile": {
+        "end": 89,
+        "endLoc": {
+          "column": 1,
+          "line": 89,
+          "position": 3471
+        },
+        "name": "agents\\scripted-client.ts",
+        "start": 80,
+        "startLoc": {
+          "column": 41,
+          "line": 80,
+          "position": 3230
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 193,
+        "endLoc": {
+          "column": 3,
+          "line": 193,
+          "position": 6003
+        },
+        "name": "agents\\client.ts",
+        "start": 188,
+        "startLoc": {
+          "column": 6,
+          "line": 188,
+          "position": 5812
+        }
+      },
+      "format": "typescript",
+      "fragment": "  role: 'helper' | 'cluster' | 'reviewer';\n  systemPrompt: string;\n  userContent: string;\n  tool: ToolDef;\n  validate: (input: unknown) => { ok: true; value: T } | { ok: false; error: string };\n}): Promise<ForcedToolResult<T>> {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 89,
+        "endLoc": {
+          "column": 2,
+          "line": 89,
+          "position": 3472
+        },
+        "name": "agents\\scripted-client.ts",
+        "start": 83,
+        "startLoc": {
+          "column": 8,
+          "line": 83,
+          "position": 3270
+        }
+      },
+      "tokens": 50
+    },
+    {
+      "firstFile": {
+        "end": 215,
+        "endLoc": {
+          "column": 7,
+          "line": 215,
+          "position": 6731
+        },
+        "name": "agents\\client.ts",
+        "start": 209,
+        "startLoc": {
+          "column": 39,
+          "line": 209,
+          "position": 6511
+        }
+      },
+      "format": "typescript",
+      "fragment": "async function callForcedToolOpenRouter<T>(model: string, opts: {\n  systemPrompt: string;\n  userContent: string;\n  tool: ToolDef;\n  validate: (input: unknown) => { ok: true; value: T } | { ok: false; error: string };\n}): Promise<ForcedToolResult<T>> {\n  const messages: OpenRouterMessage[] = [",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 7,
+      "secondFile": {
+        "end": 257,
+        "endLoc": {
+          "column": 7,
+          "line": 257,
+          "position": 8014
+        },
+        "name": "agents\\client.ts",
+        "start": 251,
+        "startLoc": {
+          "column": 38,
+          "line": 251,
+          "position": 7794
+        }
+      },
+      "tokens": 63
+    },
+    {
+      "firstFile": {
+        "end": 111,
+        "endLoc": {
+          "column": 3,
+          "line": 111,
+          "position": 4520
+        },
+        "name": "agents\\scripted-client.ts",
+        "start": 106,
+        "startLoc": {
+          "column": 99,
+          "line": 106,
+          "position": 4313
+        }
+      },
+      "format": "typescript",
+      "fragment": "    if (!validation.ok) throw new Error(`Scripted client: canned cluster data failed validation: ${validation.error}`);\n    return {\n      input: validation.value,\n      metric: { tool: toolName, model: 'scripted', inputTokens: 0, outputTokens: 0, at: new Date().toISOString(), retried: false },\n    };\n  }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 132,
+        "endLoc": {
+          "column": 3,
+          "line": 132,
+          "position": 5552
+        },
+        "name": "agents\\scripted-client.ts",
+        "start": 127,
+        "startLoc": {
+          "column": 99,
+          "line": 127,
+          "position": 5345
+        }
+      },
+      "tokens": 52
+    },
+    {
+      "firstFile": {
+        "end": 24,
+        "endLoc": {
+          "column": 7,
+          "line": 24,
+          "position": 688
+        },
+        "name": "engine\\methods.ts",
+        "start": 19,
+        "startLoc": {
+          "column": 2,
+          "line": 19,
+          "position": 470
+        }
+      },
+      "format": "typescript",
+      "fragment": "  const files = readdirSync(methodsDir).filter(f => f.endsWith('.json'));\n  for (const file of files) {\n    const m: Method = JSON.parse(readFileSync(join(methodsDir, file), 'utf-8'));\n    cache.set(m.id, m);\n  }\n  const method = cache.get(id);",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 35,
+        "endLoc": {
+          "column": 8,
+          "line": 35,
+          "position": 1073
+        },
+        "name": "engine\\methods.ts",
+        "start": 30,
+        "startLoc": {
+          "column": 2,
+          "line": 30,
+          "position": 854
+        }
+      },
+      "tokens": 62
+    },
+    {
+      "firstFile": {
+        "end": 98,
+        "endLoc": {
+          "column": 20,
+          "line": 98,
+          "position": 3074
+        },
+        "name": "engine\\metrics.ts",
+        "start": 93,
+        "startLoc": {
+          "column": 2,
+          "line": 93,
+          "position": 2838
+        }
+      },
+      "format": "typescript",
+      "fragment": "  for (const block of method.blocks) {\n    if (block.type !== 'private_input') continue;\n    const record = session.blocks[block.id];\n    if (!record?.submissions) continue;\n    for (const sub of record.submissions) {\n      if (sub.passed || sub.autoSubmitted) continue;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 143,
+        "endLoc": {
+          "column": 20,
+          "line": 143,
+          "position": 4956
+        },
+        "name": "engine\\metrics.ts",
+        "start": 138,
+        "startLoc": {
+          "column": 2,
+          "line": 138,
+          "position": 4720
+        }
+      },
+      "tokens": 56
+    },
+    {
+      "firstFile": {
+        "end": 206,
+        "endLoc": {
+          "column": 40,
+          "line": 206,
+          "position": 7191
+        },
+        "name": "engine\\metrics.ts",
+        "start": 196,
+        "startLoc": {
+          "column": 69,
+          "line": 196,
+          "position": 6821
+        }
+      },
+      "format": "typescript",
+      "fragment": "function coverageForBlocks(session: SessionState, blocks: MethodBlock[]): 'substantive' | 'token' | 'pass' | 'missing' {\n  const wordCounts: number[] = [];\n  let passCount = 0;\n  let totalSubs = 0;\n  let minWords = 15; // default\n\n  for (const block of blocks) {\n    if (block.minWords) minWords = block.minWords;\n    const record = session.blocks[block.id];\n    if (!record?.submissions) continue;\n    for (const sub of record.submissions) {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 11,
+      "secondFile": {
+        "end": 238,
+        "endLoc": {
+          "column": 40,
+          "line": 238,
+          "position": 8102
+        },
+        "name": "engine\\metrics.ts",
+        "start": 227,
+        "startLoc": {
+          "column": 15,
+          "line": 227,
+          "position": 7742
+        }
+      },
+      "tokens": 86
+    },
+    {
+      "firstFile": {
+        "end": 222,
+        "endLoc": {
+          "column": 1,
+          "line": 222,
+          "position": 7639
+        },
+        "name": "engine\\metrics.ts",
+        "start": 206,
+        "startLoc": {
+          "column": 40,
+          "line": 206,
+          "position": 7191
+        }
+      },
+      "format": "typescript",
+      "fragment": "    for (const sub of record.submissions) {\n      totalSubs++;\n      if (sub.passed || sub.autoSubmitted) {\n        passCount++;\n        wordCounts.push(0);\n      } else {\n        wordCounts.push(sub.wordCount);\n      }\n    }\n  }\n\n  if (totalSubs === 0) return 'missing';\n  if (passCount > totalSubs / 2) return 'pass';\n  const sorted = [...wordCounts].sort((a, b) => a - b);\n  const median = sorted[Math.floor(sorted.length / 2)];\n  return median >= minWords ? 'substantive' : 'token';\n}",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 17,
+      "secondFile": {
+        "end": 254,
+        "endLoc": {
+          "column": 1,
+          "line": 254,
+          "position": 8586
+        },
+        "name": "engine\\metrics.ts",
+        "start": 238,
+        "startLoc": {
+          "column": 76,
+          "line": 238,
+          "position": 8138
+        }
+      },
+      "tokens": 109
+    },
+    {
+      "firstFile": {
+        "end": 45,
+        "endLoc": {
+          "column": 3,
+          "line": 45,
+          "position": 1831
+        },
+        "name": "engine\\simulate.ts",
+        "start": 26,
+        "startLoc": {
+          "column": 92,
+          "line": 26,
+          "position": 1188
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function startDemoScenario(scenarioId: string, opts?: SimulateOptions): SessionState {\n  const scenario = loadScenario(scenarioId);\n  const clockScale = opts?.clockScale ?? 1;\n  const stagger = Math.max(50, Math.round(500 / clockScale));\n\n  // Wire up the scripted client globally\n  setScriptedOverride(scriptedCallForcedTool);\n\n  // Create session\n  const session = store.createNewSession(scenario.methodId, { anonymous: scenario.anonymous });\n  const roomCode = session.roomCode;\n\n  // Load canned data for this session\n  loadScenarioForSession(roomCode, scenario.canned);\n  setCurrentRoomCode(roomCode);\n\n  // Register state change listener if provided\n  if (opts?.onStateChange) {\n    store.onChange(opts.onStateChange);\n  }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 20,
+      "secondFile": {
+        "end": 95,
+        "endLoc": {
+          "column": 3,
+          "line": 95,
+          "position": 3455
+        },
+        "name": "engine\\simulate.ts",
+        "start": 76,
+        "startLoc": {
+          "column": 101,
+          "line": 76,
+          "position": 2780
+        }
+      },
+      "tokens": 100
+    },
+    {
+      "firstFile": {
+        "end": 60,
+        "endLoc": {
+          "column": 52,
+          "line": 60,
+          "position": 2293
+        },
+        "name": "engine\\simulate.ts",
+        "start": 48,
+        "startLoc": {
+          "column": 2,
+          "line": 48,
+          "position": 1855
+        }
+      },
+      "format": "typescript",
+      "fragment": "  for (const seatSpec of scenario.seats) {\n    const displayName = `Participant ${seatSpec.seat.replace('seat-', '')}`;\n    store.joinSession(roomCode, displayName);\n  }\n\n  // Start session\n  store.startSessionAction(roomCode, 'seat-1');\n\n  // Prefill problem statement\n  store.updateProblemStatement(roomCode, scenario.problemStatement);\n\n  // Drive blocks in background — don't await\n  const method = store.getMethodForSession(session);",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 13,
+      "secondFile": {
+        "end": 111,
+        "endLoc": {
+          "column": 54,
+          "line": 111,
+          "position": 4029
+        },
+        "name": "engine\\simulate.ts",
+        "start": 99,
+        "startLoc": {
+          "column": 4,
+          "line": 99,
+          "position": 3559
+        }
+      },
+      "tokens": 66
+    },
+    {
+      "firstFile": {
+        "end": 56,
+        "endLoc": {
+          "column": 73,
+          "line": 56,
+          "position": 2377
+        },
+        "name": "engine\\store.ts",
+        "start": 51,
+        "startLoc": {
+          "column": 69,
+          "line": 51,
+          "position": 2113
+        }
+      },
+      "format": "typescript",
+      "fragment": "  if (session.status !== 'running' || !session.currentBlockId) return;\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'reveal') return;\n  const record = session.blocks[block.id];\n  if (record.reveal?.clusters || record.reveal?.clusteringFailed) return;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 468,
+        "endLoc": {
+          "column": 73,
+          "line": 468,
+          "position": 16908
+        },
+        "name": "engine\\store.ts",
+        "start": 461,
+        "startLoc": {
+          "column": 52,
+          "line": 461,
+          "position": 16603
+        }
+      },
+      "tokens": 60
+    },
+    {
+      "firstFile": {
+        "end": 158,
+        "endLoc": {
+          "column": 42,
+          "line": 158,
+          "position": 5949
+        },
+        "name": "engine\\store.ts",
+        "start": 152,
+        "startLoc": {
+          "column": 64,
+          "line": 152,
+          "position": 5646
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitInput(roomCode: string, seat: string, text: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block) throw new Error('No active block');\n  const record = session.blocks[block.id];",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 7,
+      "secondFile": {
+        "end": 197,
+        "endLoc": {
+          "column": 42,
+          "line": 197,
+          "position": 7152
+        },
+        "name": "engine\\store.ts",
+        "start": 191,
+        "startLoc": {
+          "column": 50,
+          "line": 191,
+          "position": 6849
+        }
+      },
+      "tokens": 70
+    },
+    {
+      "firstFile": {
+        "end": 157,
+        "endLoc": {
+          "column": 12,
+          "line": 157,
+          "position": 5869
+        },
+        "name": "engine\\store.ts",
+        "start": 152,
+        "startLoc": {
+          "column": 64,
+          "line": 152,
+          "position": 5646
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitInput(roomCode: string, seat: string, text: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block) throw new Error('No active block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 258,
+        "endLoc": {
+          "column": 12,
+          "line": 258,
+          "position": 9164
+        },
+        "name": "engine\\store.ts",
+        "start": 253,
+        "startLoc": {
+          "column": 71,
+          "line": 253,
+          "position": 8941
+        }
+      },
+      "tokens": 50
+    },
+    {
+      "firstFile": {
+        "end": 157,
+        "endLoc": {
+          "column": 12,
+          "line": 157,
+          "position": 5869
+        },
+        "name": "engine\\store.ts",
+        "start": 152,
+        "startLoc": {
+          "column": 64,
+          "line": 152,
+          "position": 5646
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitInput(roomCode: string, seat: string, text: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block) throw new Error('No active block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 284,
+        "endLoc": {
+          "column": 12,
+          "line": 284,
+          "position": 9986
+        },
+        "name": "engine\\store.ts",
+        "start": 279,
+        "startLoc": {
+          "column": 37,
+          "line": 279,
+          "position": 9763
+        }
+      },
+      "tokens": 50
+    },
+    {
+      "firstFile": {
+        "end": 157,
+        "endLoc": {
+          "column": 12,
+          "line": 157,
+          "position": 5869
+        },
+        "name": "engine\\store.ts",
+        "start": 152,
+        "startLoc": {
+          "column": 64,
+          "line": 152,
+          "position": 5646
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitInput(roomCode: string, seat: string, text: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block) throw new Error('No active block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 303,
+        "endLoc": {
+          "column": 12,
+          "line": 303,
+          "position": 10762
+        },
+        "name": "engine\\store.ts",
+        "start": 298,
+        "startLoc": {
+          "column": 67,
+          "line": 298,
+          "position": 10539
+        }
+      },
+      "tokens": 50
+    },
+    {
+      "firstFile": {
+        "end": 157,
+        "endLoc": {
+          "column": 49,
+          "line": 157,
+          "position": 5906
+        },
+        "name": "engine\\store.ts",
+        "start": 152,
+        "startLoc": {
+          "column": 66,
+          "line": 152,
+          "position": 5648
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitInput(roomCode: string, seat: string, text: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block) throw new Error('No active block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 391,
+        "endLoc": {
+          "column": 49,
+          "line": 391,
+          "position": 14167
+        },
+        "name": "engine\\store.ts",
+        "start": 386,
+        "startLoc": {
+          "column": 43,
+          "line": 386,
+          "position": 13909
+        }
+      },
+      "tokens": 57
+    },
+    {
+      "firstFile": {
+        "end": 158,
+        "endLoc": {
+          "column": 7,
+          "line": 158,
+          "position": 5914
+        },
+        "name": "engine\\store.ts",
+        "start": 152,
+        "startLoc": {
+          "column": 66,
+          "line": 152,
+          "position": 5648
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitInput(roomCode: string, seat: string, text: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block) throw new Error('No active block');\n  const record = session.blocks[block.id];",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 7,
+      "secondFile": {
+        "end": 409,
+        "endLoc": {
+          "column": 7,
+          "line": 409,
+          "position": 14736
+        },
+        "name": "engine\\store.ts",
+        "start": 403,
+        "startLoc": {
+          "column": 44,
+          "line": 403,
+          "position": 14470
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 157,
+        "endLoc": {
+          "column": 49,
+          "line": 157,
+          "position": 5906
+        },
+        "name": "engine\\store.ts",
+        "start": 152,
+        "startLoc": {
+          "column": 64,
+          "line": 152,
+          "position": 5646
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitInput(roomCode: string, seat: string, text: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block) throw new Error('No active block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 441,
+        "endLoc": {
+          "column": 49,
+          "line": 441,
+          "position": 15999
+        },
+        "name": "engine\\store.ts",
+        "start": 436,
+        "startLoc": {
+          "column": 69,
+          "line": 436,
+          "position": 15739
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 228,
+        "endLoc": {
+          "column": 30,
+          "line": 228,
+          "position": 8194
+        },
+        "name": "engine\\store.ts",
+        "start": 223,
+        "startLoc": {
+          "column": 149,
+          "line": 223,
+          "position": 7961
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitCommitment(roomCode: string, seat: string, data: { owner: string; firstAction: string; dueDate: string; successSignal: string }): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'commit') throw new Error('Not on commit block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 258,
+        "endLoc": {
+          "column": 30,
+          "line": 258,
+          "position": 9182
+        },
+        "name": "engine\\store.ts",
+        "start": 253,
+        "startLoc": {
+          "column": 79,
+          "line": 253,
+          "position": 8949
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 228,
+        "endLoc": {
+          "column": 30,
+          "line": 228,
+          "position": 8194
+        },
+        "name": "engine\\store.ts",
+        "start": 223,
+        "startLoc": {
+          "column": 149,
+          "line": 223,
+          "position": 7961
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitCommitment(roomCode: string, seat: string, data: { owner: string; firstAction: string; dueDate: string; successSignal: string }): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'commit') throw new Error('Not on commit block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 329,
+        "endLoc": {
+          "column": 30,
+          "line": 329,
+          "position": 11846
+        },
+        "name": "engine\\store.ts",
+        "start": 324,
+        "startLoc": {
+          "column": 99,
+          "line": 324,
+          "position": 11613
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 228,
+        "endLoc": {
+          "column": 30,
+          "line": 228,
+          "position": 8194
+        },
+        "name": "engine\\store.ts",
+        "start": 223,
+        "startLoc": {
+          "column": 157,
+          "line": 223,
+          "position": 7969
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitCommitment(roomCode: string, seat: string, data: { owner: string; firstAction: string; dueDate: string; successSignal: string }): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'commit') throw new Error('Not on commit block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 352,
+        "endLoc": {
+          "column": 30,
+          "line": 352,
+          "position": 12768
+        },
+        "name": "engine\\store.ts",
+        "start": 347,
+        "startLoc": {
+          "column": 79,
+          "line": 347,
+          "position": 12543
+        }
+      },
+      "tokens": 50
+    },
+    {
+      "firstFile": {
+        "end": 258,
+        "endLoc": {
+          "column": 30,
+          "line": 258,
+          "position": 9182
+        },
+        "name": "engine\\store.ts",
+        "start": 253,
+        "startLoc": {
+          "column": 73,
+          "line": 253,
+          "position": 8943
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitDecision(roomCode: string, seat: string, decision: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'converge') throw new Error('Not on converge block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 284,
+        "endLoc": {
+          "column": 30,
+          "line": 284,
+          "position": 10004
+        },
+        "name": "engine\\store.ts",
+        "start": 279,
+        "startLoc": {
+          "column": 39,
+          "line": 279,
+          "position": 9765
+        }
+      },
+      "tokens": 54
+    },
+    {
+      "firstFile": {
+        "end": 258,
+        "endLoc": {
+          "column": 30,
+          "line": 258,
+          "position": 9182
+        },
+        "name": "engine\\store.ts",
+        "start": 253,
+        "startLoc": {
+          "column": 73,
+          "line": 253,
+          "position": 8943
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function submitDecision(roomCode: string, seat: string, decision: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'converge') throw new Error('Not on converge block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 303,
+        "endLoc": {
+          "column": 30,
+          "line": 303,
+          "position": 10780
+        },
+        "name": "engine\\store.ts",
+        "start": 298,
+        "startLoc": {
+          "column": 69,
+          "line": 298,
+          "position": 10541
+        }
+      },
+      "tokens": 54
+    },
+    {
+      "firstFile": {
+        "end": 260,
+        "endLoc": {
+          "column": 9,
+          "line": 260,
+          "position": 9247
+        },
+        "name": "engine\\store.ts",
+        "start": 254,
+        "startLoc": {
+          "column": 2,
+          "line": 254,
+          "position": 8961
+        }
+      },
+      "format": "typescript",
+      "fragment": "  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'converge') throw new Error('Not on converge block');\n\n  session.facts.decision = decision;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 7,
+      "secondFile": {
+        "end": 353,
+        "endLoc": {
+          "column": 4,
+          "line": 353,
+          "position": 12827
+        },
+        "name": "engine\\store.ts",
+        "start": 348,
+        "startLoc": {
+          "column": 2,
+          "line": 348,
+          "position": 12547
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 284,
+        "endLoc": {
+          "column": 12,
+          "line": 284,
+          "position": 9986
+        },
+        "name": "engine\\store.ts",
+        "start": 279,
+        "startLoc": {
+          "column": 28,
+          "line": 279,
+          "position": 9754
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function assignRandom(roomCode: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'assign') throw new Error('Not on assign block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 391,
+        "endLoc": {
+          "column": 12,
+          "line": 391,
+          "position": 14130
+        },
+        "name": "engine\\store.ts",
+        "start": 386,
+        "startLoc": {
+          "column": 32,
+          "line": 386,
+          "position": 13898
+        }
+      },
+      "tokens": 52
+    },
+    {
+      "firstFile": {
+        "end": 284,
+        "endLoc": {
+          "column": 12,
+          "line": 284,
+          "position": 9986
+        },
+        "name": "engine\\store.ts",
+        "start": 279,
+        "startLoc": {
+          "column": 28,
+          "line": 279,
+          "position": 9754
+        }
+      },
+      "format": "typescript",
+      "fragment": "export function assignRandom(roomCode: string): void {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'assign') throw new Error('Not on assign block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 408,
+        "endLoc": {
+          "column": 12,
+          "line": 408,
+          "position": 14691
+        },
+        "name": "engine\\store.ts",
+        "start": 403,
+        "startLoc": {
+          "column": 33,
+          "line": 403,
+          "position": 14459
+        }
+      },
+      "tokens": 52
+    },
+    {
+      "firstFile": {
+        "end": 287,
+        "endLoc": {
+          "column": 7,
+          "line": 287,
+          "position": 10132
+        },
+        "name": "engine\\store.ts",
+        "start": 280,
+        "startLoc": {
+          "column": 2,
+          "line": 280,
+          "position": 9783
+        }
+      },
+      "format": "typescript",
+      "fragment": "  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'assign') throw new Error('Not on assign block');\n  if (!method.roles?.length) throw new Error('Method has no roles');\n\n  const active = session.participants.filter(p => p.presence !== 'absent');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 8,
+      "secondFile": {
+        "end": 306,
+        "endLoc": {
+          "column": 7,
+          "line": 306,
+          "position": 10908
+        },
+        "name": "engine\\store.ts",
+        "start": 299,
+        "startLoc": {
+          "column": 2,
+          "line": 299,
+          "position": 10559
+        }
+      },
+      "tokens": 75
+    },
+    {
+      "firstFile": {
+        "end": 285,
+        "endLoc": {
+          "column": 68,
+          "line": 285,
+          "position": 10123
+        },
+        "name": "engine\\store.ts",
+        "start": 280,
+        "startLoc": {
+          "column": 2,
+          "line": 280,
+          "position": 9783
+        }
+      },
+      "format": "typescript",
+      "fragment": "  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'assign') throw new Error('Not on assign block');\n  if (!method.roles?.length) throw new Error('Method has no roles');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 330,
+        "endLoc": {
+          "column": 68,
+          "line": 330,
+          "position": 11965
+        },
+        "name": "engine\\store.ts",
+        "start": 325,
+        "startLoc": {
+          "column": 2,
+          "line": 325,
+          "position": 11625
+        }
+      },
+      "tokens": 74
+    },
+    {
+      "firstFile": {
+        "end": 352,
+        "endLoc": {
+          "column": 30,
+          "line": 352,
+          "position": 12768
+        },
+        "name": "engine\\store.ts",
+        "start": 347,
+        "startLoc": {
+          "column": 77,
+          "line": 347,
+          "position": 12541
+        }
+      },
+      "format": "typescript",
+      "fragment": "export async function handleReview(roomCode: string): Promise<ReviewerVerdict> {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'converge') throw new Error('Not on converge block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 464,
+        "endLoc": {
+          "column": 30,
+          "line": 464,
+          "position": 16732
+        },
+        "name": "engine\\store.ts",
+        "start": 459,
+        "startLoc": {
+          "column": 70,
+          "line": 459,
+          "position": 16505
+        }
+      },
+      "tokens": 51
+    },
+    {
+      "firstFile": {
+        "end": 352,
+        "endLoc": {
+          "column": 30,
+          "line": 352,
+          "position": 12768
+        },
+        "name": "engine\\store.ts",
+        "start": 347,
+        "startLoc": {
+          "column": 77,
+          "line": 347,
+          "position": 12541
+        }
+      },
+      "format": "typescript",
+      "fragment": "export async function handleReview(roomCode: string): Promise<ReviewerVerdict> {\n  const session = sessions.get(roomCode);\n  if (!session) throw new Error('Session not found');\n  const method = getMethodForSession(session);\n  const block = getCurrentBlock(session, method);\n  if (!block || block.type !== 'converge') throw new Error('Not on converge block');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 488,
+        "endLoc": {
+          "column": 30,
+          "line": 488,
+          "position": 17648
+        },
+        "name": "engine\\store.ts",
+        "start": 483,
+        "startLoc": {
+          "column": 109,
+          "line": 483,
+          "position": 17421
+        }
+      },
+      "tokens": 51
+    },
+    {
+      "firstFile": {
+        "end": 134,
+        "endLoc": {
+          "column": 15,
+          "line": 134,
+          "position": 4932
+        },
+        "name": "web\\api.ts",
+        "start": 126,
+        "startLoc": {
+          "column": 21,
+          "line": 126,
+          "position": 4763
+        }
+      },
+      "format": "typescript",
+      "fragment": "    store.confirmRead(req.params.code, seat);\n    res.json({ ok: true });\n  } catch (e: any) {\n    res.status(400).json({ error: e.message });\n  }\n});\n\n// Agree (frame block)\napiRouter.post('/sessions/:code/agree', (req, res) => {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 9,
+      "secondFile": {
+        "end": 145,
+        "endLoc": {
+          "column": 15,
+          "line": 145,
+          "position": 5233
+        },
+        "name": "web\\api.ts",
+        "start": 137,
+        "startLoc": {
+          "column": 20,
+          "line": 137,
+          "position": 5032
+        }
+      },
+      "tokens": 55
+    },
+    {
+      "firstFile": {
+        "end": 202,
+        "endLoc": {
+          "column": 15,
+          "line": 202,
+          "position": 6924
+        },
+        "name": "web\\api.ts",
+        "start": 194,
+        "startLoc": {
+          "column": 26,
+          "line": 194,
+          "position": 6761
+        }
+      },
+      "format": "typescript",
+      "fragment": "    store.facilitatorPause(_req.params.code);\n    res.json({ ok: true });\n  } catch (e: any) {\n    res.status(400).json({ error: e.message });\n  }\n});\n\n// Facilitator resume\napiRouter.post('/sessions/:code/resume', (_req, res) => {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 9,
+      "secondFile": {
+        "end": 212,
+        "endLoc": {
+          "column": 15,
+          "line": 212,
+          "position": 7165
+        },
+        "name": "web\\api.ts",
+        "start": 204,
+        "startLoc": {
+          "column": 27,
+          "line": 204,
+          "position": 7002
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 202,
+        "endLoc": {
+          "column": 15,
+          "line": 202,
+          "position": 6924
+        },
+        "name": "web\\api.ts",
+        "start": 194,
+        "startLoc": {
+          "column": 26,
+          "line": 194,
+          "position": 6761
+        }
+      },
+      "format": "typescript",
+      "fragment": "    store.facilitatorPause(_req.params.code);\n    res.json({ ok: true });\n  } catch (e: any) {\n    res.status(400).json({ error: e.message });\n  }\n});\n\n// Facilitator resume\napiRouter.post('/sessions/:code/resume', (_req, res) => {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 9,
+      "secondFile": {
+        "end": 222,
+        "endLoc": {
+          "column": 15,
+          "line": 222,
+          "position": 7420
+        },
+        "name": "web\\api.ts",
+        "start": 214,
+        "startLoc": {
+          "column": 27,
+          "line": 214,
+          "position": 7243
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 202,
+        "endLoc": {
+          "column": 15,
+          "line": 202,
+          "position": 6924
+        },
+        "name": "web\\api.ts",
+        "start": 194,
+        "startLoc": {
+          "column": 26,
+          "line": 194,
+          "position": 6761
+        }
+      },
+      "format": "typescript",
+      "fragment": "    store.facilitatorPause(_req.params.code);\n    res.json({ ok: true });\n  } catch (e: any) {\n    res.status(400).json({ error: e.message });\n  }\n});\n\n// Facilitator resume\napiRouter.post('/sessions/:code/resume', (_req, res) => {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 9,
+      "secondFile": {
+        "end": 276,
+        "endLoc": {
+          "column": 15,
+          "line": 276,
+          "position": 9017
+        },
+        "name": "web\\api.ts",
+        "start": 268,
+        "startLoc": {
+          "column": 32,
+          "line": 268,
+          "position": 8830
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 202,
+        "endLoc": {
+          "column": 15,
+          "line": 202,
+          "position": 6924
+        },
+        "name": "web\\api.ts",
+        "start": 194,
+        "startLoc": {
+          "column": 31,
+          "line": 194,
+          "position": 6766
+        }
+      },
+      "format": "typescript",
+      "fragment": "    store.facilitatorPause(_req.params.code);\n    res.json({ ok: true });\n  } catch (e: any) {\n    res.status(400).json({ error: e.message });\n  }\n});\n\n// Facilitator resume\napiRouter.post('/sessions/:code/resume', (_req, res) => {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 9,
+      "secondFile": {
+        "end": 296,
+        "endLoc": {
+          "column": 15,
+          "line": 296,
+          "position": 9599
+        },
+        "name": "web\\api.ts",
+        "start": 288,
+        "startLoc": {
+          "column": 26,
+          "line": 288,
+          "position": 9403
+        }
+      },
+      "tokens": 51
+    },
+    {
+      "firstFile": {
+        "end": 357,
+        "endLoc": {
+          "column": 10,
+          "line": 357,
+          "position": 11350
+        },
+        "name": "web\\api.ts",
+        "start": 349,
+        "startLoc": {
+          "column": 28,
+          "line": 349,
+          "position": 11178
+        }
+      },
+      "format": "typescript",
+      "fragment": "    store.acceptDetourAction(req.params.code, proposal);\n    res.json({ ok: true });\n  } catch (e: any) {\n    res.status(400).json({ error: e.message });\n  }\n});\n\n// Decline detour proposal\napiRouter.post('/sessions/:code/detour-decline', (req, res) => {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 9,
+      "secondFile": {
+        "end": 368,
+        "endLoc": {
+          "column": 10,
+          "line": 368,
+          "position": 11646
+        },
+        "name": "web\\api.ts",
+        "start": 360,
+        "startLoc": {
+          "column": 29,
+          "line": 360,
+          "position": 11477
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 46,
+        "endLoc": {
+          "column": 31,
+          "line": 46,
+          "position": 3134
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 41,
+        "startLoc": {
+          "column": 96,
+          "line": 41,
+          "position": 2751
+        }
+      },
+      "format": "markup",
+      "fragment": "    .override-section { background: #fff0f0; padding: 16px; border-radius: 8px; margin-top: 16px; }\n    .verdict-panel { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-top: 16px; }\n    .verdict-panel.pass { border-color: #9ae6b4; background: #f0fff4; }\n    .verdict-panel.fail { border-color: #feb2b2; background: #fff5f5; }\n    .verdict-header { font-weight: 700; font-size: 1.1em; margin-bottom: 8px; }\n    .score-row { display: flex; gap: 12px; padding: 4px 0; border-bottom: 1px solid #edf2f7; font-size: 0.9em; }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 48,
+        "endLoc": {
+          "column": 31,
+          "line": 48,
+          "position": 3459
+        },
+        "name": "web\\views\\join.html",
+        "start": 43,
+        "startLoc": {
+          "column": 118,
+          "line": 43,
+          "position": 3076
+        }
+      },
+      "tokens": 116
+    },
+    {
+      "firstFile": {
+        "end": 67,
+        "endLoc": {
+          "column": 8,
+          "line": 67,
+          "position": 4285
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 53,
+        "startLoc": {
+          "column": 32,
+          "line": 53,
+          "position": 3691
+        }
+      },
+      "format": "markup",
+      "fragment": "    #joinForm { margin-top: 40px; }\n    .conn-indicator { position: fixed; top: 8px; right: 8px; display: flex; align-items: center; gap: 6px; font-size: 0.75em; color: #888; z-index: 100; }\n    .conn-dot { width: 10px; height: 10px; border-radius: 50%; }\n    .conn-dot.connected { background: #2e9e5b; }\n    .conn-dot.reconnecting { background: #e8b400; }\n    .conn-dot.disconnected { background: #d64545; }\n  </style>\n</head>\n<body>\n  <div class=\"conn-indicator\" id=\"connIndicator\" style=\"display:none\">\n    <span class=\"conn-dot\" id=\"connDot\"></span>\n    <span id=\"connLabel\"></span>\n  </div>\n  <div id=\"joinForm\">\n    <h1>Facilitator</h1>",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 15,
+      "secondFile": {
+        "end": 69,
+        "endLoc": {
+          "column": 8,
+          "line": 69,
+          "position": 4667
+        },
+        "name": "web\\views\\join.html",
+        "start": 55,
+        "startLoc": {
+          "column": 27,
+          "line": 55,
+          "position": 4073
+        }
+      },
+      "tokens": 177
+    },
+    {
+      "firstFile": {
+        "end": 62,
+        "endLoc": {
+          "column": 48,
+          "line": 62,
+          "position": 4142
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 53,
+        "startLoc": {
+          "column": 32,
+          "line": 53,
+          "position": 3691
+        }
+      },
+      "format": "markup",
+      "fragment": "    #joinForm { margin-top: 40px; }\n    .conn-indicator { position: fixed; top: 8px; right: 8px; display: flex; align-items: center; gap: 6px; font-size: 0.75em; color: #888; z-index: 100; }\n    .conn-dot { width: 10px; height: 10px; border-radius: 50%; }\n    .conn-dot.connected { background: #2e9e5b; }\n    .conn-dot.reconnecting { background: #e8b400; }\n    .conn-dot.disconnected { background: #d64545; }\n  </style>\n</head>\n<body>\n  <div class=\"conn-indicator\" id=\"connIndicator\" style=\"display:none\">",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 10,
+      "secondFile": {
+        "end": 33,
+        "endLoc": {
+          "column": 48,
+          "line": 33,
+          "position": 1894
+        },
+        "name": "web\\views\\room.html",
+        "start": 24,
+        "startLoc": {
+          "column": 42,
+          "line": 24,
+          "position": 1443
+        }
+      },
+      "tokens": 137
+    },
+    {
+      "firstFile": {
+        "end": 82,
+        "endLoc": {
+          "column": 7,
+          "line": 82,
+          "position": 4781
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 72,
+        "startLoc": {
+          "column": 50,
+          "line": 72,
+          "position": 4513
+        }
+      },
+      "format": "markup",
+      "fragment": "    <button onclick=\"doJoin()\">Join as Facilitator</button>\n    <div id=\"joinError\" style=\"color:red;margin-top:8px\"></div>\n  </div>\n  <div id=\"app\" class=\"hidden\"></div>\n\n  <script>\n    const roomCode = location.pathname.split('/').pop();\n    let mySeat = null;\n    let ws = null;\n    let currentState = null;\n    let detourProposal = null;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 11,
+      "secondFile": {
+        "end": 84,
+        "endLoc": {
+          "column": 7,
+          "line": 84,
+          "position": 5153
+        },
+        "name": "web\\views\\join.html",
+        "start": 74,
+        "startLoc": {
+          "column": 35,
+          "line": 74,
+          "position": 4885
+        }
+      },
+      "tokens": 69
+    },
+    {
+      "firstFile": {
+        "end": 105,
+        "endLoc": {
+          "column": 7,
+          "line": 105,
+          "position": 5647
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 85,
+        "startLoc": {
+          "column": 52,
+          "line": 85,
+          "position": 4888
+        }
+      },
+      "format": "markup",
+      "fragment": "      const name = document.getElementById('facName').value.trim();\n      if (!name) return;\n      try {\n        const res = await fetch(`/api/sessions/${roomCode}/join`, {\n          method: 'POST', headers: { 'Content-Type': 'application/json' },\n          body: JSON.stringify({ displayName: name })\n        });\n        const data = await res.json();\n        if (data.error) { document.getElementById('joinError').textContent = data.error; return; }\n        mySeat = data.seat;\n        document.getElementById('joinForm').classList.add('hidden');\n        document.getElementById('app').classList.remove('hidden');\n        connectWS();\n      } catch (e) {\n        document.getElementById('joinError').textContent = e.message;\n      }\n    }\n\n    let reconnectDelay = 1000;\n    let heartbeatTimer = null;\n    let serverOffset = 0;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 21,
+      "secondFile": {
+        "end": 109,
+        "endLoc": {
+          "column": 7,
+          "line": 109,
+          "position": 6087
+        },
+        "name": "web\\views\\join.html",
+        "start": 88,
+        "startLoc": {
+          "column": 54,
+          "line": 88,
+          "position": 5318
+        }
+      },
+      "tokens": 168
+    },
+    {
+      "firstFile": {
+        "end": 117,
+        "endLoc": {
+          "column": 11,
+          "line": 117,
+          "position": 6062
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 104,
+        "startLoc": {
+          "column": 29,
+          "line": 104,
+          "position": 5638
+        }
+      },
+      "format": "markup",
+      "fragment": "    let heartbeatTimer = null;\n    let serverOffset = 0;\n    let rttMs = 0;\n\n    function updateConnQuality() {\n      const label = document.getElementById('connLabel');\n      if (!label || reconnectDelay > 1000) return;\n      if (rttMs < 200) label.textContent = '';\n      else if (rttMs < 600) label.textContent = 'Fair (' + rttMs + 'ms)';\n      else label.textContent = 'Poor (' + rttMs + 'ms)';\n    }\n\n    function setConnStatus(state) {\n      const ind = document.getElementById('connIndicator');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 14,
+      "secondFile": {
+        "end": 56,
+        "endLoc": {
+          "column": 11,
+          "line": 56,
+          "position": 2628
+        },
+        "name": "web\\views\\room.html",
+        "start": 43,
+        "startLoc": {
+          "column": 29,
+          "line": 43,
+          "position": 2204
+        }
+      },
+      "tokens": 86
+    },
+    {
+      "firstFile": {
+        "end": 132,
+        "endLoc": {
+          "column": 35,
+          "line": 132,
+          "position": 6739
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 111,
+        "startLoc": {
+          "column": 6,
+          "line": 111,
+          "position": 5836
+        }
+      },
+      "format": "markup",
+      "fragment": "      if (rttMs < 200) label.textContent = '';\n      else if (rttMs < 600) label.textContent = 'Fair (' + rttMs + 'ms)';\n      else label.textContent = 'Poor (' + rttMs + 'ms)';\n    }\n\n    function setConnStatus(state) {\n      const ind = document.getElementById('connIndicator');\n      const dot = document.getElementById('connDot');\n      const label = document.getElementById('connLabel');\n      ind.style.display = 'flex';\n      dot.className = 'conn-dot ' + state;\n      label.textContent = state === 'connected' ? '' : state === 'reconnecting' ? 'Reconnecting...' : 'Disconnected';\n    }\n\n    function connectWS() {\n      const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';\n      ws = new WebSocket(`${proto}//${location.host}?room=${roomCode}&seat=${mySeat}`);\n      setConnStatus('reconnecting');\n\n      ws.onopen = () => {\n        reconnectDelay = 1000;\n        setConnStatus('connected');",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 22,
+      "secondFile": {
+        "end": 137,
+        "endLoc": {
+          "column": 35,
+          "line": 137,
+          "position": 7264
+        },
+        "name": "web\\views\\join.html",
+        "start": 116,
+        "startLoc": {
+          "column": 6,
+          "line": 116,
+          "position": 6361
+        }
+      },
+      "tokens": 170
+    },
+    {
+      "firstFile": {
+        "end": 144,
+        "endLoc": {
+          "column": 40,
+          "line": 144,
+          "position": 7225
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 128,
+        "startLoc": {
+          "column": 6,
+          "line": 128,
+          "position": 6615
+        }
+      },
+      "format": "markup",
+      "fragment": "      setConnStatus('reconnecting');\n\n      ws.onopen = () => {\n        reconnectDelay = 1000;\n        setConnStatus('connected');\n      };\n      ws.onmessage = (e) => {\n        const msg = JSON.parse(e.data);\n        if (msg.type === 'time') {\n          const now = Date.now();\n          serverOffset = msg.serverMs - now;\n          ws.send(JSON.stringify({ type: 'ping', clientMs: now }));\n        } else if (msg.type === 'pong') {\n          rttMs = Date.now() - msg.clientMs;\n          serverOffset = msg.serverMs - msg.clientMs - rttMs / 2;\n          updateConnQuality();\n        } else if (msg.type === 'state') { currentState = msg.data; render(); }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 17,
+      "secondFile": {
+        "end": 81,
+        "endLoc": {
+          "column": 40,
+          "line": 81,
+          "position": 3680
+        },
+        "name": "web\\views\\room.html",
+        "start": 65,
+        "startLoc": {
+          "column": 6,
+          "line": 65,
+          "position": 3070
+        }
+      },
+      "tokens": 150
+    },
+    {
+      "firstFile": {
+        "end": 138,
+        "endLoc": {
+          "column": 44,
+          "line": 138,
+          "position": 6932
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 133,
+        "startLoc": {
+          "column": 6,
+          "line": 133,
+          "position": 6746
+        }
+      },
+      "format": "markup",
+      "fragment": "      };\n      ws.onmessage = (e) => {\n        const msg = JSON.parse(e.data);\n        if (msg.type === 'time') {\n          const now = Date.now();\n          serverOffset = msg.serverMs - now;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 148,
+        "endLoc": {
+          "column": 44,
+          "line": 148,
+          "position": 7648
+        },
+        "name": "web\\views\\join.html",
+        "start": 143,
+        "startLoc": {
+          "column": 6,
+          "line": 143,
+          "position": 7462
+        }
+      },
+      "tokens": 52
+    },
+    {
+      "firstFile": {
+        "end": 146,
+        "endLoc": {
+          "column": 26,
+          "line": 146,
+          "position": 7300
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 139,
+        "startLoc": {
+          "column": 10,
+          "line": 139,
+          "position": 6943
+        }
+      },
+      "format": "markup",
+      "fragment": "          ws.send(JSON.stringify({ type: 'ping', clientMs: now }));\n        } else if (msg.type === 'pong') {\n          rttMs = Date.now() - msg.clientMs;\n          serverOffset = msg.serverMs - msg.clientMs - rttMs / 2;\n          updateConnQuality();\n        } else if (msg.type === 'state') { currentState = msg.data; render(); }\n      };\n      ws.onclose = () => {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 8,
+      "secondFile": {
+        "end": 157,
+        "endLoc": {
+          "column": 26,
+          "line": 157,
+          "position": 8054
+        },
+        "name": "web\\views\\join.html",
+        "start": 150,
+        "startLoc": {
+          "column": 10,
+          "line": 150,
+          "position": 7697
+        }
+      },
+      "tokens": 98
+    },
+    {
+      "firstFile": {
+        "end": 169,
+        "endLoc": {
+          "column": 22,
+          "line": 169,
+          "position": 8082
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 156,
+        "startLoc": {
+          "column": 8,
+          "line": 156,
+          "position": 7715
+        }
+      },
+      "format": "markup",
+      "fragment": "        }, 10000);\n      }\n    }\n\n    function fmt(sec) {\n      const m = Math.floor(sec / 60);\n      const s = Math.round(sec % 60);\n      return `${m}:${String(s).padStart(2, '0')}`;\n    }\n    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }\n\n    function render() {\n      if (!currentState) return;\n      const { session, method, block, lens, clockStatus } = currentState;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 14,
+      "secondFile": {
+        "end": 186,
+        "endLoc": {
+          "column": 22,
+          "line": 186,
+          "position": 9040
+        },
+        "name": "web\\views\\join.html",
+        "start": 172,
+        "startLoc": {
+          "column": 8,
+          "line": 172,
+          "position": 8672
+        }
+      },
+      "tokens": 105
+    },
+    {
+      "firstFile": {
+        "end": 165,
+        "endLoc": {
+          "column": 12,
+          "line": 165,
+          "position": 7910
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 158,
+        "startLoc": {
+          "column": 4,
+          "line": 158,
+          "position": 7738
+        }
+      },
+      "format": "markup",
+      "fragment": "    }\n\n    function fmt(sec) {\n      const m = Math.floor(sec / 60);\n      const s = Math.round(sec % 60);\n      return `${m}:${String(s).padStart(2, '0')}`;\n    }\n    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 8,
+      "secondFile": {
+        "end": 97,
+        "endLoc": {
+          "column": 12,
+          "line": 97,
+          "position": 4139
+        },
+        "name": "web\\views\\room.html",
+        "start": 89,
+        "startLoc": {
+          "column": 4,
+          "line": 89,
+          "position": 3966
+        }
+      },
+      "tokens": 56
+    },
+    {
+      "firstFile": {
+        "end": 210,
+        "endLoc": {
+          "column": 52,
+          "line": 210,
+          "position": 10311
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 204,
+        "startLoc": {
+          "column": 68,
+          "line": 204,
+          "position": 9940
+        }
+      },
+      "format": "markup",
+      "fragment": "      const stuckSeats = (record.stuckEvents || []).map(e => e.seat);\n\n      let counterText = '';\n      if (block.completion === 'all_submitted') counterText = `Submitted: ${subs}/${active}`;\n      else if (block.completion === 'all_confirmed') counterText = `Confirmed: ${confs}/${active}`;\n      else if (block.completion === 'all_agreed') counterText = `Agreed: ${confs}/${active}`;\n      else if (block.completion === 'reviewer_pass') {",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 7,
+      "secondFile": {
+        "end": 144,
+        "endLoc": {
+          "column": 52,
+          "line": 144,
+          "position": 6596
+        },
+        "name": "web\\views\\room.html",
+        "start": 138,
+        "startLoc": {
+          "column": 85,
+          "line": 138,
+          "position": 6225
+        }
+      },
+      "tokens": 97
+    },
+    {
+      "firstFile": {
+        "end": 324,
+        "endLoc": {
+          "column": 16,
+          "line": 324,
+          "position": 16238
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 319,
+        "startLoc": {
+          "column": 37,
+          "line": 319,
+          "position": 16042
+        }
+      },
+      "format": "markup",
+      "fragment": "              <span class=\"score-val\">${s.score}/2</span>\n              <span class=\"evidence\">${esc(s.evidence)}</span>\n            </div>`;\n          }\n          if (v.ignoredLenses && v.ignoredLenses.length > 0) {\n            html += `<p style=\"color:#a0aec0;font-size:0.85em;margin-top:4px\">Ignored lenses: ${v.ignoredLenses.map(esc).join(', ')}</p>`;",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 453,
+        "endLoc": {
+          "column": 11,
+          "line": 453,
+          "position": 21866
+        },
+        "name": "web\\views\\join.html",
+        "start": 448,
+        "startLoc": {
+          "column": 31,
+          "line": 448,
+          "position": 21683
+        }
+      },
+      "tokens": 55
+    },
+    {
+      "firstFile": {
+        "end": 383,
+        "endLoc": {
+          "column": 5,
+          "line": 383,
+          "position": 19046
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 373,
+        "startLoc": {
+          "column": 26,
+          "line": 373,
+          "position": 18740
+        }
+      },
+      "format": "markup",
+      "fragment": "      app.innerHTML = html;\n    }\n\n    function isLight(hex) {\n      if (!hex) return true;\n      hex = hex.replace('#', '');\n      const r = parseInt(hex.substr(0, 2), 16);\n      const g = parseInt(hex.substr(2, 2), 16);\n      const b = parseInt(hex.substr(4, 2), 16);\n      return (r * 299 + g * 587 + b * 114) / 1000 > 128;\n    }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 11,
+      "secondFile": {
+        "end": 501,
+        "endLoc": {
+          "column": 5,
+          "line": 501,
+          "position": 24120
+        },
+        "name": "web\\views\\join.html",
+        "start": 491,
+        "startLoc": {
+          "column": 14,
+          "line": 491,
+          "position": 23814
+        }
+      },
+      "tokens": 98
+    },
+    {
+      "firstFile": {
+        "end": 504,
+        "endLoc": {
+          "column": 28,
+          "line": 504,
+          "position": 23947
+        },
+        "name": "web\\views\\facilitate.html",
+        "start": 499,
+        "startLoc": {
+          "column": 226,
+          "line": 499,
+          "position": 23743
+        }
+      },
+      "format": "markup",
+      "fragment": "      html += '<table style=\"width:100%;border-collapse:collapse;margin:12px 0\"><tr><th style=\"text-align:left;padding:4px 8px\">Participant</th><th style=\"padding:4px 8px\">Words</th><th style=\"padding:4px 8px\">Share</th></tr>';\n      for (const p of session.participants) {\n        const w = words[p.seat] || 0;\n        const pct = total > 0 ? Math.round((w / total) * 100) : 0;\n        let flag = '';\n        if (pct > 40) flag = ' <span style=\"color:#d64545;font-weight:700\">dominated</span>';",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 122,
+        "endLoc": {
+          "column": 32,
+          "line": 122,
+          "position": 5471
+        },
+        "name": "web\\views\\room.html",
+        "start": 117,
+        "startLoc": {
+          "column": 81,
+          "line": 117,
+          "position": 5247
+        }
+      },
+      "tokens": 59
+    },
+    {
+      "firstFile": {
+        "end": 19,
+        "endLoc": {
+          "column": 5,
+          "line": 19,
+          "position": 903
+        },
+        "name": "web\\views\\method.html",
+        "start": 6,
+        "startLoc": {
+          "column": 15,
+          "line": 6,
+          "position": 153
+        }
+      },
+      "format": "markup",
+      "fragment": "  <title>Method</title>\n  <style>\n    * { box-sizing: border-box; margin: 0; padding: 0; }\n    body { font-family: system-ui, sans-serif; background: #111; color: #eee; min-height: 100vh; }\n\n    /* Persistent nav */\n    .site-nav { background: #161616; border-bottom: 1px solid #2a2a2a; padding: 10px 24px; display: flex; align-items: center; gap: 24px; position: sticky; top: 0; z-index: 100; }\n    .site-nav .nav-brand { font-weight: 700; font-size: 0.95em; color: #eee; text-decoration: none; }\n    .site-nav .nav-links { display: flex; gap: 16px; margin-left: auto; }\n    .site-nav .nav-links a { color: #888; text-decoration: none; font-size: 0.85em; }\n    .site-nav .nav-links a:hover { color: #eee; }\n    .site-nav .nav-links a.active { color: #eee; }\n\n    .header { background: #1a1a1a; border-bottom: 1px solid #333; padding: 48px 24px 40px; text-align: center; }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 14,
+      "secondFile": {
+        "end": 19,
+        "endLoc": {
+          "column": 5,
+          "line": 19,
+          "position": 911
+        },
+        "name": "web\\views\\site-index.html",
+        "start": 6,
+        "startLoc": {
+          "column": 23,
+          "line": 6,
+          "position": 161
+        }
+      },
+      "tokens": 259
+    },
+    {
+      "firstFile": {
+        "end": 17,
+        "endLoc": {
+          "column": 5,
+          "line": 17,
+          "position": 851
+        },
+        "name": "web\\views\\method.html",
+        "start": 12,
+        "startLoc": {
+          "column": 176,
+          "line": 12,
+          "position": 530
+        }
+      },
+      "format": "markup",
+      "fragment": "    .site-nav { background: #161616; border-bottom: 1px solid #2a2a2a; padding: 10px 24px; display: flex; align-items: center; gap: 24px; position: sticky; top: 0; z-index: 100; }\n    .site-nav .nav-brand { font-weight: 700; font-size: 0.95em; color: #eee; text-decoration: none; }\n    .site-nav .nav-links { display: flex; gap: 16px; margin-left: auto; }\n    .site-nav .nav-links a { color: #888; text-decoration: none; font-size: 0.85em; }\n    .site-nav .nav-links a:hover { color: #eee; }\n    .site-nav .nav-links a.active { color: #eee; }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 6,
+      "secondFile": {
+        "end": 16,
+        "endLoc": {
+          "column": 5,
+          "line": 16,
+          "position": 873
+        },
+        "name": "web\\views\\replay.html",
+        "start": 11,
+        "startLoc": {
+          "column": 152,
+          "line": 11,
+          "position": 552
+        }
+      },
+      "tokens": 109
+    },
+    {
+      "firstFile": {
+        "end": 19,
+        "endLoc": {
+          "column": 5,
+          "line": 19,
+          "position": 903
+        },
+        "name": "web\\views\\method.html",
+        "start": 12,
+        "startLoc": {
+          "column": 4,
+          "line": 12,
+          "position": 358
+        }
+      },
+      "format": "markup",
+      "fragment": "    .site-nav { background: #161616; border-bottom: 1px solid #2a2a2a; padding: 10px 24px; display: flex; align-items: center; gap: 24px; position: sticky; top: 0; z-index: 100; }\n    .site-nav .nav-brand { font-weight: 700; font-size: 0.95em; color: #eee; text-decoration: none; }\n    .site-nav .nav-links { display: flex; gap: 16px; margin-left: auto; }\n    .site-nav .nav-links a { color: #888; text-decoration: none; font-size: 0.85em; }\n    .site-nav .nav-links a:hover { color: #eee; }\n    .site-nav .nav-links a.active { color: #eee; }\n\n    .header { background: #1a1a1a; border-bottom: 1px solid #333; padding: 48px 24px 40px; text-align: center; }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 8,
+      "secondFile": {
+        "end": 18,
+        "endLoc": {
+          "column": 5,
+          "line": 18,
+          "position": 887
+        },
+        "name": "web\\views\\start.html",
+        "start": 11,
+        "startLoc": {
+          "column": 4,
+          "line": 11,
+          "position": 342
+        }
+      },
+      "tokens": 183
+    },
+    {
+      "firstFile": {
+        "end": 76,
+        "endLoc": {
+          "column": 26,
+          "line": 76,
+          "position": 4126
+        },
+        "name": "web\\views\\method.html",
+        "start": 66,
+        "startLoc": {
+          "column": 41,
+          "line": 66,
+          "position": 3871
+        }
+      },
+      "format": "markup",
+      "fragment": "      .cards { grid-template-columns: 1fr; }\n    }\n  </style>\n</head>\n<body>\n  <nav class=\"site-nav\">\n    <a href=\"index.html\" class=\"nav-brand\">Session Engine</a>\n    <div class=\"nav-links\">\n      <a href=\"index.html\">Scenarios</a>\n      <span id=\"methodLinks\"></span>\n      <a href=\"start.html\" id=\"navStart\" style=\"display:none\">Start</a>",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 11,
+      "secondFile": {
+        "end": 117,
+        "endLoc": {
+          "column": 26,
+          "line": 117,
+          "position": 7401
+        },
+        "name": "web\\views\\start.html",
+        "start": 107,
+        "startLoc": {
+          "column": 36,
+          "line": 107,
+          "position": 7146
+        }
+      },
+      "tokens": 67
+    },
+    {
+      "firstFile": {
+        "end": 75,
+        "endLoc": {
+          "column": 7,
+          "line": 75,
+          "position": 4070
+        },
+        "name": "web\\views\\method.html",
+        "start": 67,
+        "startLoc": {
+          "column": 4,
+          "line": 67,
+          "position": 3879
+        }
+      },
+      "format": "markup",
+      "fragment": "    }\n  </style>\n</head>\n<body>\n  <nav class=\"site-nav\">\n    <a href=\"index.html\" class=\"nav-brand\">Session Engine</a>\n    <div class=\"nav-links\">\n      <a href=\"index.html\">Scenarios</a>\n      <span id=\"methodLinks\"></span>",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 9,
+      "secondFile": {
+        "end": 49,
+        "endLoc": {
+          "column": 7,
+          "line": 49,
+          "position": 3269
+        },
+        "name": "web\\views\\replay.html",
+        "start": 41,
+        "startLoc": {
+          "column": 150,
+          "line": 41,
+          "position": 3078
+        }
+      },
+      "tokens": 51
+    },
+    {
+      "firstFile": {
+        "end": 122,
+        "endLoc": {
+          "column": 9,
+          "line": 122,
+          "position": 5668
+        },
+        "name": "web\\views\\method.html",
+        "start": 111,
+        "startLoc": {
+          "column": 22,
+          "line": 111,
+          "position": 5280
+        }
+      },
+      "format": "markup",
+      "fragment": "        let scenarios = [];\n        const scenarioPaths = [\n          'scenarios/index.json',\n          '../scenarios/index.json',\n          '../../design/scenarios/index.json',\n        ];\n        for (const path of scenarioPaths) {\n          try {\n            const resp = await fetch(path);\n            if (resp.ok) { scenarios = await resp.json(); break; }\n          } catch (e) { /* try next */ }\n        }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 12,
+      "secondFile": {
+        "end": 135,
+        "endLoc": {
+          "column": 9,
+          "line": 135,
+          "position": 6793
+        },
+        "name": "web\\views\\site-index.html",
+        "start": 123,
+        "startLoc": {
+          "column": 20,
+          "line": 123,
+          "position": 6404
+        }
+      },
+      "tokens": 74
+    },
+    {
+      "firstFile": {
+        "end": 15,
+        "endLoc": {
+          "column": 49,
+          "line": 15,
+          "position": 867
+        },
+        "name": "web\\views\\replay.html",
+        "start": 8,
+        "startLoc": {
+          "column": 6,
+          "line": 8,
+          "position": 186
+        }
+      },
+      "format": "markup",
+      "fragment": "    * { box-sizing: border-box; margin: 0; padding: 0; }\n    body { font-family: system-ui, sans-serif; background: #111; color: #eee; min-height: 100vh; display: flex; flex-direction: column; }\n    /* Persistent nav */\n    .site-nav { background: #161616; border-bottom: 1px solid #2a2a2a; padding: 10px 24px; display: flex; align-items: center; gap: 24px; flex-shrink: 0; }\n    .site-nav .nav-brand { font-weight: 700; font-size: 0.95em; color: #eee; text-decoration: none; }\n    .site-nav .nav-links { display: flex; gap: 16px; margin-left: auto; }\n    .site-nav .nav-links a { color: #888; text-decoration: none; font-size: 0.85em; }\n    .site-nav .nav-links a:hover { color: #eee; }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 8,
+      "secondFile": {
+        "end": 16,
+        "endLoc": {
+          "column": 49,
+          "line": 16,
+          "position": 873
+        },
+        "name": "web\\views\\walkthrough.html",
+        "start": 8,
+        "startLoc": {
+          "column": 6,
+          "line": 8,
+          "position": 191
+        }
+      },
+      "tokens": 234
+    },
+    {
+      "firstFile": {
+        "end": 39,
+        "endLoc": {
+          "column": 5,
+          "line": 39,
+          "position": 2659
+        },
+        "name": "web\\views\\replay.html",
+        "start": 24,
+        "startLoc": {
+          "column": 20,
+          "line": 24,
+          "position": 1582
+        }
+      },
+      "format": "markup",
+      "fragment": "    .stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }\n    h1 { font-size: 2.5em; margin-bottom: 8px; }\n    .lens { font-size: 1.4em; color: #aaa; margin-bottom: 4px; }\n    .instruction { font-size: 1.1em; color: #888; margin-bottom: 32px; max-width: 600px; text-align: center; }\n    .timer { font-size: 6em; font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 24px; transition: color 0.3s; }\n    .timer.amber { color: #e8b400; }\n    .timer.expired { color: #d64545; }\n    .presence { display: flex; gap: 12px; margin-bottom: 24px; }\n    .dot { width: 16px; height: 16px; border-radius: 50%; }\n    .dot.present { background: #2e9e5b; }\n    .dot.idle { background: #e8b400; }\n    .dot.absent { background: #666; }\n    .counters { font-size: 1.2em; color: #aaa; }\n    .status-badge { font-size: 1em; padding: 4px 12px; border-radius: 12px; background: #333; margin-bottom: 16px; }\n    .problem { font-size: 1.3em; color: #ccc; margin-bottom: 16px; max-width: 700px; text-align: center; font-style: italic; }\n    .watch-banner { background: #2f6fd6; color: #fff; text-align: center; padding: 8px; font-size: 1.1em; }",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 16,
+      "secondFile": {
+        "end": 24,
+        "endLoc": {
+          "column": 5,
+          "line": 24,
+          "position": 1406
+        },
+        "name": "web\\views\\room.html",
+        "start": 9,
+        "startLoc": {
+          "column": 95,
+          "line": 9,
+          "position": 329
+        }
+      },
+      "tokens": 340
+    }
+  ],
+  "statistics": {
+    "detectionDate": "2026-09-19T17:23:15.408Z",
+    "formats": {
+      "markup": {
+        "clones": 24,
+        "duplicatedLines": 242,
+        "duplicatedTokens": 3010,
+        "lines": 3568,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 6.7825112107623315,
+        "percentageTokens": 7.4706510138740665,
+        "sources": 8,
+        "tokens": 40291
+      },
+      "typescript": {
+        "clones": 37,
+        "duplicatedLines": 248,
+        "duplicatedTokens": 2203,
+        "lines": 4751,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 5.219953693959167,
+        "percentageTokens": 6.839703188549784,
+        "sources": 26,
+        "tokens": 32209
+      }
+    },
+    "total": {
+      "clones": 61,
+      "duplicatedLines": 490,
+      "duplicatedTokens": 5213,
+      "lines": 8319,
+      "newClones": 0,
+      "newDuplicatedLines": 0,
+      "percentage": 5.890131025363625,
+      "percentageTokens": 7.190344827586206,
+      "sources": 34,
+      "tokens": 72500
+    }
+  }
+}

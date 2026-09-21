@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://session-engine.local/schemas/scenario.schema.json",
+  "title": "Scenario",
+  "description": "A pre-written scenario for demo, replay and preset sessions.",
+  "type": "object",
+  "required": ["id", "title", "tier", "methodId", "minutes", "audience", "whatItTeaches", "problemStatement", "anonymous", "seats", "canned"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "tier": { "enum": ["fun", "opener", "critical-thinking", "team", "serious"] },
+    "methodId": { "type": "string" },
+    "minutes": { "type": "integer", "minimum": 1 },
+    "audience": { "type": "string" },
+    "whatItTeaches": { "type": "string" },
+    "problemStatement": { "type": "string" },
+    "anonymous": { "type": "boolean" },
+    "seats": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/seatSpec" }
+    },
+    "canned": { "$ref": "#/$defs/canned" }
+  },
+  "$defs": {
+    "seatSpec": {
+      "type": "object",
+      "required": ["seat", "persona", "submissions"],
+      "additionalProperties": false,
+      "properties": {
+        "seat": { "type": "string" },
+        "persona": { "type": "string", "description": "One line describing the simulated persona. Never shown to viewers." },
+        "submissions": {
+          "type": "object",
+          "description": "Map of blockId to submission text for private_input blocks.",
+          "additionalProperties": { "type": "string" }
+        },
+        "passes": {
+          "type": "array",
+          "description": "Block ids where this seat passes instead of submitting.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "canned": {
+      "type": "object",
+      "required": ["reveals", "verdicts", "decision", "commitment"],
+      "additionalProperties": false,
+      "properties": {
+        "reveals": {
+          "type": "object",
+          "description": "Map of reveal blockId to clustering output.",
+          "additionalProperties": { "$ref": "#/$defs/revealData" }
+        },
+        "verdicts": {
+          "type": "object",
+          "description": "Map of converge blockId to array of verdict objects (first may fail).",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/verdict" }
+          }
+        },
+        "decision": { "type": "string" },
+        "commitment": {
+          "type": "object",
+          "required": ["owner", "firstAction", "dueDate", "successSignal"],
+          "additionalProperties": false,
+          "properties": {
+            "owner": { "type": "string" },
+            "firstAction": { "type": "string" },
+            "dueDate": { "type": "string" },
+            "successSignal": { "type": "string" }
+          }
+        }
+      }
+    },
+    "revealData": {
+      "type": "object",
+      "required": ["clusters", "disagreements", "agreements"],
+      "additionalProperties": false,
+      "properties": {
+        "clusters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "seats", "summary"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string" },
+              "seats": { "type": "array", "items": { "type": "string" } },
+              "summary": { "type": "string" }
+            }
+          }
+        },
+        "disagreements": { "type": "array", "items": { "type": "string" } },
+        "agreements": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "verdict": {
+      "type": "object",
+      "required": ["pass", "scores", "ignoredLenses", "oneLineFeedback", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "pass": { "type": "boolean" },
+        "scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["criterion", "score", "evidence"],
+            "additionalProperties": false,
+            "properties": {
+              "criterion": { "type": "string" },
+              "score": { "type": "integer", "minimum": 0, "maximum": 2 },
+              "evidence": { "type": "string" },
+              "concern": { "enum": ["none", "missing_evidence", "weak_reasoning", "contradiction"] },
+              "explanation": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "ignoredLenses": { "type": "array", "items": { "type": "string" } },
+        "oneLineFeedback": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "volunteer-portal-feature",
+  "title": "One feature for the volunteer portal",
+  "tier": "critical-thinking",
+  "methodId": "decision-matrix",
+  "minutes": 26,
+  "audience": "A small software team",
+  "whatItTeaches": "Agree what matters, score every option on the same scale, and check whether the ranking survives uncertain assumptions.",
+  "problemStatement": "A fictional volunteer portal team has one two-week slot. Should it build shift reminders, add a searchable guide, or keep the current portal while collecting more requests?",
+  "anonymous": false,
+  "seats": [
+    {
+      "seat": "seat-1",
+      "persona": "A volunteer focused on observable evidence.",
+      "submissions": {
+        "criteria-input": "Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month.",
+        "options-input": "Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured.",
+        "scores-input": "Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach."
+      }
+    },
+    {
+      "seat": "seat-2",
+      "persona": "A volunteer focused on alternatives and practical constraints.",
+      "submissions": {
+        "criteria-input": "For delivery confidence, 1 is no estimate, 3 is a rough estimate and 5 is a tested approach. For low upkeep, 1 means over four hours weekly, 3 means two and 5 means under one. Weights 50 + 30 + 20 = 100.",
+        "options-input": "Wait means logging requests for two weeks, not abandoning the portal. All three meet the budget constraint. Monthly reach is an estimate for both build options.",
+        "scores-input": "If Guide impact is 2 rather than 3, its total becomes (100+150+100)/100 = 3.5, below Reminder at 3.8. The ranking depends on reach; interview ten volunteers before committing the slot."
+      }
+    }
+  ],
+  "canned": {
+    "reveals": {
+      "criteria-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Agree impact 50, delivery confidence 30 and low upkeep 20. Score each 1 to 5, higher is better. Impact 1 helps under five volunteers, 3 helps ten to twenty and 5 helps over forty per month."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "For delivery confidence, 1 is no estimate, 3 is a rough estimate and 5 is a tested approach. For low upkeep, 1 means over four hours weekly, 3 means two and 5 means under one. Weights 50 + 30 + 20 = 100."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "options-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Reminder, Guide and Wait are the three labels. Reminder fits the two-week slot based on the notification prototype. Guide also fits, but search relevance is not yet measured."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "Wait means logging requests for two weeks, not abandoning the portal. All three meet the budget constraint. Monthly reach is an estimate for both build options."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      },
+      "scores-reveal": {
+        "clusters": [
+          {
+            "label": "Contribution 1",
+            "seats": [
+              "seat-1"
+            ],
+            "summary": "Reminder: impact 4, delivery 4, upkeep 3; (50×4 + 30×4 + 20×3)/100 = 3.8. Guide: 3, 5, 5; (150+150+100)/100 = 4.0. Wait: 1, 5, 5; (50+150+100)/100 = 3.0. These use estimated reach."
+          },
+          {
+            "label": "Contribution 2",
+            "seats": [
+              "seat-2"
+            ],
+            "summary": "If Guide impact is 2 rather than 3, its total becomes (100+150+100)/100 = 3.5, below Reminder at 3.8. The ranking depends on reach; interview ten volunteers before committing the slot."
+          }
+        ],
+        "disagreements": [],
+        "agreements": []
+      }
+    },
+    "verdicts": {
+      "decide": [
+        {
+          "pass": true,
+          "scores": [
+            {
+              "criterion": "comparable",
+              "score": 2,
+              "evidence": "Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "arithmetic",
+              "score": 2,
+              "evidence": "Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            },
+            {
+              "criterion": "sensitivity",
+              "score": 2,
+              "evidence": "Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.",
+              "concern": "none",
+              "explanation": "The conclusion addresses the required comparisons, evidence and next check."
+            }
+          ],
+          "ignoredLenses": [],
+          "oneLineFeedback": "The conclusion addresses the required comparisons, evidence and next check.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "decision": "Prefer Guide provisionally on the shared 1-to-5 higher-is-better scale: impact weight 50, delivery confidence 30, low upkeep 20, totaling 100. Reminder scores 4/4/3 for (200+120+60)/100 = 3.8; Guide 3/5/5 for (150+150+100)/100 = 4.0; Wait 1/5/5 for 3.0. All fit the two-week constraint. If Guide impact drops to 2, its total is 3.5 and Reminder wins at 3.8. Verify estimated reach with ten volunteers before confirming Guide.",
+    "commitment": {
+      "owner": "seat-1",
+      "firstAction": "Interview ten volunteers about the guide and reminder use cases",
+      "dueDate": "2026-10-01",
+      "successSignal": "Reach estimates are recorded and the matrix is recalculated before booking the slot"
+    }
+  }
+}

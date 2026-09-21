@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Solo reveal uses empty reveal submissions instead of source block",
+    "sourceSubmissions": 1,
+    "clusters": 0
+  },
+  {
+    "name": "Viewer projection retains other seats submission text",
+    "text": "private audit answer"
+  },
+  {
+    "name": "Detour mutates another room and accepts same proposal twice",
+    "otherRoomHasDetour": true,
+    "acceptedDetours": 2,
+    "insertedBlockDefinitionsPersisted": false
+  },
+  {
+    "name": "Completion skips artifact generation and accepts invalid due date",
+    "status": "complete",
+    "artifacts": null,
+    "dueDate": "not-a-date"
+  },
+  {
+    "name": "Anonymous one-pager leaks commitment name; generated paths not saved",
+    "nameLeaked": true,
+    "persistedArtifacts": false
+  },
+  {
+    "name": "Evidence check accepts rubric instructions as evidence",
+    "allValid": true,
+    "source": "rubric criterion text"
+  },
+  {
+    "name": "Solo redirect seat query is ignored by participant page",
+    "seatAfterLoad": null
+  }
+]

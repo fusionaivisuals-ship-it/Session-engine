@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Walkthrough</title>
+  <link rel="stylesheet" href="../assets/editorial.css" data-inline="editorial.css">
+</head>
+<body class="walkthrough-page">
+  <nav class="site-nav">
+    <a href="../index.html" class="nav-brand"><span class="brand-mark" aria-hidden="true"></span>Session Engine</a>
+    <div class="nav-links">
+      <a href="../index.html">Demo</a>
+      <details class="method-nav"><summary>Methods</summary><div id="methodLinks"></div></details>
+      <a href="../start.html" id="navStart" class="button">Start a session</a>
+    </div>
+  </nav><div class="demo-label">Scripted demonstration · Fictional participants and prewritten responses</div>
+  <div class="topbar">
+    <span class="title" id="scenarioTitle">Loading...</span>
+    <span class="step-counter" id="stepCounter"></span>
+  </div>
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="main" id="mainArea">
+    <div class="loading" id="loadingMsg">Loading walkthrough...</div>
+  </div>
+  <div class="controls" id="controlBar" style="display:none;">
+    <button id="btnBack" disabled>&larr; Back</button>
+    <button id="btnPlay" class="play-btn">Play</button>
+    <button id="btnNext">Next &rarr;</button>
+  </div>
+
+  <script src="../assets/workspace.js" data-inline="workspace.js"></script>
+  <script>
+    // Global error handler
+    window.onerror = function(msg, src, line, col, err) {
+      var el = document.getElementById('loadingMsg') || document.getElementById('mainArea');
+      if (el) el.innerHTML = '<div style="color:var(--danger);padding:40px;max-width:700px;margin:0 auto;"><h2>Error</h2><p>' + msg + '</p><pre style="color:var(--danger);">' + (err && err.stack || '') + '</pre></div>';
+    };
+    (function() {
+      let data = null;
+      let currentStep = 0;
+      let playTimer = null;
+
+      // Load walkthrough JSON
+      async function loadData() {
+        if (window.__WALKTHROUGH_DATA__) {
+          data = window.__WALKTHROUGH_DATA__;
+          injectIntroStep();
+          init();
+          return;
+        }
+
+        const params = new URLSearchParams(location.search);
+        let scenarioId = params.get('s');
+        // Also extract from pathname: /walkthroughs/<id>.html
+        if (!scenarioId) {
+          const pathMatch = location.pathname.match(/\/walkthroughs\/([^/]+)\.html$/);
+          if (pathMatch) scenarioId = decodeURIComponent(pathMatch[1]);
+        }
+        if (!scenarioId) {
+          document.getElementById('loadingMsg').textContent = 'No scenario specified. Use ?s=<scenarioId>';
+          return;
+        }
+
+        const paths = [
+          `recordings/${scenarioId}.walkthrough.json`,
+          `../recordings/${scenarioId}.walkthrough.json`,
+          `../../design/scenarios/recordings/${scenarioId}.walkthrough.json`,
+        ];
+        for (const path of paths) {
+          try {
+            const resp = await fetch(path);
+            if (resp.ok) { data = await resp.json(); break; }
+          } catch (e) { /* try next */ }
+        }
+
+        if (!data) { showFileInput(); return; }
+        injectIntroStep();
+        init();
+      }
+
+      // 5. Prepend intro step
+      function injectIntroStep() {
+        if (!data || !data.steps || data.steps[0]._isIntro) return;
+        const totalSteps = data.steps.length;
+        const intro = data.walkthroughIntro;
+        data.steps.unshift({
+          _isIntro: true,
+          n: 0,
+          blockId: '__intro',
+          blockTitle: data.title,
+          lensOrRoleName: '',
+          phase: 'enter',
+          narration: null,
+          state: {
+            problemStatement: null,
+            currentBlockId: '__intro',
+            blockType: 'intro',
+            seats: [],
+            submissions: [],
+            reveal: null,
+            verdict: null,
+            decision: null,
+            commitment: null,
+            timerSec: 0,
+          },
+          newSinceLastStep: [],
+          _introMeta: {
+            methodName: data.methodName,
+            methodId: data.methodId,
+            seatCount: data.steps[1] ? data.steps[1].state.seats.length : 4,
+            stepCount: totalSteps,
+            inOneLine: intro ? intro.inOneLine : '',
+            howLong: intro ? intro.howLong : '',
+          },
+        });
+      }
+
+      function showFileInput() {
+        const main = document.getElementById('mainArea');
+        main.innerHTML = '<div class="loading"><div style="text-align:center"><p>Could not load walkthrough file.</p><p style="margin-top:12px"><input type="file" id="fileInput" accept=".json" style="color:#eee"></p></div></div>';
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = function(ev) { data = JSON.parse(ev.target.result); injectIntroStep(); init(); };
+          reader.readAsText(file);
+        });
+      }
+
+      let blockFirstStep = {};
+
+      function init() {
+        document.getElementById('scenarioTitle').textContent = data.title;
+        document.title = 'Walkthrough: ' + data.title;
+
+        // Populate nav method link
+        const navEl = document.getElementById('methodLinks');
+        if (data.methodId && data.methodName) {
+          navEl.innerHTML = `<a href="../method.html?m=${esc(data.methodId)}">${esc(data.methodName)}</a>`;
+        }
+
+        blockFirstStep = {};
+        for (let i = 0; i < data.steps.length; i++) {
+          const bid = data.steps[i].blockId;
+          if (bid !== '__intro' && !(bid in blockFirstStep)) blockFirstStep[bid] = i;
+        }
+
+        const pb = document.getElementById('progressBar');
+        pb.innerHTML = '';
+        for (let i = 0; i < data.steps.length; i++) {
+          const seg = document.createElement('div');
+          seg.className = 'seg';
+          pb.appendChild(seg);
+        }
+
+        document.getElementById('controlBar').style.display = 'flex';
+        currentStep = 0;
+        renderStep();
+      }
+
+      function renderStep() {
+        try {
+          if (!data) return;
+          const step = data.steps[currentStep];
+          if (!step) return;
+          const isLast = currentStep === data.steps.length - 1;
+
+          document.getElementById('stepCounter').textContent = `Step ${currentStep} of ${data.steps.length - 1}`;
+
+          const segs = document.querySelectorAll('.progress-bar .seg');
+          segs.forEach((seg, i) => {
+            seg.className = 'seg' + (i < currentStep ? ' done' : i === currentStep ? ' current' : '');
+          });
+
+          document.getElementById('btnBack').disabled = currentStep === 0;
+          document.getElementById('btnNext').textContent = isLast ? 'Done' : 'Next \u2192';
+
+          const main = document.getElementById('mainArea');
+
+          // Build rail with labels
+          let railHTML = '';
+          const doneBlocks = new Set();
+          for (let i = 1; i < currentStep; i++) {
+            if (data.steps[i]) doneBlocks.add(data.steps[i].blockId);
+          }
+          for (const b of data.blockSequence) {
+            let cls = 'rail-item';
+            if (step.blockId === b.id) { cls += ' current'; }
+            else if (doneBlocks.has(b.id)) cls += ' done';
+            else cls += ' future';
+            const timebox = data.steps.find(s => s.blockId === b.id && s.state.timerSec > 0);
+            const timeStr = timebox ? ' (' + Math.floor(timebox.state.timerSec/60) + ' min)' : '';
+            railHTML += `<div class="${cls}" role="button" tabindex="0" aria-label="${esc(b.title + timeStr)}" data-block-id="${esc(b.id)}" title="${esc(b.title + timeStr)}">
+              <span class="rail-dot"></span>
+              <span class="rail-label">${esc(b.title)}</span>
+            </div>`;
+          }
+
+          let contentHTML;
+          if (step._isIntro) {
+            contentHTML = buildIntroHTML(step);
+          } else {
+            contentHTML = buildContentHTML(step, isLast);
+          }
+
+          main.innerHTML = `<div class="main-inner"><div class="rail">${railHTML}</div><div class="content-col">${contentHTML}</div></div>`;
+          const timebox = main.querySelector('.timer-box');
+          if (timebox) main.querySelector('.rail').prepend(timebox);
+
+          // Click handler for rail items
+          main.querySelectorAll('.rail-item').forEach(item => {
+            item.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); item.click(); } });
+            item.addEventListener('click', () => {
+              const bid = item.dataset.blockId;
+              if (bid in blockFirstStep) { stopPlay(); currentStep = blockFirstStep[bid]; renderStep(); }
+            });
+          });
+
+        } catch (err) {
+          document.getElementById('mainArea').innerHTML = '<div style="color:var(--danger);padding:40px"><h2>Render error at step ' + currentStep + '</h2><pre>' + err.stack + '</pre></div>';
+        }
+      }
+
+      // 5. Intro step HTML
+      function buildIntroHTML(step) {
+        const m = step._introMeta;
+        return `<div class="intro-card">
+          <h1>${esc(data.title)}</h1>
+          <div class="intro-meta">
+            You are about to watch a <strong>${esc(m.methodName)}</strong> session with
+            <strong>${m.seatCount} participants</strong>, stepped across
+            <strong>${m.stepCount} moments</strong>.
+            ${m.howLong ? '<br>Real session length: ' + esc(m.howLong) : ''}
+          </div>
+          <div class="intro-method">
+            ${m.inOneLine ? esc(m.inOneLine) : ''}
+            <br><a href="../method.html?m=${esc(m.methodId)}">Learn more about ${esc(m.methodName)} &rarr;</a>
+          </div>
+          <div class="intro-controls">
+            Use <kbd>&rarr;</kbd> or the <strong>Next</strong> button to step through.
+            <kbd>&larr;</kbd> goes back. <strong>Play</strong> auto-advances every 12 seconds.
+            Click any dot on the left rail to jump to a block.
+          </div>
+        </div>`;
+      }
+
+      function buildContentHTML(step, isLast) {
+        let html = '';
+        const s = step.state;
+
+        // Block header
+        html += `<div class="block-header">
+          <div class="bh-title">${esc(step.blockTitle)}</div>
+          ${step.lensOrRoleName ? `<div class="bh-lens">${esc(step.lensOrRoleName)}</div>` : ''}
+        </div>`;
+
+        html += renderNarration(step);
+
+        // Session panel — room view
+        html += '<div class="session-panel">';
+
+        // Problem statement
+        if (s.problemStatement) {
+          html += `<div class="problem">&ldquo;${esc(s.problemStatement)}&rdquo;</div>`;
+        }
+
+        // 4. Timer with label
+        if (s.timerSec > 0) {
+          const mins = Math.floor(s.timerSec / 60);
+          const secs = s.timerSec % 60;
+          const isEntry = step.phase === 'enter';
+          const label = 'recorded timebox';
+          html += `<div class="timer-box">
+            <span class="timer-value">${mins}:${String(secs).padStart(2, '0')}</span>
+            <span class="timer-label">${label}</span>
+          </div>`;
+        }
+
+        // 2. Agree count for frame blocks
+        if (s.blockType === 'frame' && s.seats.length > 0) {
+          const agreedCount = s.seats.filter(seat => seat.hasSubmitted).length;
+          html += `<div class="agree-count"><strong>${agreedCount} of ${s.seats.length}</strong> agreed on the problem statement</div>`;
+        }
+
+        // Submission count for private_input blocks
+        if (s.blockType === 'private_input' && s.seats.length > 0) {
+          const subCount = s.seats.filter(seat => seat.hasSubmitted).length;
+          html += `<div class="agree-count"><strong>${subCount} of ${s.seats.length}</strong> submitted</div>`;
+        }
+
+        html += renderWalkthroughSeats(step);
+
+        html += renderWalkthroughSubmissions(step);
+
+        html += renderWalkthroughReveal(step);
+
+        html += renderWalkthroughOutcome(step);
+
+        html += '</div>'; // close session-panel
+
+        // Report (last step)
+        if (isLast && data.report) {
+          html += `<div class="report-view">${esc(data.report)}</div>`;
+        }
+
+        // Exit links on last step
+        if (isLast) {
+          html += `<div class="exit-links">
+            <a href="../index.html">&larr; All scenarios</a>
+            ${data.methodId ? `<a href="../method.html?m=${esc(data.methodId)}">About ${esc(data.methodName)} &rarr;</a>` : ''}
+          </div>`;
+        }
+
+        return html;
+      }
+
+      function renderNarration(step) {
+        const s = step.state;
+        let html = '';
+        // Narration — primary content
+        if (step.narration) {
+          html += `<div class="nar-what">${esc(step.narration.whatHappens)}</div>`;
+          html += `<div class="nar-why">${esc(step.narration.whyItMatters)}</div>`;
+          if (step.narration.watchFor) {
+            html += `<div class="nar-watch">${esc(step.narration.watchFor)}</div>`;
+          }
+        }
+
+        // 3. What changed — plain English, hidden when nothing changed
+        const changes = humanizeChanges(step);
+        if (changes.length > 0) {
+          html += '<div class="what-changed"><h4>What changed</h4><ul>';
+          for (const c of changes) html += `<li>${esc(c)}</li>`;
+          html += '</ul></div>';
+        }
+
+        return html;
+      }
+
+      function renderWalkthroughSeats(step) {
+        const s = step.state;
+        let html = '';
+        // 6. Seats with readable state and submission text
+        if (s.seats && s.seats.length > 0) {
+          html += '<div class="seats">';
+          for (const seat of s.seats) {
+            let stateText, stateClass;
+            if (s.blockType === 'frame') {
+              stateText = seat.hasSubmitted ? 'Agreed' : 'Hasn\'t agreed yet';
+              stateClass = seat.hasSubmitted ? 'agreed' : 'waiting';
+            } else {
+              stateText = seat.hasSubmitted ? 'Submitted' : 'Writing...';
+              stateClass = seat.hasSubmitted ? 'submitted' : 'waiting';
+            }
+
+            // Find this seat's submission text if available
+            const sub = s.blockType !== 'private_input' && s.submissions ? s.submissions.find(su => su.seatLabel === seat.label) : null;
+
+            html += `<div class="seat-card">
+              <div class="seat-label">${esc(seat.label)}</div>
+              ${seat.roleName ? `<div class="seat-role">${esc(seat.roleName)}</div>` : ''}
+              <div class="seat-state ${stateClass}">${stateText}</div>
+              ${sub ? `<details><summary>Read response</summary><p class="seat-text expanded">${esc(sub.text)}</p></details>` : ''}
+            </div>`;
+          }
+          html += '</div>';
+        }
+
+        return html;
+      }
+
+      function renderWalkthroughSubmissions(step) {
+        const s = step.state;
+        let html = '';
+        // Submissions list (on submission steps, full cards below seats)
+        if (s.blockType !== 'private_input' && s.submissions && s.submissions.length > 0 && step.phase === 'submissions') {
+          html += '<div class="submissions">';
+          for (const sub of s.submissions) {
+            html += `<div class="submission new-item">
+              <div class="sub-header">${esc(sub.seatLabel)} &middot; ${sub.wordCount} words</div>
+              <div class="sub-text">${esc(sub.text)}</div>
+            </div>`;
+          }
+          html += '</div>';
+        }
+
+        return html;
+      }
+
+      function renderWalkthroughReveal(step) {
+        const s = step.state;
+        let html = '';
+        // Reveal clusters
+        if (s.reveal && step.phase === 'reveal') {
+          html += '<p>Themes are not consensus. Original responses remain available below each theme.</p>';
+          html += '<div class="clusters">';
+          for (const cl of s.reveal.clusters) {
+            html += `<div class="cluster new-item">
+              <div class="cluster-label">${esc(cl.label)}</div>
+              <div class="cluster-seats">${cl.seats.map(esc).join(', ')}</div>
+              ${cl.summary ? `<div class="cluster-summary">${esc(cl.summary)}</div>` : ''}
+              <details><summary>Read original responses</summary>${(s.submissions || []).filter(sub => cl.seats.includes(sub.seatLabel)).map(sub => `<p><strong>${esc(sub.seatLabel)}:</strong> ${esc(sub.text)}</p>`).join('') || '<p>Originals are not included in this older recording.</p>'}</details>
+            </div>`;
+          }
+          html += '</div>';
+
+          if (s.reveal.agreements.length > 0 || s.reveal.disagreements.length > 0) {
+            html += '<div class="agree-disagree">';
+            if (s.reveal.agreements.length > 0) {
+              html += '<div class="label agree">Agreements</div><ul>';
+              for (const a of s.reveal.agreements) html += `<li>${esc(a)}</li>`;
+              html += '</ul>';
+            }
+            if (s.reveal.disagreements.length > 0) {
+              html += '<div class="label disagree">Disagreements</div><ul>';
+              for (const d of s.reveal.disagreements) html += `<li>${esc(d)}</li>`;
+              html += '</ul>';
+            }
+            html += '</div>';
+          }
+        }
+
+        return html;
+      }
+
+      function renderWalkthroughOutcome(step) {
+        const s = step.state;
+        let html = '';
+        // Verdict
+        if (s.verdict && step.phase === 'verdict') {
+          const vc = s.verdict.pass ? 'pass' : 'fail';
+          html += `<div class="verdict-box ${vc}">
+            <div class="verdict-label">${s.verdict.pass ? 'Ready to act' : 'Needs attention'}</div>
+            <p>Advisory review. Participants decide whether to proceed.</p>
+            <div class="verdict-feedback">${esc(s.verdict.feedback)}</div>
+            <div class="verdict-attempt">Attempt ${s.verdict.attempt}</div>
+          </div>`;
+        }
+
+        // Decision
+        if (s.acceptanceReason) html += `<section class="commitment-box"><h3>Decision deliberately accepted</h3><p>${esc(s.acceptanceReason)}</p></section>`;
+        if (s.decision) {
+          html += `<div class="decision-text">${esc(s.decision)}</div>`;
+        }
+
+        // Commitment
+        if (s.commitment) {
+          html += `<div class="commitment-box">
+            <div class="cm-row"><span class="cm-label">Owner:</span> ${esc(s.commitment.owner)}</div>
+            <div class="cm-row"><span class="cm-label">First action:</span> ${esc(s.commitment.firstAction)}</div>
+            <div class="cm-row"><span class="cm-label">Due:</span> ${esc(s.commitment.dueDate)}</div>
+            <div class="cm-row"><span class="cm-label">Success signal:</span> ${esc(s.commitment.successSignal)}</div>
+          </div>`;
+        }
+
+        return html;
+      }
+
+      // 3. Convert newSinceLastStep to plain English
+      function humanizeChanges(step) {
+        if (!step.newSinceLastStep || step.newSinceLastStep.length === 0) return [];
+        return step.newSinceLastStep.map(raw => {
+          // Strip "Entered: X" pattern
+          if (/^Entered:\s/.test(raw)) return null;
+          // Strip "Prompt: ..." pattern
+          if (/^Prompt:\s/.test(raw)) return null;
+          // "Seat N submitted (X words)" → keep as-is, already human
+          // "N clusters formed" → rewrite
+          let m;
+          m = raw.match(/^(\d+) clusters? formed$/);
+          if (m) return m[1] === '1' ? 'One cluster formed' : m[1] + ' clusters formed';
+          m = raw.match(/^(\d+) agreement\(s\)$/);
+          if (m) return m[1] === '1' ? 'One point of agreement' : m[1] + ' points of agreement';
+          m = raw.match(/^(\d+) disagreement\(s\)$/);
+          if (m) return m[1] === '1' ? 'One point of disagreement' : m[1] + ' points of disagreement';
+          // "Reviewer attempt N: PASS/FAIL" → rewrite
+          m = raw.match(/^Reviewer attempt (\d+): (PASS|FAIL)$/);
+          if (m) return 'Reviewer ' + (m[2] === 'PASS' ? 'approved' : 'sent back') + ' (attempt ' + m[1] + ')';
+          // "Owner: X" → rewrite
+          if (/^Owner:\s/.test(raw)) return raw.replace('Owner:', 'Commitment owner:');
+          if (/^Action:\s/.test(raw)) return raw.replace('Action:', 'First action:');
+          if (/^Due:\s/.test(raw)) return raw.replace('Due:', 'Due by');
+          // "Seat N → Role" → rewrite
+          m = raw.match(/^(Seat \d+) → (.+)$/);
+          if (m) return m[1] + ' assigned as ' + m[2];
+          // Pass through anything already clean
+          return raw;
+        }).filter(Boolean);
+      }
+
+      function esc(s) {
+        if (!s) return '';
+        const d = document.createElement('div');
+        d.textContent = String(s);
+        return d.innerHTML;
+      }
+
+      // Navigation
+      function goNext() {
+        if (!data) return;
+        if (currentStep >= data.steps.length - 1) { stopPlay(); return; }
+        currentStep++;
+        renderStep();
+      }
+
+      function goBack() {
+        if (!data || currentStep <= 0) return;
+        currentStep--;
+        renderStep();
+      }
+
+      function togglePlay() { playTimer ? stopPlay() : startPlay(); }
+
+      function startPlay() {
+        document.getElementById('btnPlay').textContent = 'Pause';
+        document.getElementById('btnPlay').classList.add('active');
+        playTimer = setInterval(() => {
+          if (currentStep >= data.steps.length - 1) { stopPlay(); return; }
+          goNext();
+        }, 12000);
+      }
+
+      function stopPlay() {
+        if (playTimer) { clearInterval(playTimer); playTimer = null; }
+        document.getElementById('btnPlay').textContent = 'Play';
+        document.getElementById('btnPlay').classList.remove('active');
+      }
+
+      // Event listeners
+      document.getElementById('btnNext').addEventListener('click', () => { stopPlay(); goNext(); });
+      document.getElementById('btnBack').addEventListener('click', () => { stopPlay(); goBack(); });
+      document.getElementById('btnPlay').addEventListener('click', togglePlay);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); stopPlay(); goNext(); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); stopPlay(); goBack(); }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (e.target.id === 'btnPlay') return;
+        if (playTimer) stopPlay();
+      });
+
+      loadData().catch(function(err) {
+        console.error('Walkthrough load error:', err);
+        document.getElementById('mainArea').innerHTML = '<div class="loading">Error: ' + err.message + '</div>';
+      });
+
+      // Show Start nav link when engine is available
+      fetch('/api/health').then(function(r) { if (r.ok) {
+        var el = document.getElementById('navStart');
+        if (el) el.style.display = '';
+      }}).catch(function() {});
+    })();
+  </script>
+</body>
+</html>
